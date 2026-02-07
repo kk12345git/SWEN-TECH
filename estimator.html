@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="AI-powered project estimator for custom software development. Get an instant quote and tech stack recommendation.">
+
+    <title>AI Project Estimator - SWEN TECH SOLUTIONS</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PWA Settings -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Premium+ Mesh Glow Background -->
+    <div class="mesh-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Custom Magnetic Cursor -->
+    <div id="customCursor"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="logo.jpg" alt="SWEN TECH SOLUTIONS" style="height: 40px; border-radius: 8px;">
+                <span>SWEN TECH SOLUTIONS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="estimator.html" class="nav-link active">Estimator</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="playground.html" class="nav-link">Playground</a></li>
+                <li><a href="tools.html" class="nav-link">Tools</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Get Quote</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
+                <button class="menu-toggle" id="menuToggle" title="Toggle Menu"
+                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
+                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="estimator-hero" style="padding-top: 10rem; padding-bottom: 5rem; text-align: center;">
+        <div class="container">
+            <span class="hero-tagline">Innovation Meets Transparency</span>
+            <h1 class="section-title">AI Project <span class="text-gradient">Estimator</span></h1>
+            <p style="color: var(--color-text-secondary); max-width: 600px; margin: 1rem auto; font-size: 1.1rem;">
+                Get an instant ballpark estimate and a customized tech stack recommendation for your next big idea.
+            </p>
+        </div>
+    </section>
+
+    <!-- Estimator Container -->
+    <section style="padding-bottom: 8rem; position: relative;">
+        <div class="container">
+            <div class="estimator-grid"
+                style="display: grid; grid-template-columns: 1fr 350px; gap: 3rem; align-items: start;">
+
+                <!-- Input Section -->
+                <div class="estimator-inputs">
+
+                    <!-- Step 1: Project Type -->
+                    <div class="glass-card" style="padding: 2.5rem; margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--color-gold);"><i class="fas fa-rocket"
+                                style="margin-right: 0.8rem;"></i>1. What are we building?</h3>
+                        <div class="project-type-grid"
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                            <div class="project-type-card active" data-type="web" data-base="15000">
+                                <i class="fas fa-globe"></i>
+                                <h4>Web Platform</h4>
+                                <p>Progressive Web Apps & Portals</p>
+                            </div>
+                            <div class="project-type-card" data-type="ai" data-base="50000">
+                                <i class="fas fa-robot"></i>
+                                <h4>AI Automation</h4>
+                                <p>Custom Agents & LLM Apps</p>
+                            </div>
+                            <div class="project-type-card" data-type="saas" data-base="80000">
+                                <i class="fas fa-cloud"></i>
+                                <h4>SaaS Product</h4>
+                                <p>Multi-tenant Software</p>
+                            </div>
+                            <div class="project-type-card" data-type="erp" data-base="150000">
+                                <i class="fas fa-building"></i>
+                                <h4>Enterprise System</h4>
+                                <p>ERP, CRM & Workflows</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Features -->
+                    <div class="glass-card" style="padding: 2.5rem; margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--color-gold);"><i class="fas fa-list-check"
+                                style="margin-right: 0.8rem;"></i>2. Select Core Features</h3>
+                        <div class="features-grid"
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+                            <div class="feature-card" data-feature="auth" data-cost="5000">
+                                <i class="fas fa-user-shield"></i>
+                                <span>Advanced Auth</span>
+                            </div>
+                            <div class="feature-card" data-feature="payment" data-cost="7000">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Payment Gateways</span>
+                            </div>
+                            <div class="feature-card" data-feature="search" data-cost="4000">
+                                <i class="fas fa-search"></i>
+                                <span>Elastic Search</span>
+                            </div>
+                            <div class="feature-card" data-feature="analytics" data-cost="6000">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Real-time Analytics</span>
+                            </div>
+                            <div class="feature-card" data-feature="pwa" data-cost="5000">
+                                <i class="fas fa-mobile-screen-button"></i>
+                                <span>PWA Capability</span>
+                            </div>
+                            <div class="feature-card" data-feature="multi-lang" data-cost="3000">
+                                <i class="fas fa-language"></i>
+                                <span>Multi-language</span>
+                            </div>
+                            <div class="feature-card" data-feature="admin" data-cost="8000">
+                                <i class="fas fa-screwdriver-wrench"></i>
+                                <span>Custom CMS/Admin</span>
+                            </div>
+                            <div class="feature-card" data-feature="api" data-cost="6000">
+                                <i class="fas fa-plug"></i>
+                                <span>Third-party APIs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Timeline & Scale -->
+                    <div class="glass-card" style="padding: 2.5rem;">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--color-gold);"><i class="fas fa-gauge-high"
+                                style="margin-right: 0.8rem;"></i>3. Timeline & Scale</h3>
+
+                        <div style="margin-bottom: 2rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <label>Target Timeline</label>
+                                <span id="timelineValue" style="color: var(--color-purple); font-weight: 700;">3
+                                    Months</span>
+                            </div>
+                            <input type="range" class="calc-slider" id="estTimeline" min="1" max="12" value="3">
+                        </div>
+
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <label>Project Complexity</label>
+                                <span id="complexityValue"
+                                    style="color: var(--color-purple); font-weight: 700;">Intermediate</span>
+                            </div>
+                            <input type="range" class="calc-slider" id="estComplexity" min="1" max="3" value="2">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Result Sidebar -->
+                <div class="estimator-sidebar">
+                    <div class="glass-card active sticky-result-card"
+                        style="padding: 2.5rem; border: 2px solid var(--color-purple);">
+                        <h4 style="text-align: center; color: var(--color-text-secondary); margin-bottom: 1rem;">
+                            Estimated Investment</h4>
+                        <div id="estFinalPrice"
+                            style="font-size: 3rem; font-weight: 900; text-align: center; color: var(--color-text-primary); margin-bottom: 2rem;">
+                            ₹0</div>
+
+                        <div style="border-top: 1px solid var(--glass-border); padding-top: 2rem;">
+                            <h5 style="color: var(--color-gold); margin-bottom: 1rem;">Recommended Stack</h5>
+                            <div id="techStackList"
+                                style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Tailwind</span>
+                                <span class="tech-tag">Node.js</span>
+                            </div>
+
+                            <a href="contact.html" class="btn-primary"
+                                style="width: 100%; text-align: center; display: block;">Book Free Consultation</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Floating Result Bar -->
+        <div class="mobile-estimator-bar glass-card h-gradient"
+            style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem; display: none; border-radius: 20px 20px 0 0; border: none; box-shadow: 0 -10px 30px rgba(0,0,0,0.3); border-top: 2px solid var(--color-purple);">
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; max-width: 600px; margin: 0 auto;">
+                <div style="text-align: left;">
+                    <span style="color: rgba(255,255,255,0.7); font-size: 0.8rem; display: block;">Estimate</span>
+                    <span id="mobileEstPrice" style="color: white; font-size: 1.8rem; font-weight: 800;">₹0</span>
+                </div>
+                <a href="contact.html" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Book
+                    Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div
+                style="border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                    © 2026 SWEN TECH SOLUTIONS. All Rights Reserved.
+                </p>
+                <div style="display: flex; gap: 1rem; font-size: 1.2rem;">
+                    <a href="https://www.instagram.com/swentechdigitalsolutions/" target="_blank"
+                        rel="noopener noreferrer" style="color: var(--color-text-dim); transition: 0.3s;"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/swentech-digitalsolutions-5611363a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        target="_blank" rel="noopener noreferrer"
+                        style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/swentechdev" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://github.com/KK12345GIT" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-github"></i></a>
+                </div>
+                <div style="display: flex; gap: 2rem; font-size: 0.85rem; color: var(--color-text-dim);">
+                    <a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: inherit; text-decoration: none;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- AI Technical Assistant -->
+    <div class="ai-assistant-wrapper" id="aiAssistant">
+        <button class="ai-toggle-btn" id="aiToggle">
+            <i class="fas fa-robot"></i>
+            <span class="ai-status-ping"></span>
+        </button>
+        <div class="ai-chat-window" id="aiWindow">
+            <div class="ai-chat-header">
+                <div>
+                    <h4>SWEN TECH SOLUTIONS Advisor</h4>
+                    <p><span class="status-dot"></span> Online | Architectural Specialist</p>
+                </div>
+                <button id="closeAi"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="ai-chat-messages" id="aiMessages">
+                <div class="message ai">
+                    Hello! I'm your technical advisor. How can I help you navigate your next digital transformation
+                    today?
+                </div>
+            </div>
+            <div class="ai-chat-input-area">
+                <div class="ai-suggestions" id="aiSuggestions">
+                    <button class="suggest-chip">ERP Solutions</button>
+                    <button class="suggest-chip">AI Scaling</button>
+                    <button class="suggest-chip">Book Call</button>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="aiInput" placeholder="Ask a technical question...">
+                    <button id="sendAi"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

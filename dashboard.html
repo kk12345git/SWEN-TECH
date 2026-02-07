@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Live Performance Dashboard - Real-time system health and technical metrics for SWEN TECH SOLUTIONS.">
+    <title>Mission Control Dashboard - SWEN TECH SOLUTIONS</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PWA Settings -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Specific Dashboard Layout Styles */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .dash-card {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dash-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0.7;
+        }
+
+        .dash-card.span-4 {
+            grid-column: span 4;
+        }
+
+        .dash-card.span-8 {
+            grid-column: span 8;
+        }
+
+        .dash-card.span-12 {
+            grid-column: span 12;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: 'Monaco', 'Consolas', monospace;
+            color: white;
+            margin: 0.5rem 0;
+        }
+
+        .metric-label {
+            color: var(--color-text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Gauge Simulator */
+        .gauge-container {
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gauge-bar {
+            height: 100%;
+            background: var(--gradient-primary);
+            width: 0%;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Activity Heatmap */
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: repeat(53, 1fr);
+            gap: 3px;
+        }
+
+        .heatmap-cell {
+            aspect-ratio: 1/1;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 2px;
+        }
+
+        .heatmap-cell.level-1 {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        .heatmap-cell.level-2 {
+            background: rgba(102, 126, 234, 0.4);
+        }
+
+        .heatmap-cell.level-3 {
+            background: rgba(102, 126, 234, 0.7);
+        }
+
+        .heatmap-cell.level-4 {
+            background: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Status Ticker & Terminal */
+        .status-ticker-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            grid-column: span 12;
+        }
+
+        .status-ticker {
+            font-family: 'Monaco', monospace;
+            font-size: 0.85rem;
+            height: 250px;
+            overflow-y: auto;
+            color: #00E676;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 230, 118, 0.1);
+        }
+
+        .terminal-card {
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid var(--color-purple);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: 'Consolas', monospace;
+            color: var(--color-blue);
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .terminal-header {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            opacity: 0.6;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #terminalOutput {
+            flex: 1;
+            overflow-y: auto;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .terminal-input-line {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            align-items: center;
+        }
+
+        #terminalInput {
+            background: transparent;
+            border: none;
+            color: white;
+            font-family: inherit;
+            font-size: 0.9rem;
+            width: 100%;
+            outline: none;
+        }
+
+        /* Mission Control Scanner Overlay */
+        #dashboardScanner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #020617;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease, visibility 1s;
+        }
+
+        .scanner-line {
+            width: 80%;
+            height: 2px;
+            background: var(--gradient-primary);
+            box-shadow: 0 0 20px var(--color-purple);
+            position: absolute;
+            top: 0;
+            animation: scanMove 3s infinite ease-in-out;
+        }
+
+        .scanner-text {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: white;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .scanner-details {
+            font-family: 'Monaco', monospace;
+            font-size: 0.8rem;
+            color: var(--color-blue);
+            margin-top: 1rem;
+        }
+
+        @keyframes scanMove {
+            0% {
+                top: 0;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .dashboard-grid {
+                gap: 1rem;
+            }
+
+            .status-ticker-container {
+                grid-template-columns: 1fr;
+            }
+
+            .dash-card.span-4,
+            .dash-card.span-8 {
+                grid-column: span 12;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Mission Control Scanner Overlay -->
+    <div id="dashboardScanner">
+        <div class="scanner-line"></div>
+        <div class="scanner-text">Initializing Mission Control</div>
+        <div id="scannerDetails" class="scanner-details">Loading Neural Buffers...</div>
+    </div>
+
+    <!-- Premium+ Mesh Glow Background -->
+    <div class="mesh-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Custom Magnetic Cursor -->
+    <div id="customCursor"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="logo.jpg" alt="SWEN TECH SOLUTIONS" style="height: 40px; border-radius: 8px;">
+                <span>SWEN TECH SOLUTIONS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="estimator.html" class="nav-link">Estimator</a></li>
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="playground.html" class="nav-link">Playground</a></li>
+                <li><a href="tools.html" class="nav-link">Tools</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Get Quote</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
+                <button class="menu-toggle" id="menuToggle" title="Toggle Menu"
+                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
+                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <header style="margin-bottom: 3rem;">
+            <div
+                style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <h1 class="text-gradient" style="font-size: 3rem; margin-bottom: 0.5rem;">System Heartbeat</h1>
+                    <p style="color: var(--color-text-dim);">Live infrastructure monitoring & development activity.</p>
+                </div>
+                <div class="dash-card" style="padding: 0.8rem 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <div
+                        style="width: 12px; height: 12px; border-radius: 50%; background: #00E676; box-shadow: 0 0 10px #00E676;">
+                    </div>
+                    <span style="font-weight: 700; font-size: 0.9rem;">ALL SYSTEMS OPERATIONAL</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Ticker & Terminal Container -->
+            <div class="status-ticker-container">
+                <div class="dash-card">
+                    <h4 class="metric-label">System Operations Ticker</h4>
+                    <div class="status-ticker" id="statusTicker">
+                        <div class="status-line">[14:22:01] Dashboard Engine Initialized</div>
+                        <div class="status-line">[14:22:03] Loading Security Protocols...</div>
+                    </div>
+                </div>
+
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <span>Terminal v2.4</span>
+                        <span id="terminalTime">07:34:11</span>
+                    </div>
+                    <div id="terminalOutput">Welcome to SWEN-OS. Type 'help' for commands.</div>
+                    <div class="terminal-input-line">
+                        <span>></span>
+                        <input type="text" id="terminalInput" autocomplete="off" spellcheck="false">
+                    </div>
+                </div>
+            </div>
+            <!-- Core Metrics -->
+            <div class="dash-card span-4 reveal">
+                <span class="metric-label">Server Response</span>
+                <div class="metric-value" id="valLatency">24ms</div>
+                <div class="gauge-container">
+                    <div class="gauge-bar" id="barLatency" style="width: 24%"></div>
+                </div>
+                <p style="font-size: 0.8rem; color: #00E676; margin-top: 0.5rem;"><i class="fas fa-caret-up"></i>
+                    Optimal Performance</p>
+            </div>
+
+            <div class="dash-card span-4 reveal">
+                <span class="metric-label">CPU Load (Primary)</span>
+                <div class="metric-value" id="valCpu">12%</div>
+                <div class="gauge-container">
+                    <div class="gauge-bar" id="barCpu" style="width: 12%"></div>
+                </div>
+                <p style="font-size: 0.8rem; color: #00E676; margin-top: 0.5rem;"><i class="fas fa-check-circle"></i>
+                    Balanced Distribution</p>
+            </div>
+
+            <div class="dash-card span-4 reveal">
+                <span class="metric-label">Global Traffic</span>
+                <div class="metric-value" id="valTraffic">1.2k</div>
+                <div class="gauge-container">
+                    <div class="gauge-bar" id="barTraffic" style="width: 45%"></div>
+                </div>
+                <p style="font-size: 0.8rem; color: #667eea; margin-top: 0.5rem;"><i class="fas fa-users"></i> Real-time
+                    Sessions</p>
+            </div>
+
+            <!-- Heatmap Section -->
+            <div class="dash-card span-8 reveal">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h3 style="font-family: var(--font-accent);">Development Heatmap (Last 12 Months)</h3>
+                    <span style="font-size: 0.8rem; color: var(--color-text-dim);">4,821 Contributions</span>
+                </div>
+                <div class="heatmap-grid" id="githubHeatmap">
+                    <!-- Loaded via JS -->
+                </div>
+                <div
+                    style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1rem; align-items: center; font-size: 0.7rem; color: var(--color-text-dim);">
+                    Less <div style="width:10px; height:10px; background:rgba(255,255,255,0.05);"></div>
+                    <div style="width:10px; height:10px; background:rgba(102,126,234,0.3);"></div>
+                    <div style="width:10px; height:10px; background:rgba(102,126,234,0.6);"></div>
+                    <div style="width:10px; height:10px; background:#667eea;"></div> More
+                </div>
+            </div>
+
+            <!-- News/Logs Ticker -->
+            <div class="dash-card span-4 reveal">
+                <h3 style="font-family: var(--font-accent); margin-bottom: 1rem;">System Logs</h3>
+                <div class="status-ticker" id="systemLogs">
+                    <div>[09:00:01] Dashboard Engine Started...</div>
+                    <div>[09:00:05] Handshaking with Global Nodes...</div>
+                </div>
+            </div>
+
+            <!-- Performance Comparison (NEW) -->
+            <div class="dash-card span-12 reveal"
+                style="margin-top: 2rem; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(10, 10, 10, 0.9) 100%);">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
+                    <div>
+                        <h3 style="font-family: var(--font-accent);">Speed Comparison: SWEN-TECH vs. Legacy</h3>
+                        <p style="font-size: 0.9rem; color: var(--color-text-dim);">Real-time benchmark of our optimized
+                            PWA stack.</p>
+                    </div>
+                    <button id="runSpeedTest" class="swen-btn" style="padding: 10px 25px; font-size: 0.8rem;">RUN
+                        BENCHMARK</button>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+                    <!-- Legacy -->
+                    <div style="padding: 1.5rem; background: rgba(255,255,255,0.02); border-radius: 12px;">
+                        <span class="metric-label" style="color: #FF5252;">Traditional Stack</span>
+                        <div class="metric-value" id="legacySpeed" style="color: #FF5252;">0ms</div>
+                        <div class="gauge-container" style="height: 10px; background: rgba(255,82,82,0.1);">
+                            <div class="gauge-bar" id="legacyBar" style="width: 0%; background: #FF5252;"></div>
+                        </div>
+                        <p style="font-size: 0.75rem; color: var(--color-text-dim); margin-top: 1rem;">Average Loading
+                            Time: 3.2s</p>
+                    </div>
+                    <!-- SWEN-TECH -->
+                    <div
+                        style="padding: 1.5rem; background: rgba(102, 126, 234, 0.05); border-radius: 12px; border: 1px solid rgba(102, 126, 234, 0.2);">
+                        <span class="metric-label" style="color: #00E676;">SWEN-TECH PWA</span>
+                        <div class="metric-value" id="swenSpeed" style="color: #00E676;">0ms</div>
+                        <div class="gauge-container" style="height: 10px; background: rgba(0,230,118,0.1);">
+                            <div class="gauge-bar" id="swenBar" style="width: 0%; background: #00E676;"></div>
+                        </div>
+                        <p style="font-size: 0.75rem; color: #00E676; margin-top: 1rem;">Average Loading Time: 420ms</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Node Map (SVG Placeholder) -->
+            <div class="dash-card span-12 reveal"
+                style="min-height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at center, rgba(102, 126, 234, 0.1) 0%, transparent 70%);">
+                <h3 style="font-family: var(--font-accent); margin-bottom: 2rem;">SWEN-TECH Global Infrastructure</h3>
+                <div id="nodeMap" style="width: 100%; max-width: 800px; text-align: center;">
+                    <!-- Map visualization would normally go here -->
+                    <div style="font-size: 5rem; opacity: 0.2; margin-bottom: 1rem;">🌍</div>
+                    <p style="color: var(--color-text-dim); max-width: 500px; margin: 0 auto;">Our decentralized
+                        architecture ensures 99.9% availability across US-East, Mumbai, and Frankfurt nodes.</p>
+
+                    <div style="display: flex; gap: 3rem; margin-top: 3rem; flex-wrap: wrap; justify-content: center;">
+                        <div style="text-align: center;">
+                            <div style="font-weight: 800; color: white;">Mumbai</div>
+                            <div style="font-size: 0.75rem; color: #00E676;">12ms Latency</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-weight: 800; color: white;">New York</div>
+                            <div style="font-size: 0.75rem; color: #00E676;">84ms Latency</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-weight: 800; color: white;">Frankfurt</div>
+                            <div style="font-size: 0.75rem; color: #00E676;">45ms Latency</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div
+                style="border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                    © 2026 SWEN TECH SOLUTIONS. Infrastructure Status: Normal.
+                </p>
+                <div style="display: flex; gap: 1rem; font-size: 1.2rem;">
+                    <a href="https://www.instagram.com/swentechdigitalsolutions/" target="_blank"
+                        rel="noopener noreferrer" style="color: var(--color-text-dim); transition: 0.3s;"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/swentech-digitalsolutions-5611363a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        target="_blank" rel="noopener noreferrer"
+                        style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/swentechdev" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://github.com/KK12345GIT" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- AI Technical Assistant -->
+    <div class="ai-assistant-wrapper" id="aiAssistant">
+        <button class="ai-toggle-btn" id="aiToggle">
+            <i class="fas fa-robot"></i>
+            <span class="ai-status-ping"></span>
+        </button>
+        <div class="ai-chat-window" id="aiWindow">
+            <div class="ai-chat-header">
+                <div>
+                    <h4>SWEN TECH SOLUTIONS Advisor</h4>
+                    <p><span class="status-dot"></span> Online | Architectural Specialist</p>
+                </div>
+                <button id="closeAi"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="ai-chat-messages" id="aiMessages">
+                <div class="message ai">
+                    Hello! I'm your technical advisor. This dashboard shows our live operational heat. Any technical
+                    metrics you're curious about?
+                </div>
+            </div>
+            <div class="ai-chat-input-area">
+                <div class="ai-suggestions" id="aiSuggestions">
+                    <button class="suggest-chip">ERP Scaling</button>
+                    <button class="suggest-chip">Performance</button>
+                    <button class="suggest-chip">Infrastructure</button>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="aiInput" placeholder="Ask a technical question...">
+                    <button id="sendAi"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

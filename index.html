@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWEN TECH SOLUTIONS - Enterprise Software & AI Engineering</title>
+    <meta name="description"
+        content="SWEN TECH SOLUTIONS - Premium Web Development, AI Agents, SaaS & ERP Systems. Transforming business through digital innovation.">
+    <link rel="canonical" href="https://swentechdigitalsolutions.co.in/">
+
+    <link rel="stylesheet" href="styles.css?v=2.1">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "SWEN TECH SOLUTIONS",
+      "image": "https://swentech-solutions.com/logo.jpg",
+      "url": "https://swentechdigitalsolutions.co.in/",
+      "telephone": "",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "India",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 0,
+        "longitude": 0
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/swentechdigitalsolutions/",
+        "https://www.linkedin.com/in/swentech-digitalsolutions-5611363a8",
+        "https://github.com/KK12345GIT"
+      ],
+      "description": "Premium Web Development, AI Agents, SaaS & ERP Systems. Transforming business through digital innovation."
+    }
+    </script>
+
+    <!-- PWA Settings -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png">
+
+    <!-- Google Analytics (Placeholder) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Premium+ Mesh Glow Background -->
+    <div class="mesh-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Custom Magnetic Cursor -->
+    <div id="customCursor"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="logo.jpg" alt="SWEN TECH SOLUTIONS" style="height: 40px; border-radius: 8px;">
+                <span>SWEN TECH SOLUTIONS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="estimator.html" class="nav-link">Estimator</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="playground.html" class="nav-link">Playground</a></li>
+                <li><a href="tools.html" class="nav-link">Tools</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Get Quote</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
+                <button class="menu-toggle" id="menuToggle" title="Toggle Menu"
+                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
+                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container hero-content">
+            <span class="hero-tagline">Transforming Ideas Into Digital Reality</span>
+            <h1 class="hero-title">SWEN TECH SOLUTIONS</h1>
+            <p class="hero-description">
+                Your trusted partner for <span class="text-gradient">innovative digital solutions</span>. We specialize
+                in custom websites, intelligent AI agents, powerful SaaS platforms, micro SaaS applications, and
+                comprehensive ERP systems.
+            </p>
+            <div class="hero-cta">
+                <a href="contact.html" class="btn-primary">Request Quote</a>
+                <a href="estimator.html" class="btn-secondary">AI Project Estimator</a>
+                <a href="portfolio.html" class="btn-secondary" style="border-color: transparent;">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Sections (Bento Grid) -->
+    <section id="overview" style="padding: 5rem 0;">
+        <div class="container">
+            <div class="bento-grid">
+                <!-- Large Card: Our Business -->
+                <div class="glass-card bento-item bento-large reveal">
+                    <div class="bento-content">
+                        <span class="bento-tag"
+                            style="background: rgba(37, 99, 235, 0.1); color: var(--color-purple);">Architecture</span>
+                        <h3 style="font-size: 2.2rem; margin: 1rem 0; font-family: var(--font-display);">Our Business
+                            Philosophy</h3>
+                        <p style="color: var(--color-text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
+                            We don't just build software; we engineer competitive advantages. By merging technical
+                            excellence with strategic innovation, we lead the charge in digital transformation for
+                            high-stakes industries.
+                        </p>
+                        <a href="about.html" class="btn-secondary" style="width: fit-content;">Explore Our Team</a>
+                    </div>
+                </div>
+
+                <!-- Small Card: Services -->
+                <div class="glass-card bento-item bento-small reveal"
+                    style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, transparent 100%);">
+                    <div class="bento-content">
+                        <i class="fas fa-layer-group"
+                            style="font-size: 2rem; color: var(--color-gold); margin-bottom: 1.5rem;"></i>
+                        <h3 style="margin-bottom: 0.8rem;">Expert Services</h3>
+                        <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">AI
+                            Agents, SaaS, & Scalable Web Solutions.</p>
+                        <a href="services.html" class="text-link"
+                            style="color: var(--color-gold); font-size: 0.9rem; font-weight: 600; text-decoration: none;">View
+                            Expertise <i class="fas fa-arrow-right"
+                                style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Small Card: Portfolio -->
+                <div class="glass-card bento-item bento-small reveal"
+                    style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.05) 0%, transparent 100%);">
+                    <div class="bento-content">
+                        <i class="fas fa-rocket"
+                            style="font-size: 2rem; color: var(--color-blue); margin-bottom: 1.5rem;"></i>
+                        <h3 style="margin-bottom: 0.8rem;">Featured Work</h3>
+                        <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
+                            Showcase of robust enterprise systems.</p>
+                        <a href="portfolio.html" class="text-link"
+                            style="color: var(--color-blue); font-size: 0.9rem; font-weight: 600; text-decoration: none;">View
+                            Portfolio <i class="fas fa-arrow-right"
+                                style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Medium Card: Methodology -->
+                <div class="glass-card bento-item bento-medium reveal">
+                    <div class="bento-content">
+                        <h3 style="margin-bottom: 1rem; color: var(--color-emerald);">Our Methodology</h3>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div
+                                    style="width: 35px; height: 35px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center; color: var(--color-emerald); font-weight: bold;">
+                                    1</div>
+                                <span style="font-size: 0.9rem; color: var(--color-text-secondary);">Deep Strategic
+                                    Audit</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div
+                                    style="width: 35px; height: 35px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center; color: var(--color-emerald); font-weight: bold;">
+                                    2</div>
+                                <span style="font-size: 0.9rem; color: var(--color-text-secondary);">Agile Sprints &
+                                    Prototyping</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div
+                                    style="width: 35px; height: 35px; border-radius: 50%; background: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center; color: var(--color-emerald); font-weight: bold;">
+                                    3</div>
+                                <span style="font-size: 0.9rem; color: var(--color-text-secondary);">Scale-Ready
+                                    Deployment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next-Gen Interactive Section -->
+    <section id="next-gen-tools" style="padding: 5rem 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 class="section-title reveal">Innovation Lab</h2>
+                <p class="reveal" style="color: var(--color-text-secondary); max-width: 700px; margin: 0 auto;">
+                    Experience the future of business architecture with our high-precision interactive tools.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 3rem;">
+                <!-- Project Architect -->
+                <div class="glass-card reveal project-architect-card"
+                    style="padding: 3rem; position: relative; overflow: hidden;">
+                    <div
+                        style="position: absolute; top: -20px; right: -20px; font-size: 8rem; opacity: 0.05; transform: rotate(15deg);">
+                        🏗️</div>
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--color-purple);">Project Architect
+                    </h3>
+                    <p style="margin-bottom: 2rem; color: var(--color-text-secondary); line-height: 1.8;">
+                        Build your technical roadmap in seconds. Select your parameters and our AI generates a tailored
+                        implementation strategy.
+                    </p>
+
+                    <div id="architectSteps" style="margin-bottom: 2.5rem;">
+                        <div class="architect-step active" data-step="1">
+                            <h4
+                                style="margin-bottom: 1rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-gold);">
+                                Step 1: Your Industry</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <button class="architect-opt" data-val="manufacturing">
+                                    <i class="fas fa-industry"></i> Manufacturing
+                                </button>
+                                <button class="architect-opt" data-val="saas">
+                                    <i class="fas fa-cloud"></i> B2B SaaS
+                                </button>
+                                <button class="architect-opt" data-val="ecommerce">
+                                    <i class="fas fa-shopping-cart"></i> E-Commerce
+                                </button>
+                                <button class="architect-opt" data-val="other">
+                                    <i class="fas fa-ellipsis-h"></i> Other Industry
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="architect-step" data-step="2" style="display: none;">
+                            <h4
+                                style="margin-bottom: 1rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-gold);">
+                                Step 2: Priority Goal</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <button class="architect-opt" data-val="waste">
+                                    <i class="fas fa-recycle"></i> Reduce Waste
+                                </button>
+                                <button class="architect-opt" data-val="scale">
+                                    <i class="fas fa-chart-line"></i> Scale Traffic
+                                </button>
+                                <button class="architect-opt" data-val="automation">
+                                    <i class="fas fa-robot"></i> AI Automation
+                                </button>
+                                <button class="architect-opt" data-val="efficiency">
+                                    <i class="fas fa-tachometer-alt"></i> Process Clarity
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="architect-step" data-step="result" style="display: none;">
+                            <div
+                                style="padding: 1.5rem; background: rgba(102, 126, 234, 0.1); border-radius: 12px; border: 1px dashed var(--color-purple);">
+                                <h4 id="roadmapTitle" style="color: var(--color-text-primary); margin-bottom: 0.5rem;">
+                                    Your Custom Roadmap</h4>
+                                <p id="roadmapText" style="font-size: 0.9rem; color: var(--color-text-secondary);"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem;">
+                        <button id="prevArchitect" class="btn-secondary"
+                            style="padding: 0.7rem 1.5rem; display: none;">Back</button>
+                        <button id="nextArchitect" class="btn-primary" style="padding: 0.7rem 1.5rem;">Next
+                            Step</button>
+                        <button id="resetArchitect" class="btn-secondary"
+                            style="padding: 0.7rem 1.5rem; display: none;">Restart</button>
+                    </div>
+                </div>
+
+                <!-- Waste ROI Dashboard -->
+                <div class="glass-card reveal"
+                    style="padding: 3rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--color-emerald);">Waste ROI Simulator
+                    </h3>
+                    <p style="margin-bottom: 2rem; color: var(--color-text-secondary);">
+                        Visualize the "Hidden Leakage" in your production and see how much profit you can reclaim today.
+                    </p>
+
+                    <div style="margin-bottom: 2rem;">
+                        <label
+                            style="display: block; font-size: 0.85rem; color: var(--color-text-dim); margin-bottom: 1rem;">Annual
+                            Revenue (approx.)</label>
+                        <input type="range" id="revenueSlider" min="100000" max="10000000" step="100000" value="1000000"
+                            style="width: 100%; accent-color: var(--color-emerald);">
+                        <div
+                            style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-weight: 700; color: var(--color-text-primary);">
+                            <span id="revenueDisplay">₹1,000,000</span>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div
+                            style="text-align: center; padding: 1.5rem; background: rgba(245, 158, 11, 0.1); border-radius: 15px;">
+                            <span
+                                style="display: block; font-size: 0.75rem; color: var(--color-gold); text-transform: uppercase;">Lost
+                                to Inefficiency</span>
+                            <span id="lostValue"
+                                style="font-size: 1.5rem; font-weight: 900; color: #F59E0B;">₹150,000</span>
+                        </div>
+                        <div
+                            style="text-align: center; padding: 1.5rem; background: rgba(16, 185, 129, 0.1); border-radius: 15px; border: 2px solid var(--color-emerald);">
+                            <span
+                                style="display: block; font-size: 0.75rem; color: var(--color-emerald); text-transform: uppercase;">Reclaimed
+                                with SWEN</span>
+                            <span id="reclaimedValue"
+                                style="font-size: 1.5rem; font-weight: 900; color: var(--color-emerald);">₹120,000</span>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="btn-primary"
+                        style="width: 100%; margin-top: 2rem; text-align: center; background: var(--color-emerald);">Secure
+                        Your Profit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics-section">
+        <div class="container">
+            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 1rem;">Delivering Excellence</h2>
+            <p style="text-align: center; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto 3rem;">
+                Our commitment to quality and efficiency drives exceptional results for every client.
+            </p>
+            <div class="metrics-grid">
+                <div class="metric-card reveal">
+                    <div class="metric-value">100%</div>
+                    <div class="metric-label">Client Satisfaction</div>
+                </div>
+                <div class="metric-card reveal">
+                    <div class="metric-value">100%</div>
+                    <div class="metric-label">Project Efficiency</div>
+                </div>
+                <div class="metric-card reveal">
+                    <div class="metric-value">30%</div>
+                    <div class="metric-label">Faster Processing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 3rem;">What Our Clients Say</h2>
+            <div class="testimonials-carousel reveal">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            "SWEN TECH SOLUTIONS transformed our production workflow with their custom Operating
+                            System.
+                            The real-time tracking and automated calculations have increased our efficiency by 30%.
+                            Their technical expertise and dedication to quality are unmatched."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Rajesh Kumar</div>
+                            <div class="author-company">KRG Medifabb Pvt Ltd</div>
+                            <div class="author-role">Operations Director</div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            "Working with SWEN TECH SOLUTIONS was a game-changer for our online presence. They delivered
+                            a
+                            stunning,
+                            SEO-optimized website that perfectly represents our brand. The attention to detail and
+                            professional approach exceeded our expectations."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Venkat Reddy</div>
+                            <div class="author-company">Srivari Alloys</div>
+                            <div class="author-role">Managing Director</div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">
+                            "The team's ability to understand our complex requirements and deliver a tailored solution
+                            was impressive. Their ERP system streamlined our operations and provided insights we never
+                            had before. Highly recommended for enterprise solutions."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Priya Sharma</div>
+                            <div class="author-company">Manufacturing Solutions Inc</div>
+                            <div class="author-role">Chief Technology Officer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-dots" id="carouselDots">
+                    <button class="carousel-dot active" data-index="0"></button>
+                    <button class="carousel-dot" data-index="1"></button>
+                    <button class="carousel-dot" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4rem; margin-bottom: 4rem;">
+                <div>
+                    <a href="index.html" class="logo"
+                        style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                        <img src="logo.jpg" alt="SWEN TECH SOLUTIONS" style="height: 35px; border-radius: 6px;">
+                        <span>SWEN TECH SOLUTIONS</span>
+                    </a>
+                    <p style="color: var(--color-text-dim); line-height: 1.8; margin-bottom: 2rem;">
+                        Transforming high-stakes manufacturing and business operations through premium digital
+                        engineering and AI.
+                    </p>
+                    <div style="display: flex; gap: 1rem; font-size: 1.2rem;">
+                        <a href="https://www.instagram.com/swentechdigitalsolutions/" target="_blank"
+                            rel="noopener noreferrer" style="color: var(--color-text-dim); transition: 0.3s;"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/swentech-digitalsolutions-5611363a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank" rel="noopener noreferrer"
+                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/swentechdev" target="_blank" rel="noopener noreferrer"
+                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://github.com/KK12345GIT" target="_blank" rel="noopener noreferrer"
+                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-text-primary); margin-bottom: 2rem;">Quick Links</h4>
+                    <ul style="list-style: none; color: var(--color-text-dim); line-height: 2.2;">
+                        <li><a href="about.html" style="color: inherit; text-decoration: none;">About Our Team</a></li>
+                        <li><a href="services.html" style="color: inherit; text-decoration: none;">Our Expertise</a>
+                        </li>
+                        <li><a href="portfolio.html" style="color: inherit; text-decoration: none;">Case Studies</a>
+                        </li>
+                        <li><a href="estimator.html" style="color: inherit; text-decoration: none;">Estimator &
+                                Pricing</a></li>
+                        <li><a href="contact.html" style="color: inherit; text-decoration: none;">Get a Quote</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-text-primary); margin-bottom: 2rem;">Join Our Newsletter</h4>
+                    <p style="color: var(--color-text-dim); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        Get monthly insights on digital transformation and industry best practices.
+                    </p>
+                    <form id="newsletterForm" style="display: flex; gap: 0.5rem; flex-direction: column;">
+                        <input type="email" id="newsletterEmail" class="form-input" placeholder="Your Email Address"
+                            required style="margin-bottom: 0.5rem;">
+                        <button type="submit" class="btn-primary" style="padding: 0.8rem;">Subscribe Now</button>
+                    </form>
+                    <p id="newsletterMessage" style="margin-top: 1rem; font-size: 0.85rem; display: none;"></p>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                    © 2026 SWEN TECH SOLUTIONS. All Rights Reserved.
+                </p>
+                <div style="display: flex; gap: 2rem; font-size: 0.85rem; color: var(--color-text-dim);">
+                    <a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: inherit; text-decoration: none;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- AI Technical Assistant -->
+    <div class="ai-assistant-wrapper" id="aiAssistant">
+        <button class="ai-toggle-btn" id="aiToggle">
+            <i class="fas fa-robot"></i>
+            <span class="ai-status-ping"></span>
+        </button>
+        <div class="ai-chat-window" id="aiWindow">
+            <div class="ai-chat-header">
+                <div>
+                    <h4>SWEN TECH SOLUTIONS Advisor</h4>
+                    <p><span class="status-dot"></span> Online | Architectural Specialist</p>
+                </div>
+                <button id="closeAi"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="ai-chat-messages" id="aiMessages">
+                <div class="message ai">
+                    Hello! I'm your technical advisor. How can I help you navigate your next digital transformation
+                    today?
+                </div>
+            </div>
+            <div class="ai-chat-input-area">
+                <div class="ai-suggestions" id="aiSuggestions">
+                    <button class="suggest-chip">ERP Solutions</button>
+                    <button class="suggest-chip">AI Scaling</button>
+                    <button class="suggest-chip">Book Call</button>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="aiInput" placeholder="Ask a technical question...">
+                    <button id="sendAi"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919840713587" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 4000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</body>
+
+</html>

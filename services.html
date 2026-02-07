@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Services - SWEN TECH SOLUTIONS</title>
+    <meta name="description"
+        content="Explore SWEN TECH SOLUTIONS services: Enterprise Web Engineering, Autonomous AI Agents, Micro SaaS Ecosystems, and Manufacturing ERP Systems.">
+    <link rel="canonical" href="https://swentechdigitalsolutions.co.in/services.html">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PWA Settings -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png">
+
+    <!-- Google Analytics (Placeholder) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Premium+ Mesh Glow Background -->
+    <div class="mesh-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Custom Magnetic Cursor -->
+    <div id="customCursor"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="logo.jpg" alt="SWEN TECH SOLUTIONS" style="height: 40px; border-radius: 8px;">
+                <span>SWEN TECH SOLUTIONS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="estimator.html" class="nav-link">Estimator</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="playground.html" class="nav-link">Playground</a></li>
+                <li><a href="tools.html" class="nav-link">Tools</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Get Quote</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
+                <button class="menu-toggle" id="menuToggle" title="Toggle Menu"
+                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
+                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        .bento-grid-services {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(150px, auto);
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .bento-card {
+            background: var(--glass-white);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-purple);
+        }
+
+        .bento-card.span-8 {
+            grid-column: span 8;
+        }
+
+        .bento-card.span-4 {
+            grid-column: span 4;
+        }
+
+        .bento-card.span-6 {
+            grid-column: span 6;
+        }
+
+        .bento-card.row-2 {
+            grid-row: span 2;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            color: var(--color-purple);
+            margin-bottom: 0.8rem;
+        }
+
+        .service-desc {
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 992px) {
+
+            .bento-card.span-8,
+            .bento-card.span-4,
+            .bento-card.span-6 {
+                grid-column: span 12;
+            }
+        }
+    </style>
+
+    <!-- Services Section -->
+    <section id="services" style="min-height: auto; padding-top: 10rem;">
+        <div class="container">
+            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 4rem;">Architectural Solutions
+            </h2>
+
+            <div class="bento-grid-services">
+                <!-- Service 1: Custom Web Development (Highlight) -->
+                <div class="bento-card span-8 row-2 reveal">
+                    <div class="service-icon">🌐</div>
+                    <h3 class="service-title">Enterprise Web Engineering</h3>
+                    <p class="service-desc">We build high-stakes digital platforms that serve as the backbone of your
+                        digital presence. From complex ERP integrations to high-performance consumer storefronts, our
+                        engineering ensures 99.9% availability and elite-level SEO performance.</p>
+                    <ul style="margin-top: 1.5rem; color: var(--color-text-dim); font-size: 0.85rem; list-style: none;">
+                        <li><i class="fas fa-check-circle" style="color:var(--color-purple);"></i> React / Next.js
+                            Expert Architecture</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--color-purple);"></i> Headless CMS & API
+                            Integration</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--color-purple);"></i> Micro-frontend
+                            Scaling</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2: AI Agents -->
+                <div class="bento-card span-4 reveal">
+                    <div class="service-icon">🤖</div>
+                    <h3 class="service-title">Autonomous AI Agents</h3>
+                    <p class="service-desc">Intelligent AI-powered agents designed to automate customer support and
+                        streamline complex business workflows.</p>
+                </div>
+
+                <!-- Service 3: SaaS Solutions -->
+                <div class="bento-card span-4 reveal">
+                    <div class="service-icon">☁️</div>
+                    <h3 class="service-title">Micro SaaS Ecosystems</h3>
+                    <p class="service-desc">Scalable platforms built to solve specific industry problems with
+                        subscription models and cloud integration.</p>
+                </div>
+
+                <!-- Service 4: ERP Systems -->
+                <div class="bento-card span-6 reveal">
+                    <div class="service-icon">⚙️</div>
+                    <h3 class="service-title">Manufacturing ERP</h3>
+                    <p class="service-desc">Robust enterprise-grade systems for manufacturing, inventory management, and
+                        business operations tracking.</p>
+                </div>
+
+                <!-- New: Security / Performance -->
+                <div class="bento-card span-6 reveal">
+                    <div class="service-icon">🛡️</div>
+                    <h3 class="service-title">Cyber-Audit & Security</h3>
+                    <p class="service-desc">Hardening your digital assets through deep security audits and Zero-Trust
+                        architecture implementation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section (Restored) -->
+    <section id="why-us" style="padding: 5rem 0;">
+        <div class="container">
+            <h2 class="section-title reveal" style="margin-bottom: 3rem; text-align: center;">Why Choose Us</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                <div class="glass-card reveal">
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div style="font-size: 3rem;">⚡</div>
+                        <h3 style="font-size: 1.4rem; color: var(--color-purple); font-family: var(--font-accent);">
+                            Expertise & Efficiency</h3>
+                    </div>
+                    <p style="color: var(--color-text-secondary); line-height: 1.8; font-size: 0.95rem;">Proven track
+                        record of streamlining business processes and eliminating manual errors through intelligent
+                        digital automation and advanced system architectures.</p>
+                </div>
+
+                <div class="glass-card reveal">
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div style="font-size: 3rem;">🔄</div>
+                        <h3 style="font-size: 1.4rem; color: var(--color-violet); font-family: var(--font-accent);">
+                            Digital Transformation</h3>
+                    </div>
+                    <p style="color: var(--color-text-secondary); line-height: 1.8; font-size: 0.95rem;">We guide your
+                        business through a complete digital transformation, modernizing legacy systems and empowering
+                        your organization with future-ready technology.</p>
+                </div>
+
+                <div class="glass-card reveal">
+                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div style="font-size: 3rem;">💡</div>
+                        <h3 style="font-size: 1.4rem; color: var(--color-blue); font-family: var(--font-accent);">
+                            Innovation Leader</h3>
+                    </div>
+                    <p style="color: var(--color-text-secondary); line-height: 1.8; font-size: 0.95rem;">Consistently at
+                        the forefront of digital trends, we implement scalable, high-impact solutions that transform
+                        complex business challenges into competitive advantages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4rem; margin-bottom: 4rem;">
+                <div>
+                    <a href="index.html" class="logo"
+                        style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                        <img src="logo.jpg" alt="SWEN TECH SOLUTIONS" style="height: 35px; border-radius: 6px;">
+                        <span>SWEN TECH SOLUTIONS</span>
+                    </a>
+                    <p style="color: var(--color-text-dim); line-height: 1.8; margin-bottom: 2rem;">
+                        Transforming high-stakes manufacturing and business operations through premium digital
+                        engineering and AI.
+                    </p>
+                    <div style="display: flex; gap: 1rem; font-size: 1.2rem;">
+                        <a href="https://www.instagram.com/swentechdigitalsolutions/" target="_blank"
+                            rel="noopener noreferrer" style="color: var(--color-text-dim); transition: 0.3s;"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/swentech-digitalsolutions-5611363a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank" rel="noopener noreferrer"
+                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/swentechdev" target="_blank" rel="noopener noreferrer"
+                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://github.com/KK12345GIT" target="_blank" rel="noopener noreferrer"
+                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-text-primary); margin-bottom: 2rem;">Quick Links</h4>
+                    <ul style="list-style: none; color: var(--color-text-dim); line-height: 2.2;">
+                        <li><a href="about.html" style="color: inherit; text-decoration: none;">About Our Team</a></li>
+                        <li><a href="services.html" style="color: inherit; text-decoration: none;">Our Expertise</a>
+                        </li>
+                        <li><a href="portfolio.html" style="color: inherit; text-decoration: none;">Case Studies</a>
+                        </li>
+                        <li><a href="estimator.html" style="color: inherit; text-decoration: none;">Estimator &
+                                Pricing</a></li>
+                        <li><a href="contact.html" style="color: inherit; text-decoration: none;">Get a Quote</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-text-primary); margin-bottom: 2rem;">Join Our Newsletter</h4>
+                    <p style="color: var(--color-text-dim); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        Get monthly insights on digital transformation and industry best practices.
+                    </p>
+                    <form id="newsletterForm" style="display: flex; gap: 0.5rem; flex-direction: column;">
+                        <input type="email" id="newsletterEmail" class="form-input" placeholder="Your Email Address"
+                            required style="margin-bottom: 0.5rem;">
+                        <button type="submit" class="btn-primary" style="padding: 0.8rem;">Subscribe Now</button>
+                    </form>
+                    <p id="newsletterMessage" style="margin-top: 1rem; font-size: 0.85rem; display: none;"></p>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                    © 2026 SWEN TECH SOLUTIONS. All Rights Reserved.
+                </p>
+                <div style="display: flex; gap: 2rem; font-size: 0.85rem; color: var(--color-text-dim);">
+                    <a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: inherit; text-decoration: none;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- AI Technical Assistant -->
+    <div class="ai-assistant-wrapper" id="aiAssistant">
+        <button class="ai-toggle-btn" id="aiToggle">
+            <i class="fas fa-robot"></i>
+            <span class="ai-status-ping"></span>
+        </button>
+        <div class="ai-chat-window" id="aiWindow">
+            <div class="ai-chat-header">
+                <div>
+                    <h4>SWEN TECH SOLUTIONS Advisor</h4>
+                    <p><span class="status-dot"></span> Online | Architectural Specialist</p>
+                </div>
+                <button id="closeAi"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="ai-chat-messages" id="aiMessages">
+                <div class="message ai">
+                    Hello! I'm your technical advisor. How can I help you navigate your next digital transformation
+                    today?
+                </div>
+            </div>
+            <div class="ai-chat-input-area">
+                <div class="ai-suggestions" id="aiSuggestions">
+                    <button class="suggest-chip">ERP Solutions</button>
+                    <button class="suggest-chip">AI Scaling</button>
+                    <button class="suggest-chip">Book Call</button>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="aiInput" placeholder="Ask a technical question...">
+                    <button id="sendAi"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

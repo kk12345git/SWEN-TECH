@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Interactive Code Playground and Tech Radar - Experiment with UI components and explore the SWEN-TECH technology stack.">
+    <title>Interactive Playground - SWEN TECH SOLUTIONS</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PWA Settings -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Specific Playground Styles */
+        .playground-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 600px;
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .editor-pane {
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--glass-border);
+        }
+
+        .pane-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .pane-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-dim);
+        }
+
+        #codeEditor {
+            flex: 1;
+            background: transparent;
+            color: #e0e0e0;
+            padding: 1.5rem;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border: none;
+            resize: none;
+            outline: none;
+            white-space: pre;
+            tab-size: 4;
+        }
+
+        .preview-pane {
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #livePreview {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+
+        /* Tech Radar Styles */
+        .radar-section {
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .radar-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            position: relative;
+        }
+
+        .radar-svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.2));
+        }
+
+        .radar-point {
+            cursor: pointer;
+            transition: r 0.3s ease, fill 0.3s ease;
+        }
+
+        .radar-point:hover {
+            r: 8 !important;
+            fill: #00E676 !important;
+        }
+
+        .radar-tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 100;
+            border: 1px solid var(--color-purple);
+            text-align: left;
+            min-width: 150px;
+        }
+
+        .radar-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .legend-item {
+            text-align: center;
+        }
+
+        .legend-ring {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        /* Glassmorphism Architect */
+        .glass-architect-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .architect-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .control-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-dim);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .architect-slider {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .architect-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        #glassPreviewCard {
+            width: 100%;
+            height: 300px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200') center/cover;
+        }
+
+        .glass-element {
+            width: 80%;
+            height: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .glass-code-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: 'Monaco', monospace;
+            font-size: 0.8rem;
+            color: #00E676;
+            margin-top: 1rem;
+            white-space: pre-wrap;
+            border: 1px solid rgba(0, 230, 118, 0.2);
+        }
+
+        @media (max-width: 992px) {
+            .playground-container {
+                grid-template-columns: 1fr;
+                height: 900px;
+            }
+
+            .glass-architect-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .editor-pane {
+                border-right: none;
+                border-bottom: 1px solid var(--glass-border);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Premium+ Mesh Glow Background -->
+    <div class="mesh-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Custom Magnetic Cursor -->
+    <div id="customCursor"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="logo.jpg" alt="SWEN TECH SOLUTIONS" style="height: 40px; border-radius: 8px;">
+                <span>SWEN TECH SOLUTIONS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="estimator.html" class="nav-link">Estimator</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="playground.html" class="nav-link active">Playground</a></li>
+                <li><a href="tools.html" class="nav-link">Tools</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Get Quote</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
+                <button class="menu-toggle" id="menuToggle" title="Toggle Menu"
+                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
+                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <header style="text-align: center; margin-bottom: 4rem;">
+            <span class="hero-tagline">Sandbox Environment</span>
+            <h1 class="text-gradient" style="font-size: 3.5rem; margin-bottom: 1rem;">Code Playground</h1>
+            <p style="color: var(--color-text-dim); max-width: 700px; margin: 0 auto;">
+                Experiment with our design tokens and technical components in real-time. Powering the next generation of
+                enterprise interfaces.
+            </p>
+        </header>
+
+        <!-- Playground Interface -->
+        <div class="playground-container reveal">
+            <div class="editor-pane">
+                <div class="pane-header">
+                    <span class="pane-title">Live Editor (HTML/CSS)</span>
+                    <button id="resetPlayground"
+                        style="background:transparent; border:none; color:var(--color-purple); cursor:pointer; font-size:0.8rem; font-weight:700;">RESET</button>
+                </div>
+                <textarea id="codeEditor" spellcheck="false" autocomplete="off">// Try building a premium button!
+<style>
+  .swen-btn {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(102,126,234,0.3);
+    transition: 0.3s;
+  }
+  .swen-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(102,126,234,0.4); }
+</style>
+
+<div style="display:flex; justify-content:center; align-items:center; height:100vh;">
+  <button class="swen-btn">SWEN-TECH COMPONENT</button>
+</div></textarea>
+            </div>
+            <div class="preview-pane">
+                <div class="pane-header">
+                    <span class="pane-title">Real-time Preview</span>
+                    <span style="font-size: 0.75rem; color: #00E676;"><i class="fas fa-check-circle"></i> Sync
+                        Live</span>
+                </div>
+                <iframe id="livePreview"></iframe>
+            </div>
+        </div>
+
+        <!-- Glassmorphism Architect Section -->
+        <section style="margin-top: 8rem;">
+            <header style="text-align: center; margin-bottom: 3rem;">
+                <h2 class="section-title">Glassmorphism <span class="text-gradient">Architect</span></h2>
+                <p style="color: var(--color-text-dim);">Fine-tune the agency's signature aesthetic for your own
+                    project.</p>
+            </header>
+
+            <div class="glass-architect-grid reveal">
+                <div class="architect-controls">
+                    <div class="control-group">
+                        <div class="control-label">Blur Radius <span id="blurVal">15px</span></div>
+                        <input type="range" id="blurSlider" class="architect-slider" min="0" max="40" value="15">
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">Transparency <span id="opacityVal">0.1</span></div>
+                        <input type="range" id="opacitySlider" class="architect-slider" min="0" max="100" value="10">
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">Border Opacity <span id="borderVal">0.2</span></div>
+                        <input type="range" id="borderSlider" class="architect-slider" min="0" max="100" value="20">
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-label">Generated CSS</div>
+                        <div class="glass-code-box" id="glassCSS">
+                            background: rgba(255, 255, 255, 0.1);
+                            backdrop-filter: blur(15px);
+                            border: 1px solid rgba(255, 255, 255, 0.2);
+                        </div>
+                    </div>
+                </div>
+
+                <div id="glassPreviewCard">
+                    <div class="glass-element" id="glassTarget">
+                        <h3 style="margin-bottom: 10px;">PREMIUM CARD</h3>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Real-time technical aesthetic rendering.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Radar Section -->
+        <section class="radar-section">
+            <header style="margin-bottom: 3rem;">
+                <h2 class="section-title">SWEN-TECH <span class="text-gradient">Tech Radar</span></h2>
+                <p style="color: var(--color-text-dim);">Our strategic technology choices mapped by lifecycle stage.</p>
+            </header>
+
+            <div class="radar-container reveal">
+                <div class="radar-tooltip" id="radarTooltip"></div>
+                <!-- Interactive SVG Radar -->
+                <svg viewBox="0 0 800 800" class="radar-svg" id="techRadarSvg">
+                    <!-- Concentric Circles -->
+                    <circle cx="400" cy="400" r="380" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                    <circle cx="400" cy="400" r="280" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+                    <circle cx="400" cy="400" r="180" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+                    <circle cx="400" cy="400" r="80" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1" />
+
+                    <!-- Quadrant Lines -->
+                    <line x1="400" y1="20" x2="400" y2="780" stroke="rgba(255,255,255,0.1)" />
+                    <line x1="20" y1="400" x2="780" y2="400" stroke="rgba(255,255,255,0.1)" />
+
+                    <!-- Labels -->
+                    <text x="400" y="70" text-anchor="middle" fill="white" font-size="24" font-weight="800"
+                        opacity="0.1">ADOPT</text>
+                    <text x="400" y="170" text-anchor="middle" fill="white" font-size="24" font-weight="800"
+                        opacity="0.1">TRIAL</text>
+                    <text x="400" y="270" text-anchor="middle" fill="white" font-size="24" font-weight="800"
+                        opacity="0.1">ASSESS</text>
+
+                    <text x="50" y="390" fill="var(--color-gold)" font-size="14" font-weight="900"
+                        opacity="0.6">LANGUAGES / FRAMEWORKS</text>
+                    <text x="500" y="390" fill="var(--color-gold)" font-size="14" font-weight="900"
+                        opacity="0.6">INFRASTRUCTURE / CLOUD</text>
+                    <text x="50" y="420" fill="var(--color-gold)" font-size="14" font-weight="900" opacity="0.6">DATA
+                        SCIENCE / AI</text>
+                    <text x="500" y="420" fill="var(--color-gold)" font-size="14" font-weight="900" opacity="0.6">TOOLS
+                        / DEVOPS</text>
+
+                    <!-- Quadrant Point Containers -->
+                    <g id="radarPoints"></g>
+                </svg>
+
+                <div class="radar-legend">
+                    <div class="legend-item"><span class="legend-ring" style="background:#00E676;"></span>
+                        <strong>ADOPT</strong>: Core Tech
+                    </div>
+                    <div class="legend-item"><span class="legend-ring" style="background:#667eea;"></span>
+                        <strong>TRIAL</strong>: New Projects
+                    </div>
+                    <div class="legend-item"><span class="legend-ring" style="background:#764ba2;"></span>
+                        <strong>ASSESS</strong>: Researching
+                    </div>
+                    <div class="legend-item"><span class="legend-ring" style="background:rgba(255,255,255,0.2);"></span>
+                        <strong>HOLD</strong>: Migration Out
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div
+                style="border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                    © 2026 SWEN TECH SOLUTIONS. Interactive Developer Preview.
+                </p>
+                <div style="display: flex; gap: 1rem; font-size: 1.2rem;">
+                    <a href="https://www.instagram.com/swentechdigitalsolutions/" target="_blank"
+                        rel="noopener noreferrer" style="color: var(--color-text-dim); transition: 0.3s;"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/swentech-digitalsolutions-5611363a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        target="_blank" rel="noopener noreferrer"
+                        style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/swentechdev" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://github.com/KK12345GIT" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- AI Technical Assistant (Global Component) -->
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore sensitive config (if you create local versions)
+emailjs-config.local.js
+analytics-config.local.js
+
+# Ignore dependencies (if you add npm later)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Ignore build outputs (if you add a build process)
+dist/
+build/
+
+# Ignore temporary files
+temp/
+tmp/
+*.tmp
+
+# Ignore backup files
+*.bak
+*.backup
+*_backup.*

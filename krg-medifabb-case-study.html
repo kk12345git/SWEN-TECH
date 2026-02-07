@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="KRG Medifabb Website Case Study - Professional business platform for medical manufacturing currently in development by SWEN TECH SOLUTIONS.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://swentech-solutions.com/krg-medifabb-case-study.html">
+    <meta property="og:title" content="KRG Medifabb Website Case Study - SWEN TECH SOLUTIONS">
+    <meta property="og:description"
+        content="Building a high-performance digital presence for the medical manufacturing sector.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1516216628859-9bccecab13ca?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="KRG Medifabb Website Case Study - SWEN TECH SOLUTIONS">
+    <meta property="twitter:description"
+        content="Building a high-performance digital presence for the medical manufacturing sector.">
+    <meta property="twitter:image"
+        content="https://images.unsplash.com/photo-1516216628859-9bccecab13ca?auto=format&fit=crop&q=80&w=1200">
+
+    <title>KRG Medifabb Website Case Study - SWEN TECH SOLUTIONS</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- PWA Settings -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png">
+    <!-- Google Analytics (Placeholder) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Premium+ Mesh Glow Background -->
+    <div class="mesh-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Custom Magnetic Cursor -->
+    <div id="customCursor"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="logo.jpg" alt="SWEN TECH SOLUTIONS" style="height: 40px; border-radius: 8px;">
+                <span>SWEN TECH SOLUTIONS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="estimator.html" class="nav-link">Estimator</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="playground.html" class="nav-link">Playground</a></li>
+                <li><a href="tools.html" class="nav-link">Tools</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Get Quote</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
+                <button class="menu-toggle" id="menuToggle" title="Toggle Menu"
+                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
+                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section style="min-height: 60vh; padding-top: 10rem;">
+        <div class="container">
+            <a href="portfolio.html"
+                style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--color-purple); text-decoration: none; margin-bottom: 2rem; font-weight: 600;">
+                ← Back to Portfolio
+            </a>
+            <span class="hero-tagline reveal">Case Study</span>
+            <h1 class="section-title reveal" style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem;">
+                KRG Medifabb Corporate Website
+            </h1>
+            <p class="reveal"
+                style="font-size: 1.2rem; color: var(--color-text-secondary); max-width: 800px; line-height: 1.8; margin-bottom: 2rem;">
+                Professional business platform for medical manufacturing with mobile-first design, product showcases,
+                and comprehensive company information.
+            </p>
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3rem;">
+                <div class="status-badge status-badge-dev">In Development</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section style="padding: 3rem 0;">
+        <div class="container">
+            <div class="glass-card reveal">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-text-primary);">Project Overview
+                </h2>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <div>
+                        <h4
+                            style="color: var(--color-gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
+                            Client</h4>
+                        <p style="color: var(--color-text-primary); font-size: 1.1rem;">KRG Medifabb Pvt Ltd</p>
+                    </div>
+                    <div>
+                        <h4
+                            style="color: var(--color-gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
+                            Industry</h4>
+                        <p style="color: var(--color-text-primary); font-size: 1.1rem;">Medical Manufacturing</p>
+                    </div>
+                    <div>
+                        <h4
+                            style="color: var(--color-gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
+                            Status</h4>
+                        <p style="color: var(--color-text-primary); font-size: 1.1rem;">In Development</p>
+                    </div>
+                    <div>
+                        <h4
+                            style="color: var(--color-gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
+                            Platform</h4>
+                        <p style="color: var(--color-text-primary); font-size: 1.1rem;">Corporate Website</p>
+                    </div>
+                </div>
+
+                <p
+                    style="color: var(--color-text-secondary); line-height: 1.8; font-size: 1.05rem; margin-bottom: 2rem;">
+                    Following the success of the Production Operating System, KRG Medifabb has engaged us to develop
+                    their corporate website. This project will showcase their medical equipment manufacturing
+                    capabilities,
+                    product portfolio, and company values to a global B2B audience.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Goals -->
+    <section style="padding: 3rem 0; background: rgba(255, 255, 255, 0.02);">
+        <div class="container">
+            <div class="glass-card reveal">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-text-primary);">Project Goals</h2>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;">
+                        <span style="color: var(--color-purple); font-size: 1.5rem; flex-shrink: 0;">🎯</span>
+                        <div>
+                            <h4 style="color: var(--color-purple); margin-bottom: 0.5rem;">Professional Brand Image</h4>
+                            <p style="color: var(--color-text-secondary); line-height: 1.7;">
+                                Create a modern, professional website that reflects KRG Medifabb's position as a leading
+                                medical equipment manufacturer and builds trust with healthcare institutions.
+                            </p>
+                        </div>
+                    </li>
+                    <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;">
+                        <span style="color: var(--color-violet); font-size: 1.5rem; flex-shrink: 0;">🎯</span>
+                        <div>
+                            <h4 style="color: var(--color-violet); margin-bottom: 0.5rem;">Product Showcase</h4>
+                            <p style="color: var(--color-text-secondary); line-height: 1.7;">
+                                Comprehensive product catalog with detailed specifications, certifications, and
+                                high-quality
+                                images to help potential clients make informed decisions.
+                            </p>
+                        </div>
+                    </li>
+                    <li style="display: flex; gap: 1rem;">
+                        <span style="color: var(--color-blue); font-size: 1.5rem; flex-shrink: 0;">🎯</span>
+                        <div>
+                            <h4 style="color: var(--color-blue); margin-bottom: 0.5rem;">Mobile-First Experience</h4>
+                            <p style="color: var(--color-text-secondary); line-height: 1.7;">
+                                Fully responsive design optimized for healthcare professionals accessing information
+                                on-the-go from tablets and mobile devices.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planned Features -->
+    <section style="padding: 3rem 0;">
+        <div class="container">
+            <div class="glass-card reveal">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-text-primary);">Planned Features
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div
+                        style="padding: 1.5rem; background: var(--glass-white); border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏥</div>
+                        <h4 style="color: var(--color-purple); margin-bottom: 0.8rem;">Product Catalog</h4>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Detailed product pages with specifications, certifications, and inquiry forms for each
+                            medical equipment category.
+                        </p>
+                    </div>
+                    <div
+                        style="padding: 1.5rem; background: var(--glass-white); border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📱</div>
+                        <h4 style="color: var(--color-violet); margin-bottom: 0.8rem;">Responsive Design</h4>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Mobile-first approach ensuring perfect user experience across all devices and screen sizes.
+                        </p>
+                    </div>
+                    <div
+                        style="padding: 1.5rem; background: var(--glass-white); border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📧</div>
+                        <h4 style="color: var(--color-blue); margin-bottom: 0.8rem;">Contact & Inquiry</h4>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Integrated contact forms and inquiry system for potential clients to request quotes and
+                            information.
+                        </p>
+                    </div>
+                    <div
+                        style="padding: 1.5rem; background: var(--glass-white); border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎨</div>
+                        <h4 style="color: var(--color-gold); margin-bottom: 0.8rem;">Premium Aesthetics</h4>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Modern, clean design with professional photography and consistent branding throughout.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section style="padding: 3rem 0; background: rgba(255, 255, 255, 0.02);">
+        <div class="container">
+            <div class="glass-card reveal">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-text-primary);">Planned Technology
+                    Stack</h2>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <span
+                        style="background: rgba(245, 87, 108, 0.1); color: #f5576c; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600;">HTML5</span>
+                    <span
+                        style="background: rgba(245, 87, 108, 0.1); color: #f5576c; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600;">CSS3</span>
+                    <span
+                        style="background: rgba(245, 87, 108, 0.1); color: #f5576c; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600;">JavaScript</span>
+                    <span
+                        style="background: rgba(245, 87, 108, 0.1); color: #f5576c; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600;">Responsive
+                        Design</span>
+                    <span
+                        style="background: rgba(245, 87, 108, 0.1); color: #f5576c; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600;">Performance
+                        Optimization</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section style="padding: 3rem 0;">
+        <div class="container">
+            <div class="glass-card reveal">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem; color: var(--color-text-primary);">Development Timeline
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div
+                        style="padding: 1.5rem; background: var(--glass-white); border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <h4 style="color: var(--color-purple); margin-bottom: 0.8rem;">Phase 1: Planning</h4>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Requirements gathering, wireframing, and design mockups
+                        </p>
+                        <div
+                            style="margin-top: 1rem; padding: 0.4rem 0.8rem; background: rgba(102, 126, 234, 0.15); border-radius: 12px; display: inline-block; color: var(--color-purple); font-size: 0.85rem; font-weight: 600;">
+                            Completed
+                        </div>
+                    </div>
+                    <div
+                        style="padding: 1.5rem; background: var(--glass-white); border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <h4 style="color: var(--color-violet); margin-bottom: 0.8rem;">Phase 2: Development</h4>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Frontend development, content integration, and responsive implementation
+                        </p>
+                        <div
+                            style="margin-top: 1rem; padding: 0.4rem 0.8rem; background: rgba(251, 191, 36, 0.15); border-radius: 12px; display: inline-block; color: #fbbf24; font-size: 0.85rem; font-weight: 600;">
+                            In Progress
+                        </div>
+                    </div>
+                    <div
+                        style="padding: 1.5rem; background: var(--glass-white); border-radius: 15px; border: 1px solid var(--glass-border);">
+                        <h4 style="color: var(--color-blue); margin-bottom: 0.8rem;">Phase 3: Launch</h4>
+                        <p style="color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Testing, optimization, and deployment to production
+                        </p>
+                        <div
+                            style="margin-top: 1rem; padding: 0.4rem 0.8rem; background: rgba(156, 163, 175, 0.15); border-radius: 12px; display: inline-block; color: #9ca3af; font-size: 0.85rem; font-weight: 600;">
+                            Upcoming
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding: 5rem 0;">
+        <div class="container">
+            <div class="glass-card reveal" style="text-align: center; padding: 4rem 3rem;">
+                <h2
+                    style="font-size: 2.5rem; margin-bottom: 1.5rem; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                    Have a Project in Mind?
+                </h2>
+                <p
+                    style="font-size: 1.1rem; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8;">
+                    Let's discuss how we can bring your vision to life with a custom digital solution.
+                </p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn-primary">Get in Touch</a>
+                    <a href="portfolio.html" class="btn-secondary">View More Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4rem; margin-bottom: 4rem;">
+                <div>
+                    <a href="index.html" class="logo"
+                        style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                        <img src="logo.jpg" alt="SWEN TECH SOLUTIONS" style="height: 35px; border-radius: 6px;">
+                        <span>SWEN TECH SOLUTIONS</span>
+                    </a>
+                    <p style="color: var(--color-text-dim); line-height: 1.8; margin-bottom: 2rem;">
+                        Transforming high-stakes manufacturing and business operations through premium digital
+                        engineering and AI.
+                    </p>
+                    <div style="display: flex; gap: 1rem; font-size: 1.2rem;">
+                        <a href="https://www.instagram.com/swentechdigitalsolutions/" target="_blank"
+                            rel="noopener noreferrer" style="color: var(--color-text-dim); transition: 0.3s;"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/swentech-digitalsolutions-5611363a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank" rel="noopener noreferrer"
+                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/swentechdev" target="_blank" rel="noopener noreferrer"
+                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://github.com/KK12345GIT" target="_blank" rel="noopener noreferrer"
+                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-text-primary); margin-bottom: 2rem;">Quick Links</h4>
+                    <ul style="list-style: none; color: var(--color-text-dim); line-height: 2.2;">
+                        <li><a href="about.html" style="color: inherit; text-decoration: none;">About Our Team</a></li>
+                        <li><a href="services.html" style="color: inherit; text-decoration: none;">Our Expertise</a>
+                        </li>
+                        <li><a href="portfolio.html" style="color: inherit; text-decoration: none;">Case Studies</a>
+                        </li>
+                        <li><a href="pricing.html" style="color: inherit; text-decoration: none;">Pricing Plans</a></li>
+                        <li><a href="contact.html" style="color: inherit; text-decoration: none;">Get a Quote</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-text-primary); margin-bottom: 2rem;">Join Our Newsletter</h4>
+                    <p style="color: var(--color-text-dim); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        Get monthly insights on digital transformation and industry best practices.
+                    </p>
+                    <form id="newsletterForm" style="display: flex; gap: 0.5rem; flex-direction: column;">
+                        <input type="email" id="newsletterEmail" class="form-input" placeholder="Your Email Address"
+                            required style="margin-bottom: 0.5rem;">
+                        <button type="submit" class="btn-primary" style="padding: 0.8rem;">Subscribe Now</button>
+                    </form>
+                    <p id="newsletterMessage" style="margin-top: 1rem; font-size: 0.85rem; display: none;"></p>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                    © 2026 SWEN TECH SOLUTIONS. All Rights Reserved.
+                </p>
+                <div style="display: flex; gap: 2rem; font-size: 0.85rem; color: var(--color-text-dim);">
+                    <a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: inherit; text-decoration: none;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
