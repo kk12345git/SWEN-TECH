@@ -441,7 +441,7 @@ class TestimonialFormManager {
         const originalText = submitButton.textContent;
         submitButton.disabled = true;
         submitButton.innerHTML = `
-    < span style = "display: inline-flex; align-items: center; gap: 0.5rem;" >
+            <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
         <span style="animation: spin 1s linear infinite; display: inline-block;">⏳</span>
                 Submitting...
             </span >
@@ -879,36 +879,36 @@ class TeamModalManager {
         // Skills
         const skillsContainer = document.getElementById('modalSkills');
         skillsContainer.innerHTML = member.skills.map(skill =>
-            `< div class="team-skill-badge" > ${skill}</div > `
+            `<div class="team-skill-badge">${skill}</div>`
         ).join('');
 
         // Experience
         const expContainer = document.getElementById('modalExperience');
         expContainer.innerHTML = member.experience.map(exp => `
-    < div class="team-experience-item" >
+            <div class="team-experience-item">
                 <div class="team-experience-icon">${exp.years}</div>
                 <div class="team-experience-content">
                     <h4>${exp.title}</h4>
                 </div>
-            </div >
-    `).join('');
+            </div>
+        `).join('');
 
         // Achievements
         const achievementsContainer = document.getElementById('modalAchievements');
         achievementsContainer.innerHTML = member.achievements.map(achievement => `
-    < div class="team-achievement-item" >
+            <div class="team-achievement-item">
                 <i class="fas fa-trophy"></i>
                 <p>${achievement}</p>
-            </div >
-    `).join('');
+            </div>
+        `).join('');
 
         // Social Links
         const socialContainer = document.getElementById('modalSocial');
         socialContainer.innerHTML = member.social.map(social => `
-    < a href = "${social.url}" class="team-social-link" target = "_blank" rel = "noopener noreferrer" >
-        <i class="${social.icon}"></i>
-            </a >
-    `).join('');
+            <a href="${social.url}" class="team-social-link" target="_blank" rel="noopener noreferrer">
+                <i class="${social.icon}"></i>
+            </a>
+        `).join('');
 
         // Show modal
         this.modal.classList.add('active');
@@ -1402,7 +1402,7 @@ class ProjectEstimator {
         // Filter unique and render
         const uniqueStack = [...new Set(stack)];
         this.techStackList.innerHTML = uniqueStack.map(tech =>
-            `< span class="tech-tag" > ${tech}</span > `
+            `<span class="tech-tag">${tech}</span>`
         ).join('');
     }
 
@@ -2883,4 +2883,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('🚀 Swen Tech Solutions Loaded');
 });
+
 
