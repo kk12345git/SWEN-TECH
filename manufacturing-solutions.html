@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manufacturing ERP & Production OS Chennai - SWEN TECH SOLUTIONS</title>
+    <meta name="description"
+        content="Custom Production OS & ERP solutions for Chennai Manufacturers. Optimize OEE, automate supply chains, and digitize industrial operations.">
+    <link rel="canonical" href="https://swentechdigitalsolutions.co.in/manufacturing-solutions.html">
+
+    <!-- Performance Optimization: Preconnect to Font Origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CSE1BY8J4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-0CSE1BY8J4');
+    </script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Manufacturing ERP & Production OS",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "SWEN TECH SOLUTIONS",
+        "url": "https://swentechdigitalsolutions.co.in/"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "Tamil Nadu"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Industrial Automation Modules",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Production OEE Tracking"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Supply Chain Vendor Portals"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <!-- Premium+ Mesh Glow Background -->
+    <div class="mesh-glow">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Custom Magnetic Cursor -->
+    <div id="customCursor"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem;">
+                <img src="logo.jpg" alt="SWEN TECH SOLUTIONS" width="40" height="40"
+                    style="height: 40px; border-radius: 8px;">
+                <span>SWEN TECH SOLUTIONS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="estimator.html" class="nav-link">Estimator</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="playground.html" class="nav-link">Playground</a></li>
+                <li><a href="tools.html" class="nav-link">Tools</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Get Quote</a></li>
+            </ul>
+            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
+                <button class="menu-toggle" id="menuToggle" title="Toggle Menu" aria-label="Open navigation menu"
+                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
+                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Specific Hub Styles -->
+    <style>
+        .hub-hero {
+            padding: 12rem 0 6rem;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
+        }
+
+        .industrial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .module-card {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-purple);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .module-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            opacity: 0.1;
+            margin-bottom: -2rem;
+            color: var(--color-purple);
+        }
+
+        .stat-highlight {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-purple);
+            margin: 1rem 0;
+        }
+    </style>
+
+    <!-- Hero Section -->
+    <section class="hub-hero">
+        <div class="container">
+            <span class="hero-tagline reveal">Industrial Digital Transformation</span>
+            <h1 class="section-title reveal"
+                style="font-size: clamp(2.5rem, 6vw, 4rem); max-width: 900px; margin: 0 auto 1.5rem;">
+                The Future of <span class="text-gradient">Chennai Manufacturing</span> is Digital.
+            </h1>
+            <p class="reveal"
+                style="font-size: 1.25rem; color: var(--color-text-secondary); max-width: 750px; margin: 0 auto 3rem; line-height: 1.8;">
+                Dominate your market with custom Production Operating Systems (POS) and AI-driven ERP architectures
+                designed specifically for industrial scalability.
+            </p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;" class="reveal">
+                <a href="contact.html" class="btn-primary" style="padding: 1.2rem 3rem;">Start Your Audit</a>
+                <a href="#solutions" class="btn-secondary" style="padding: 1.2rem 3rem;">View Core Modules</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section style="padding: 5rem 0; background: rgba(0,0,0,0.02);">
+        <div class="container">
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: center;">
+                <div class="reveal">
+                    <div class="stat-highlight">30%</div>
+                    <p style="color: var(--color-text-dim);">Efficiency Increase (Average)</p>
+                </div>
+                <div class="reveal">
+                    <div class="stat-highlight">99.8%</div>
+                    <p style="color: var(--color-text-dim);">Inventory Accuracy</p>
+                </div>
+                <div class="reveal">
+                    <div class="stat-highlight">24/7</div>
+                    <p style="color: var(--color-text-dim);">Real-time OEE Monitoring</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Solutions -->
+    <section id="solutions" style="padding: 8rem 0;">
+        <div class="container">
+            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 4rem;">Production <span
+                    class="text-gradient">OS 2.0</span></h2>
+
+            <div class="industrial-grid">
+                <!-- Module 1 -->
+                <div class="module-card reveal">
+                    <div class="module-number">01</div>
+                    <h3 style="font-size: 1.8rem; color: var(--color-text-primary); margin-bottom: 1rem;">OEE &
+                        Real-time Tracking</h3>
+                    <p style="color: var(--color-text-secondary); line-height: 1.8;">
+                        Digitalize your shop floor. Monitor Overall Equipment Effectiveness (OEE) in real-time to
+                        identify bottlenecks before they impact your delivery timelines.
+                    </p>
+                    <ul style="margin-top: 1.5rem; color: var(--color-text-dim); list-style: none; font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-microchip"
+                                style="color:var(--color-purple); margin-right: 0.5rem;"></i> IoT Sensor Integration
+                        </li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-chart-line"
+                                style="color:var(--color-purple); margin-right: 0.5rem;"></i> Live Downtime Analysis
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card reveal">
+                    <div class="module-number">02</div>
+                    <h3 style="font-size: 1.8rem; color: var(--color-text-primary); margin-bottom: 1rem;">Supply Chain
+                        Automation</h3>
+                    <p style="color: var(--color-text-secondary); line-height: 1.8;">
+                        Automate your vendor ecosystem. From auto-generated POs to supplier performance ranking, we
+                        eliminate the paperwork that slows you down.
+                    </p>
+                    <ul style="margin-top: 1.5rem; color: var(--color-text-dim); list-style: none; font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-truck-loading"
+                                style="color:var(--color-purple); margin-right: 0.5rem;"></i> Vendor Self-Service
+                            Portals</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-brain"
+                                style="color:var(--color-purple); margin-right: 0.5rem;"></i> AI Demand Forecasting</li>
+                    </ul>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card reveal">
+                    <div class="module-number">03</div>
+                    <h3 style="font-size: 1.8rem; color: var(--color-text-primary); margin-bottom: 1rem;">Quality
+                        Control AI</h3>
+                    <p style="color: var(--color-text-secondary); line-height: 1.8;">
+                        Implement zero-defect manufacturing. Our computer vision and data-driven QC modules catch errors
+                        where human eyes fail.
+                    </p>
+                    <ul style="margin-top: 1.5rem; color: var(--color-text-dim); list-style: none; font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-camera"
+                                style="color:var(--color-purple); margin-right: 0.5rem;"></i> Vision Inspection Systems
+                        </li>
+                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-file-contract"
+                                style="color:var(--color-purple); margin-right: 0.5rem;"></i> Compliance Automation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Niche Expertise -->
+    <section style="padding: 5rem 0; background: var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 3rem;">Vertical <span
+                    class="text-gradient">Specialization</span></h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="glass-card reveal" style="text-align: center;">
+                    <i class="fas fa-car-side"
+                        style="font-size: 2.5rem; color: var(--color-purple); margin-bottom: 1.5rem;"></i>
+                    <h4>Automotive Components</h4>
+                    <p style="font-size: 0.9rem; color: var(--color-text-dim); margin-top: 1rem;">Optimized for
+                        high-volume JIT delivery schedules.</p>
+                </div>
+                <div class="glass-card reveal" style="text-align: center;">
+                    <i class="fas fa-heartbeat"
+                        style="font-size: 2.5rem; color: var(--color-purple); margin-bottom: 1.5rem;"></i>
+                    <h4>Medical Electronics</h4>
+                    <p style="font-size: 0.9rem; color: var(--color-text-dim); margin-top: 1rem;">ISO-compliant tracking
+                        and batch serialization.</p>
+                </div>
+                <div class="glass-card reveal" style="text-align: center;">
+                    <i class="fas fa-tools"
+                        style="font-size: 2.5rem; color: var(--color-purple); margin-bottom: 1.5rem;"></i>
+                    <h4>Precision Tooling</h4>
+                    <p style="font-size: 0.9rem; color: var(--color-text-dim); margin-top: 1rem;">Real-time tool life
+                        monitoring and maintenance AI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div
+                style="border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <p style="color: var(--color-text-muted); font-size: 0.9rem;">
+                    © 2026 SWEN TECH SOLUTIONS. Industrial Division.
+                </p>
+                <div style="display: flex; gap: 1.5rem; font-size: 1.2rem;">
+                    <a href="https://wa.me/message/UZLVNMPPRYX5P1" target="_blank" rel="noopener noreferrer"
+                        style="color: var(--color-text-dim);" aria-label="Chat on WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="portfolio.html"
+                        style="color: var(--color-text-dim); font-size: 0.9rem; text-decoration: none;">View Industrial
+                        Case Studies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
