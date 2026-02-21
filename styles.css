@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+/* Fonts are now loaded via <link> in HTML for performance */
 
 :root {
   /* PERMANENT DARK MODE (EMERALD PRECISION) */
@@ -2704,6 +2704,7 @@ footer a:hover {
 .text-gradient {
   background: var(--gradient-primary);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 800;
 }
