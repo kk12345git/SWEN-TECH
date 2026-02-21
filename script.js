@@ -969,8 +969,8 @@ class PricingCalculator {
 
         // Initialize
         this.loadState();
-        this.updateSliderLabel();
         this.calculatePrice();
+        this.saveQuoteData();
 
         // Save data when "Get Detailed Quote" button is clicked
         const quoteButton = document.querySelector('a[href="contact.html"]');
@@ -997,7 +997,7 @@ class PricingCalculator {
         try {
             const state = JSON.parse(saved);
             if (state.service) {
-                const btn = document.querySelector(`.service - type - btn[data - service="${state.service}"]`);
+                const btn = document.querySelector(`.service-type-btn[data-service="${state.service}"]`);
                 if (btn) {
                     this.serviceButtons.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
@@ -1050,6 +1050,9 @@ class PricingCalculator {
 
         // Animate price update
         this.animatePrice(finalPrice);
+
+        // Save immediately with final value
+        this.saveQuoteData(finalPrice);
     }
 
     animatePrice(targetPrice) {
@@ -1127,7 +1130,7 @@ class PricingCalculator {
         }
     }
 
-    saveQuoteData() {
+    saveQuoteData(customCost = null) {
         // Save calculator selections to localStorage
         const quoteData = {
             service: document.querySelector('.service-type-btn.active')?.getAttribute('data-service') || 'web',
@@ -1135,7 +1138,7 @@ class PricingCalculator {
             scope: this.scopeLabel.textContent,
             features: this.featuresLabel.textContent,
             timeline: this.timelineLabel.textContent,
-            estimatedCost: this.priceDisplay.textContent,
+            estimatedCost: customCost ? this.formatCurrency(customCost, 'INR', '₹') : this.priceDisplay.textContent,
             timestamp: new Date().toISOString()
         };
         localStorage.setItem('pricingCalculatorData', JSON.stringify(quoteData));
@@ -1303,7 +1306,7 @@ class ProjectEstimator {
         try {
             const state = JSON.parse(saved);
             if (state.project) {
-                const card = document.querySelector(`.project - type - card[data - type="${state.project}"]`);
+                const card = document.querySelector(`.project-type-card[data-type="${state.project}"]`);
                 if (card) {
                     this.projectCards.forEach(c => c.classList.remove('active'));
                     card.classList.add('active');
@@ -1357,6 +1360,7 @@ class ProjectEstimator {
         this.updateTechStack(projectType, activeFeatures);
 
         this.saveState();
+        this.saveQuoteData(finalTotal);
     }
 
     animateValue(value) {
@@ -1406,7 +1410,7 @@ class ProjectEstimator {
         ).join('');
     }
 
-    saveQuoteData() {
+    saveQuoteData(customCost = null) {
         const activeProject = document.querySelector('.project-type-card.active');
         const activeFeatures = document.querySelectorAll('.feature-card.active');
         const techTags = document.querySelectorAll('.tech-tag');
@@ -1417,7 +1421,7 @@ class ProjectEstimator {
             scope: `Complexity: ${this.complexityLabel.textContent} `,
             features: `${activeFeatures.length} features selected: ${Array.from(activeFeatures).map(f => f.querySelector('span').textContent).join(', ')} `,
             timeline: this.timelineLabel.textContent,
-            estimatedCost: this.priceDisplay.textContent,
+            estimatedCost: customCost ? `₹${customCost.toLocaleString('en-IN')} ` : this.priceDisplay.textContent,
             techStack: Array.from(techTags).map(t => t.textContent).join(', '),
             timestamp: new Date().toISOString(),
             source: 'estimator'
