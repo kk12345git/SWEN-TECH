@@ -2697,3 +2697,135 @@ footer a:hover {
   -webkit-text-fill-color: transparent;
   font-weight: 800;
 }
+
+/* ============================================
+   GLOBAL MOBILE OPTIMIZATIONS
+   ============================================ */
+@media (max-width: 768px) {
+  /* Fluid Typography Overrides */
+  html {
+    font-size: 14px; /* Slightly smaller base font on mobile */
+  }
+  
+  h1, .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem) !important;
+    line-height: 1.1 !important;
+    word-wrap: break-word;
+    word-break: break-word; /* Prevent overflow on long words */
+  }
+  
+  h2, .section-title {
+    font-size: clamp(2rem, 6vw, 3rem) !important;
+    line-height: 1.2 !important;
+    word-wrap: break-word;
+  }
+  
+  h3 {
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+  }
+  
+  /* Container and Padding Adjustments */
+  .container {
+    padding: 0 1.2rem !important;
+    overflow-x: hidden;
+  }
+  
+  section {
+    padding: 4rem 0 !important; /* Reduce excessive vertical padding */
+  }
+  
+  /* Prevent horizontal scrolling globally */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Grid Collapses */
+  .grid, .services-grid, .features-grid, .stats-grid, .skills-container, .client-logos, .metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important; /* Smaller gap on mobile */
+  }
+  
+  /* Force Bento items to single column on mobile */
+  .bento-grid {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  
+  .bento-large, .bento-medium, .bento-small, .bento-item {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    width: 100% !important;
+    padding: 1.5rem !important; /* Reduce padding inside cards */
+  }
+  
+  /* Hero section specific */
+  .hero {
+    min-height: auto !important;
+    padding: 7rem 0 4rem 0 !important;
+  }
+  
+  /* Buttons and Touch Targets */
+  .btn, .btn-primary, .btn-secondary, .btn-live, .filter-btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 1rem 1.5rem !important; /* Ensure min 44px touch target */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  /* Form adjustments */
+  .form-input, .form-select, .form-textarea {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
+    padding: 0.8rem 1rem !important;
+  }
+  
+  /* Mobile Menu fixes */
+  .nav-menu {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-menu.active {
+    padding: 2rem !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin: 1rem 0 !important;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small devices */
+  h1, .hero-title {
+    font-size: clamp(2rem, 10vw, 2.5rem) !important;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem !important;
+  }
+  
+  .metric-value {
+    font-size: 2.2rem !important;
+  }
+  
+  section {
+    padding: 3rem 0 !important;
+  }
+}
