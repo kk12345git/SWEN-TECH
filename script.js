@@ -11,7 +11,7 @@ if ('serviceWorker' in navigator) {
 }
 
 /**
- * SWEN TECH SOLUTIONS - Business Platform v5.0
+ * SWEN TECH DIGITAL HUB & INNOVATIONS - Business Platform v5.0
  * Simplified Performance-First Engine
  */
 
@@ -1796,13 +1796,13 @@ class AIAssistant {
                 "link": "contact.html"
             },
             "who_are_we": {
-                "keywords": ["who are you", "swentech", "what do you do", "business", "company", "Swen Tech Solutions"],
-                "answer": "Swen Tech Solutions (also known as Swen Tech Solutions) is a premium digital engineering firm. We bridge the gap between complex business requirements and technical innovation.",
+                "keywords": ["who are you", "swentech", "what do you do", "business", "company", "Swen Tech Digital Hub & Innovations"],
+                "answer": "Swen Tech Digital Hub & Innovations (also known as Swen Tech Digital Hub & Innovations) is a premium digital engineering firm. We bridge the gap between complex business requirements and technical innovation.",
                 "action": "Learn More",
                 "link": "about.html"
             },
             "default": {
-                "answer": "I'm the Swen Tech Solutions Advisor, trained on our entire architectural methodology. I can tell you about our ERP systems, AI agents, pricing, team, or free developer tools. What are you looking to build?"
+                "answer": "I'm the Swen Tech Digital Hub & Innovations Advisor, trained on our entire architectural methodology. I can tell you about our ERP systems, AI agents, pricing, team, or free developer tools. What are you looking to build?"
             }
         };
 
@@ -2126,7 +2126,7 @@ class PlaygroundManager {
 
 <div style="display:flex; justify-content:center; align-items:center; height:100vh; background: radial-gradient(circle, #0f172a 0%, #020617 100%);">
   <div class="glass-box">
-    <h1 style="color: #38bdf8; font-family: 'Outfit';">SWEN TECH READY</h1>
+    <h1 style="color: #38bdf8; font-family: 'Outfit';">SWEN TECH DIGITAL HUB & INNOVATIONS READY</h1>
     <p style="opacity:0.7;">Designing high-stakes digital experiences.</p>
   </div>
 </div>`;
@@ -2878,6 +2878,21 @@ document.addEventListener('DOMContentLoaded', () => {
     init('SpeedTester', SpeedTester);
     init('MobileMenuManager', MobileMenuManager);
 
+    // Close mobile menu on resize beyond breakpoint
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) {
+            const menu = document.querySelector('.nav-links');
+            const toggle = document.getElementById('menuToggle');
+            if (menu && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                if (toggle) {
+                    const icon = toggle.querySelector('i');
+                    if (icon) icon.className = 'fas fa-bars';
+                }
+            }
+        }
+    });
+
     const typingElement = document.querySelector('.hero-tagline');
     if (typingElement) {
         const originalText = typingElement.textContent;
@@ -2885,7 +2900,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new TypingEffect(typingElement, [originalText], 100);
     }
 
-    console.log('🚀 Swen Tech Solutions Loaded');
+    console.log('🚀 Swen Tech Digital Hub & Innovations Loaded');
 });
 
 

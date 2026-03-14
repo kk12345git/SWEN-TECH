@@ -1,6 +1,6 @@
-# Swen Tech Solutions - Portfolio Website
+# Swen Tech Digital Hub & Innovations - Portfolio Website
 
-Official website for SWEN TECH SOLUTIONS showcasing our services, portfolio, and expertise in digital transformation.
+Official website for SWEN TECH DIGITAL HUB & INNOVATIONS showcasing our services, portfolio, and expertise in digital transformation.
 
 ## 🚀 Quick Start
 
@@ -100,14 +100,14 @@ See full deployment guide in [deployment_guide.md](deployment_guide.md)
 
 ## 📞 Contact
 
-**SWEN TECH SOLUTIONS**
+**SWEN TECH DIGITAL HUB & INNOVATIONS**
 
 - Email: <swentechdigitalsolutions@gmail.com>
 - Website: [Coming Soon]
 
 ## 📄 License
 
-© 2026 SWEN TECH SOLUTIONS. All Rights Reserved.
+© 2026 SWEN TECH DIGITAL HUB & INNOVATIONS. All Rights Reserved.
 
 ---
 
