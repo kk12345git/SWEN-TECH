@@ -13,14 +13,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
 
     <!-- PWA Settings -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#667eea">
+    <meta name="theme-color" content="#0e0e0e">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png">
@@ -35,6 +35,37 @@
     </script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ── Page-level mobile fixes ── */
+@media(max-width:768px){
+  .estimator-grid{grid-template-columns:1fr!important;}
+  .estimator-sidebar{position:static!important;top:auto!important;}
+  .bento-grid{grid-template-columns:1fr!important;}
+  .bento-large,.bento-medium,.bento-small{grid-column:span 1!important;grid-row:span 1!important;}
+  .tier-grid{grid-template-columns:1fr!important;}
+  .project-type-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .features-grid{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="grid-template-columns: repeat(auto-fit"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 350px"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 420px"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: repeat(4"]{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="grid-template-columns: repeat(3"]{grid-template-columns:1fr!important;}
+  section{padding:3.5rem 0!important;}
+  .hero-content{padding:5.5rem 0 3.5rem!important;}
+  .section-title{font-size:clamp(1.7rem,6vw,2.4rem)!important;}
+  .team-modal-header,.team-modal-body{padding:1.5rem!important;}
+  .price-tab-bar{flex-wrap:wrap;}
+  .price-tab{flex:1 1 40%;}
+}
+@media(max-width:480px){
+  .container{padding:0 1rem!important;}
+  .glass-card{padding:1.4rem!important;}
+  .hero-title{font-size:clamp(2rem,8vw,3rem)!important;}
+  .metric-value{font-size:1.9rem!important;}
+  .pricing-cols,.pricing-row{grid-template-columns:2fr 1fr 1fr 1fr!important;}
+}
+</style>
 </head>
 
 <body>
@@ -52,29 +83,28 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem;">
-                <img src="logo.jpg" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="40" height="40"
-                    style="height: 40px; border-radius: 8px;">
+                <img src="logo.png" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="40" height="40"
+                    style="height: 40px; ">
                 <span>SWEN TECH DIGITAL HUB & INNOVATIONS</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link ">Home</a></li>
+                <li><a href="about.html" class="nav-link ">About Us</a></li>
                 <li><a href="services.html" class="nav-link active">Services</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="estimator.html" class="nav-link">Estimator</a></li>
-                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
-                <li><a href="playground.html" class="nav-link">Playground</a></li>
-                <li><a href="tools.html" class="nav-link">Tools</a></li>
-                <li><a href="blog.html" class="nav-link">Blog</a></li>
-                <li><a href="contact.html" class="nav-link">Get Quote</a></li>
+                <li><a href="portfolio.html" class="nav-link ">Portfolio</a></li>
+                <li><a href="pricing.html" class="nav-link ">Pricing</a></li>
+                <li><a href="tools.html" class="nav-link ">Tools</a></li>
+                <li><a href="blog.html" class="nav-link ">Blog</a></li>
+                <li><a href="contact.html" class="nav-link ">Get Quote</a></li>
             </ul>
-            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
-                <button class="menu-toggle" id="menuToggle" title="Toggle Menu" aria-label="Open navigation menu"
-                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
-                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                        <div style="display:flex;align-items:center;gap:1rem;position:relative;z-index:5100;">
+                <button class="menu-toggle" id="menuToggle" 
+                    aria-label="Toggle navigation" aria-expanded="false"
+                    style="display:flex!important;background:transparent;border:1.5px solid #1a1a1a;padding:.75rem;border-radius:8px;color:#1a1a1a!important;width:44px;height:44px;align-items:center;justify-content:center;">
+                    <i class="fas fa-bars" style="font-size:1.2rem;color:#1a1a1a;"></i>
                 </button>
             </div>
-        </div>
+            </div>
     </nav>
 
     <style>
@@ -114,7 +144,7 @@
 
         .bento-card:hover {
             transform: translateY(-5px);
-            border-color: var(--color-purple);
+            border-color:#1a1a1a;
         }
 
         .bento-card.span-8 {
@@ -141,7 +171,7 @@
         .service-title {
             font-family: 'Outfit', sans-serif;
             font-size: 1.5rem;
-            color: var(--color-purple);
+            color:#1a1a1a;
             margin-bottom: 0.8rem;
         }
 
@@ -162,7 +192,7 @@
     </style>
 
     <!-- Services Section -->
-    <section id="services" style="min-height: auto; padding-top: 10rem;">
+    <section id="services" style="min-height:auto;padding-top:10rem;padding-bottom:5rem;background:#fff;border-bottom:1px solid #e8e3dd;">
         <div class="container">
             <h2 class="section-title reveal" style="text-align: center; margin-bottom: 4rem;">Architectural Solutions
             </h2>
@@ -170,65 +200,222 @@
             <div class="bento-grid-services">
                 <!-- Service 1: Custom Web Development (Highlight) -->
                 <div class="bento-card span-8 row-2 reveal">
-                    <div class="service-icon">🌐</div>
-                    <h3 class="service-title">High-Performance Web Solutions</h3>
+                    <div class="service-icon" style="margin-bottom:1.2rem;">🌐</div>
+                    <h3 class="service-title" style="color:#1a1a1a;">High-Performance Web Solutions</h3>
                     <p class="service-desc">We build professional, fast-loading websites that convert visitors into
                         customers. From stunning landing pages to custom business portals, we provide the tech experts
                         you need without the "big agency" complexity.</p>
                     <ul style="margin-top: 1.5rem; color: var(--color-text-dim); font-size: 0.85rem; list-style: none;">
-                        <li><i class="fas fa-check-circle" style="color:var(--color-purple);"></i> Modern, SEO-Optimized
+                        <li><i class="fas fa-check-circle" style="color:#1a1a1a;"></i> Modern, SEO-Optimized
                             Design</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--color-purple);"></i> Mobile-First
+                        <li><i class="fas fa-check-circle" style="color:#1a1a1a;"></i> Mobile-First
                             Development</li>
-                        <li><i class="fas fa-check-circle" style="color:var(--color-purple);"></i> Easy-to-Manage CMS
+                        <li><i class="fas fa-check-circle" style="color:#1a1a1a;"></i> Easy-to-Manage CMS
                             Systems</li>
                     </ul>
+                    <div style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(26,26,26,0.04);color:#1a1a1a;font-weight:600;">From ₹5,000</span>
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(245,158,11,0.12);color:var(--color-gold);font-weight:600;">1–3 Weeks</span>
+                    </div>
+                    <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;padding:0.6rem 1.5rem;font-size:0.85rem;display:inline-block;">Get a Quote</a>
                 </div>
 
                 <!-- Service 2: AI Agents -->
                 <div class="bento-card span-4 reveal">
-                    <div class="service-icon">🤖</div>
-                    <h3 class="service-title">Smart AI Assistants</h3>
+                    <div class="service-icon" style="margin-bottom:1.2rem;">🤖</div>
+                    <h3 class="service-title" style="color:#1a1a1a;">Smart AI Assistants</h3>
                     <p class="service-desc">Intelligent AI chat agents that handle your customer support 24/7, so you
                         never miss another lead.</p>
+                    <div style="margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(26,26,26,0.04);color:#1a1a1a;font-weight:600;">From ₹25,000</span>
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(245,158,11,0.12);color:var(--color-gold);font-weight:600;">3–5 Weeks</span>
+                    </div>
+                    <a href="contact.html" class="btn-secondary" style="margin-top:1.2rem;padding:0.6rem 1.2rem;font-size:0.85rem;display:inline-block;">Enquire Now</a>
                 </div>
 
                 <!-- Service 3: SaaS Solutions -->
                 <div class="bento-card span-4 reveal">
-                    <div class="service-icon">☁️</div>
-                    <h3 class="service-title">Custom SaaS & Apps</h3>
+                    <div class="service-icon" style="margin-bottom:1.2rem;">☁️</div>
+                    <h3 class="service-title" style="color:#1a1a1a;">Custom SaaS & Apps</h3>
                     <p class="service-desc">Scalable software solutions built to solve your unique business problems and
                         automate repetitive tasks.</p>
+                    <div style="margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(26,26,26,0.04);color:#1a1a1a;font-weight:600;">Custom Quote</span>
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(245,158,11,0.12);color:var(--color-gold);font-weight:600;">4–8 Weeks</span>
+                    </div>
+                    <a href="contact.html" class="btn-secondary" style="margin-top:1.2rem;padding:0.6rem 1.2rem;font-size:0.85rem;display:inline-block;">Enquire Now</a>
                 </div>
 
                 <!-- Service 4: ERP Systems -->
                 <div class="bento-card span-6 reveal">
-                    <div class="service-icon">⚙️</div>
-                    <h3 class="service-title">Manufacturing ERP</h3>
+                    <div class="service-icon" style="margin-bottom:1.2rem;">⚙️</div>
+                    <h3 class="service-title" style="color:#1a1a1a;">Manufacturing ERP</h3>
                     <p class="service-desc">Robust enterprise-grade systems for manufacturing, inventory management, and
                         business operations tracking.</p>
+                    <div style="margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(26,26,26,0.04);color:#1a1a1a;font-weight:600;">From ₹1,10,000</span>
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(245,158,11,0.12);color:var(--color-gold);font-weight:600;">4–12 Weeks</span>
+                    </div>
+                    <a href="contact.html" class="btn-secondary" style="margin-top:1.2rem;padding:0.6rem 1.2rem;font-size:0.85rem;display:inline-block;">Enquire Now</a>
                 </div>
 
                 <!-- New: Security / Performance -->
                 <div class="bento-card span-6 reveal">
-                    <div class="service-icon">🛡️</div>
-                    <h3 class="service-title">Cyber-Audit & Security</h3>
-                    <p class="service-desc">Hardening your digital assets through deep security audits and Zero-Trust
-                        architecture implementation.</p>
+                    <div class="service-icon" style="margin-bottom:1.2rem;">🛡️</div>
+                    <h3 class="service-title" style="color:#1a1a1a;">Cyber-Audit & Security</h3>
+                    <p class="service-desc">Hardening your digital assets through deep security audits and Zero-Trust architecture implementation.</p>
+                    <div style="margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(26,26,26,0.04);color:#1a1a1a;font-weight:600;">Custom Quote</span>
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(245,158,11,0.12);color:var(--color-gold);font-weight:600;">2–4 Weeks</span>
+                    </div>
+                    <a href="contact.html" class="btn-secondary" style="margin-top:1.5rem;padding:0.6rem 1.2rem;font-size:0.85rem;display:inline-block;">Enquire Now</a>
+                </div>
+
+                <!-- Service 6: Digital Marketing Campaigns -->
+                <div class="bento-card span-6 reveal" style="background:var(--bg-secondary);border-color:rgba(16,185,129,0.3);">
+                    <div class="service-icon" style="margin-bottom:1.2rem;">📣</div>
+                    <h3 class="service-title" style="color:#1a1a1a;" style="color:var(--color-emerald);">Digital Marketing Campaigns</h3>
+                    <p class="service-desc">End-to-end campaign management — Google Ads, Meta Ads, LinkedIn, SEO, and organic growth strategies to bring qualified leads directly to your business.</p>
+                    <ul style="margin-top:1.2rem;color:var(--color-text-dim);font-size:0.85rem;list-style:none;line-height:2;">
+                        <li><i class="fas fa-check-circle" style="color:var(--color-emerald);margin-right:0.5rem;"></i>Google & Meta Ad Management</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--color-emerald);margin-right:0.5rem;"></i>SEO & Content Strategy</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--color-emerald);margin-right:0.5rem;"></i>Lead Generation & Analytics</li>
+                    </ul>
+                    <div style="margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:0.6rem;">
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(16,185,129,0.12);color:var(--color-emerald);font-weight:600;">From ₹5,500/mo</span>
+                        <span style="font-size:0.75rem;padding:0.3rem 0.8rem;border-radius:20px;background:rgba(245,158,11,0.12);color:var(--color-gold);font-weight:600;">Ongoing</span>
+                    </div>
+                    <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;padding:0.6rem 1.5rem;font-size:0.85rem;display:inline-block;background:var(--color-emerald);">Start a Campaign</a>
+                </div>
+            </div>
+
+            <!-- Pricing Quick Reference -->
+            <div class="glass-card reveal" style="padding:2.5rem;margin-bottom:3rem;background:var(--bg-secondary);">
+                <h3 style="text-align:center;margin-bottom:2rem;color:#1a1a1a;">💡 Pricing & Delivery at a Glance</h3>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.5rem;">
+                    <div style="text-align:center;padding:1.5rem;background:var(--glass-white);border-radius:16px;border:1px solid var(--glass-border);">
+                        <div style="font-size:1.8rem;margin-bottom:0.5rem;">🌐</div>
+                        <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:0.3rem;">Business Website</div>
+                        <div style="color:var(--color-gold);font-weight:700;font-size:1.1rem;">From ₹5,000</div>
+                        <div style="color:var(--color-text-dim);font-size:0.8rem;margin-top:0.3rem;">Delivered in 1–2 weeks</div>
+                    </div>
+                    <div style="text-align:center;padding:1.5rem;background:var(--glass-white);border-radius:16px;border:1px solid var(--glass-border);">
+                        <div style="font-size:1.8rem;margin-bottom:0.5rem;">🤖</div>
+                        <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:0.3rem;">AI Automation</div>
+                        <div style="color:var(--color-gold);font-weight:700;font-size:1.1rem;">From ₹25,000</div>
+                        <div style="color:var(--color-text-dim);font-size:0.8rem;margin-top:0.3rem;">Deployed in 2–4 weeks</div>
+                    </div>
+                    <div style="text-align:center;padding:1.5rem;background:var(--glass-white);border-radius:16px;border:1px solid var(--glass-border);">
+                        <div style="font-size:1.8rem;margin-bottom:0.5rem;">⚙️</div>
+                        <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:0.3rem;">Enterprise ERP</div>
+                        <div style="color:var(--color-gold);font-weight:700;font-size:1.1rem;">From ₹1,10,000</div>
+                        <div style="color:var(--color-text-dim);font-size:0.8rem;margin-top:0.3rem;">4–12 weeks delivery</div>
+                    </div>
+                    <div style="text-align:center;padding:1.5rem;background:var(--glass-white);border-radius:16px;border:1px solid var(--glass-border);">
+                        <div style="font-size:1.8rem;margin-bottom:0.5rem;">📣</div>
+                        <div style="font-weight:700;color:var(--color-text-primary);margin-bottom:0.3rem;">Campaigns</div>
+                        <div style="color:var(--color-gold);font-weight:700;font-size:1.1rem;">From ₹5,500/mo</div>
+                        <div style="color:var(--color-text-dim);font-size:0.8rem;margin-top:0.3rem;">Results in 30–60 days</div>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:2rem;">
+                    <a href="pricing.html#estimator" class="btn-primary" style="margin-right:1rem;"><i class="fas fa-calculator" style="margin-right:0.5rem;"></i>Get Exact Estimate</a>
+                    <a href="contact.html" class="btn-secondary">Talk to Us Free</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Who This Is For -->
+    <section style="padding:4rem 0;background:var(--bg-primary);">
+        <div class="container">
+            <h2 class="section-title reveal" style="text-align:center;margin-bottom:3rem;">Who We Build For</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;" class="reveal">
+                <div style="padding:1.8rem;background:var(--glass-white);border:1px solid var(--glass-border);border-radius:16px;border-left:4px solid var(--color-purple);">
+                    <div style="font-size:1.8rem;margin-bottom:.8rem;">🏭</div>
+                    <h4 style="color:#1a1a1a;margin-bottom:.5rem;">Manufacturers & Factories</h4>
+                    <p style="color:var(--color-text-secondary);font-size:.9rem;line-height:1.6;">Companies running production on spreadsheets or paper who need real-time tracking, inventory control, and automated reporting.</p>
+                </div>
+                <div style="padding:1.8rem;background:var(--glass-white);border:1px solid var(--glass-border);border-radius:16px;border-left:4px solid var(--color-blue);">
+                    <div style="font-size:1.8rem;margin-bottom:.8rem;">🚀</div>
+                    <h4 style="color:#444444;margin-bottom:.5rem;">Startups & SMBs</h4>
+                    <p style="color:var(--color-text-secondary);font-size:.9rem;line-height:1.6;">Early-stage businesses that need a professional website, CRM, and digital presence to compete and win customers online.</p>
+                </div>
+                <div style="padding:1.8rem;background:var(--glass-white);border:1px solid var(--glass-border);border-radius:16px;border-left:4px solid var(--color-emerald);">
+                    <div style="font-size:1.8rem;margin-bottom:.8rem;">📈</div>
+                    <h4 style="color:var(--color-emerald);margin-bottom:.5rem;">Growing Businesses</h4>
+                    <p style="color:var(--color-text-secondary);font-size:.9rem;line-height:1.6;">Established businesses spending on ads without enough leads, or losing deals because their website and follow-up process is weak.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SWEN TECH vs Others Comparison -->
+    <section style="padding:4rem 0;background:var(--bg-secondary);">
+        <div class="container">
+            <h2 class="section-title reveal" style="text-align:center;margin-bottom:3rem;">SWEN TECH vs. The Alternatives</h2>
+            <div class="reveal" style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:.9rem;">
+                <thead>
+                    <tr style="background:var(--glass-white);">
+                        <th style="padding:1rem 1.2rem;text-align:left;border-bottom:2px solid var(--color-purple);font-size:.85rem;color:var(--color-text-dim);font-weight:500;">Feature</th>
+                        <th style="padding:1rem 1.2rem;text-align:center;border-bottom:2px solid var(--color-purple);color:#1a1a1a;">SWEN TECH</th>
+                        <th style="padding:1rem 1.2rem;text-align:center;border-bottom:2px solid var(--glass-border);color:var(--color-text-dim);font-weight:500;">Freelancer</th>
+                        <th style="padding:1rem 1.2rem;text-align:center;border-bottom:2px solid var(--glass-border);color:var(--color-text-dim);font-weight:500;">Big Agency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid var(--glass-border);">
+                        <td style="padding:.9rem 1.2rem;color:var(--color-text-secondary);">Full team (design + dev + QA)</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-emerald);">✅</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-text-dim);">❌</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-emerald);">✅</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--glass-border);background:rgba(26,26,26,0.04);">
+                        <td style="padding:.9rem 1.2rem;color:var(--color-text-secondary);">SMB-friendly pricing</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-emerald);">✅</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-emerald);">✅</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-text-dim);">❌</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--glass-border);">
+                        <td style="padding:.9rem 1.2rem;color:var(--color-text-secondary);">Manufacturing ERP expertise</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-emerald);">✅</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-text-dim);">Rare</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-text-dim);">Rare</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--glass-border);background:rgba(26,26,26,0.04);">
+                        <td style="padding:.9rem 1.2rem;color:var(--color-text-secondary);">AI + Web + Campaigns under one roof</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-emerald);">✅</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-text-dim);">❌</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-emerald);">✅</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--glass-border);">
+                        <td style="padding:.9rem 1.2rem;color:var(--color-text-secondary);">Delivery in 1–3 weeks</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-emerald);">✅</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-text-dim);">Varies</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-text-dim);">❌ (4–8 wks)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:.9rem 1.2rem;color:var(--color-text-secondary);">30-day post-launch support</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-emerald);">✅ Free</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-text-dim);">Paid extra</td>
+                        <td style="padding:.9rem 1.2rem;text-align:center;color:var(--color-emerald);">✅</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </section>
+
     <!-- Why Choose Us Section (Restored) -->
-    <section id="why-us" style="padding: 5rem 0;">
+    <section id="why-us" style="padding:5rem 0;background:#fafaf9;border-bottom:1px solid #e8e3dd;">
         <div class="container">
             <h2 class="section-title reveal" style="margin-bottom: 3rem; text-align: center;">Why Choose Us</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
                 <div class="glass-card reveal">
                     <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
                         <div style="font-size: 3rem;">⚡</div>
-                        <h3 style="font-size: 1.4rem; color: var(--color-purple); font-family: var(--font-accent);">
+                        <h3 style="font-size: 1.4rem; color:#1a1a1a; font-family: var(--font-accent);">
                             Expertise & Efficiency</h3>
                     </div>
                     <p style="color: var(--color-text-secondary); line-height: 1.8; font-size: 0.95rem;">Proven track
@@ -239,7 +426,7 @@
                 <div class="glass-card reveal">
                     <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
                         <div style="font-size: 3rem;">🔄</div>
-                        <h3 style="font-size: 1.4rem; color: var(--color-violet); font-family: var(--font-accent);">
+                        <h3 style="font-size: 1.4rem; color:#333333; font-family: var(--font-accent);">
                             Digital Transformation</h3>
                     </div>
                     <p style="color: var(--color-text-secondary); line-height: 1.8; font-size: 0.95rem;">We guide your
@@ -250,7 +437,7 @@
                 <div class="glass-card reveal">
                     <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;">
                         <div style="font-size: 3rem;">💡</div>
-                        <h3 style="font-size: 1.4rem; color: var(--color-blue); font-family: var(--font-accent);">
+                        <h3 style="font-size: 1.4rem; color:#444444; font-family: var(--font-accent);">
                             Innovation Leader</h3>
                     </div>
                     <p style="color: var(--color-text-secondary); line-height: 1.8; font-size: 0.95rem;">Consistently at
@@ -266,7 +453,7 @@
         style="padding: 6rem 0; position: relative; overflow: hidden; background: var(--bg-secondary);">
         <div class="container">
             <div class="glass-card reveal"
-                style="padding: 4rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%); border: 2px solid var(--color-purple); text-align: center; position: relative; overflow: hidden;">
+                style="padding: 4rem; background:var(--bg-secondary); border:2px solid #1a1a1a; text-align: center; position: relative; overflow: hidden;">
                 <div
                     style="position: absolute; top: 1rem; right: 2rem; font-size: 5rem; opacity: 0.1; color: var(--color-gold);">
                     <i class="fas fa-gift"></i>
@@ -300,8 +487,8 @@
                 <div>
                     <a href="index.html" class="logo"
                         style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
-                        <img src="logo.jpg" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="35" height="35"
-                            style="height: 35px; border-radius: 6px;">
+                        <img src="logo.png" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="35" height="35"
+                            style="height: 35px; ">
                         <span>SWEN TECH DIGITAL HUB & INNOVATIONS</span>
                     </a>
                     <p style="color: var(--color-text-dim); line-height: 1.8; margin-bottom: 2rem;">
@@ -331,7 +518,7 @@
                         </li>
                         <li><a href="portfolio.html" style="color: inherit; text-decoration: none;">Case Studies</a>
                         </li>
-                        <li><a href="estimator.html" style="color: inherit; text-decoration: none;">Estimator &
+                        <li><a href="pricing.html#estimator" style="color: inherit; text-decoration: none;">Estimator &
                                 Pricing</a></li>
                         <li><a href="contact.html" style="color: inherit; text-decoration: none;">Get a Quote</a></li>
                     </ul>
@@ -363,6 +550,16 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919840713587" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <style>
+        .whatsapp-float { position:fixed; bottom:2rem; right:2rem; background-color:#25D366; color:white; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; box-shadow:0 4px 15px rgba(0,0,0,0.3); z-index:4000; transition:all 0.3s ease; text-decoration:none; }
+        .whatsapp-float:hover { transform:scale(1.1); background-color:#128C7E; }
+        @media(max-width:768px){ .whatsapp-float { bottom:1.5rem; right:1.5rem; width:50px; height:50px; font-size:1.5rem; } }
+    </style>
 
     <!-- AI Technical Assistant -->
     <div class="ai-assistant-wrapper" id="aiAssistant">
@@ -397,6 +594,54 @@
             </div>
         </div>
     </div>
-</body>
 
+<div id="exitPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:99999;align-items:center;justify-content:center;padding:1rem;">
+  <div style="background:#fff;border-radius:16px;max-width:480px;width:100%;position:relative;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.2);">
+    <div style="height:4px;background:linear-gradient(90deg,#1a1a1a 33%,#1a9e82 33% 66%,#8a7560 66%)"></div>
+    <button onclick="document.getElementById('exitPopup').style.display='none';sessionStorage.setItem('exitSeen','1');" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#888;line-height:1;padding:.2rem .5rem;">×</button>
+    <div style="padding:2.5rem;">
+      <div style="font-size:.72rem;font-weight:700;color:#8a7560;text-transform:uppercase;letter-spacing:.15em;margin-bottom:.8rem;">Wait — before you go</div>
+      <h3 style="font-size:1.5rem;font-weight:800;color:#1a1a1a;letter-spacing:-.03em;margin-bottom:.8rem;">Get your free tech roadmap<br>worth ₹15,000</h3>
+      <p style="color:#888;font-size:.9rem;line-height:1.65;margin-bottom:1.5rem;">Tell us what you're building and we'll send you a personalised implementation plan — completely free, no strings.</p>
+      <form id="exitForm" style="display:flex;flex-direction:column;gap:.8rem;">
+        <input type="text" id="exitName" placeholder="Your Name" required style="padding:.8rem 1rem;border:1.5px solid #e8e3dd;border-radius:8px;font-size:.9rem;font-family:inherit;outline:none;">
+        <input type="email" id="exitEmail" placeholder="Your Email" required style="padding:.8rem 1rem;border:1.5px solid #e8e3dd;border-radius:8px;font-size:.9rem;font-family:inherit;outline:none;">
+        <button type="button" onclick="handleExitForm()" style="padding:.9rem;background:#1a1a1a;color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit;">Send Me the Free Roadmap →</button>
+      </form>
+      <div id="exitSuccess" style="display:none;text-align:center;padding:1rem 0;">
+        <div style="font-size:2rem;margin-bottom:.5rem;">✅</div>
+        <p style="font-weight:600;color:#1a1a1a;margin-bottom:.4rem;">Done! Check your inbox shortly.</p>
+        <a href="https://wa.me/919840713587" target="_blank" style="color:#1a9e82;font-size:.85rem;text-decoration:none;">Chat on WhatsApp now →</a>
+      </div>
+      <p style="text-align:center;font-size:.75rem;color:#ccc;margin-top:1rem;">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  if(sessionStorage.getItem('exitSeen')) return;
+  var fired=false;
+  document.addEventListener('mouseleave',function(e){
+    if(fired||e.clientY>20) return;
+    fired=true;
+    setTimeout(function(){ if(!sessionStorage.getItem('exitSeen')){document.getElementById('exitPopup').style.display='flex';} },300);
+  });
+  setTimeout(function(){
+    if(!fired&&!sessionStorage.getItem('exitSeen')){document.getElementById('exitPopup').style.display='flex';fired=true;}
+  },45000);
+})();
+function handleExitForm(){
+  var name=document.getElementById('exitName').value;
+  var email=document.getElementById('exitEmail').value;
+  if(!name||!email){alert('Please fill in both fields.');return;}
+  localStorage.setItem('estimateLeadName',name);
+  localStorage.setItem('estimateLeadEmail',email);
+  document.getElementById('exitForm').style.display='none';
+  document.getElementById('exitSuccess').style.display='block';
+  sessionStorage.setItem('exitSeen','1');
+  if(window.gtag) gtag('event','exit_intent_lead',{});
+  setTimeout(function(){document.getElementById('exitPopup').style.display='none';},4000);
+}
+</script>
+</body>
 </html>

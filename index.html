@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css?v=2.2">
@@ -24,7 +24,7 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "SWEN TECH DIGITAL HUB & INNOVATIONS",
-      "image": "https://swentechdigitalsolutions.co.in/logo.jpg",
+      "image": "https://swentechdigitalsolutions.co.in/logo.png",
       "url": "https://swentechdigitalsolutions.co.in/",
       "telephone": "+919840713587",
       "priceRange": "$$",
@@ -78,7 +78,7 @@
 
     <!-- PWA Settings -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#667eea">
+    <meta name="theme-color" content="#0e0e0e">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png">
@@ -93,6 +93,37 @@
     </script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ── Page-level mobile fixes ── */
+@media(max-width:768px){
+  .estimator-grid{grid-template-columns:1fr!important;}
+  .estimator-sidebar{position:static!important;top:auto!important;}
+  .bento-grid{grid-template-columns:1fr!important;}
+  .bento-large,.bento-medium,.bento-small{grid-column:span 1!important;grid-row:span 1!important;}
+  .tier-grid{grid-template-columns:1fr!important;}
+  .project-type-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .features-grid{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="grid-template-columns: repeat(auto-fit"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 350px"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 420px"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: repeat(4"]{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="grid-template-columns: repeat(3"]{grid-template-columns:1fr!important;}
+  section{padding:3.5rem 0!important;}
+  .hero-content{padding:5.5rem 0 3.5rem!important;}
+  .section-title{font-size:clamp(1.7rem,6vw,2.4rem)!important;}
+  .team-modal-header,.team-modal-body{padding:1.5rem!important;}
+  .price-tab-bar{flex-wrap:wrap;}
+  .price-tab{flex:1 1 40%;}
+}
+@media(max-width:480px){
+  .container{padding:0 1rem!important;}
+  .glass-card{padding:1.4rem!important;}
+  .hero-title{font-size:clamp(2rem,8vw,3rem)!important;}
+  .metric-value{font-size:1.9rem!important;}
+  .pricing-cols,.pricing-row{grid-template-columns:2fr 1fr 1fr 1fr!important;}
+}
+</style>
 </head>
 
 <body>
@@ -110,58 +141,54 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem;">
-                <img src="logo.jpg" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="40" height="40"
-                    style="height: 40px; border-radius: 8px;">
+                <img src="logo.png" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="40" height="40"
+                    style="height: 40px; ">
                 <span>SWEN TECH DIGITAL HUB & INNOVATIONS</span>
             </a>
-            <ul class="nav-links">
+                        <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="about.html" class="nav-link">About Us</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="estimator.html" class="nav-link">Estimator</a></li>
-                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
-                <li><a href="playground.html" class="nav-link">Playground</a></li>
-                <li><a href="tools.html" class="nav-link">Tools</a></li>
-                <li><a href="blog.html" class="nav-link">Blog</a></li>
-                <li><a href="contact.html" class="nav-link">Get Quote</a></li>
+                <li><a href="about.html" class="nav-link ">About Us</a></li>
+                <li><a href="services.html" class="nav-link ">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link ">Portfolio</a></li>
+                <li><a href="pricing.html" class="nav-link ">Pricing</a></li>
+                <li><a href="tools.html" class="nav-link ">Tools</a></li>
+                <li><a href="blog.html" class="nav-link ">Blog</a></li>
+                <li><a href="contact.html" class="nav-link ">Get Quote</a></li>
             </ul>
-            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
-                <button class="menu-toggle" id="menuToggle" title="Toggle Menu" aria-label="Open navigation menu"
-                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
-                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                        <div style="display:flex;align-items:center;gap:1rem;position:relative;z-index:5100;">
+                <button class="menu-toggle" id="menuToggle" 
+                    aria-label="Toggle navigation" aria-expanded="false"
+                    style="display:flex!important;background:transparent;border:1.5px solid #1a1a1a;padding:.75rem;border-radius:8px;color:#1a1a1a!important;width:44px;height:44px;align-items:center;justify-content:center;">
+                    <i class="fas fa-bars" style="font-size:1.2rem;color:#1a1a1a;"></i>
                 </button>
             </div>
-        </div>
+            </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home">
+    <section id="home" style="background:#fff;border-bottom:1px solid #e8e3dd;">
         <div class="container hero-content">
-            <span class="hero-tagline">Enterprise-Grade Tech, Tailored for Your Growth</span>
-            <h1 class="hero-title">SWEN TECH DIGITAL HUB & INNOVATIONS</h1>
-            <p class="hero-description">
-                We build high-performance software that actually grows your business. From custom websites to AI
-                automation, we provide the tech experts you need without the "big agency" overhead.
+            <span class="hero-tagline" style="letter-spacing:0.15em;font-size:0.72rem;">Digital Engineering Agency · Chennai, India</span>
+            <h1 class="hero-title" style="letter-spacing:-0.04em;font-size:clamp(3rem,8vw,5.8rem);line-height:1.0;">We build software<br>that grows<br><span style="color:#8a7560;">your business.</span></h1>
+            <p class="hero-description" style="max-width:540px;font-size:1.1rem;color:#666;border-left:2px solid #e8e3dd;padding-left:1.2rem;margin-left:0.1rem;">
+                ERP systems, AI automation, websites &amp; campaigns — premium engineering without the big agency overhead.
             </p>
             <div class="hero-cta">
-                <a href="contact.html" class="btn-primary">Claim My Free Roadmap</a>
-                <a href="estimator.html" class="btn-secondary">AI Project Estimator</a>
-                <a href="portfolio.html" class="btn-secondary" style="border-color: transparent;">View Success
-                    Stories</a>
+                <a href="contact.html" class="btn-primary" style="padding:1rem 2.2rem;font-size:0.92rem;">Claim Free Roadmap</a>
+                <a href="pricing.html#estimator" class="btn-secondary"><i class="fas fa-calculator" style="margin-right:0.5rem;"></i>AI Project Estimator</a>
             </div>
         </div>
     </section>
 
     <!-- Overview Sections (Bento Grid) -->
-    <section id="overview" style="padding: 5rem 0;">
+    <section id="overview" style="padding:6rem 0;background:#fafaf9;border-bottom:1px solid #e8e3dd;">
         <div class="container">
             <div class="bento-grid">
                 <!-- Large Card: Our Business -->
                 <div class="glass-card bento-item bento-large reveal">
                     <div class="bento-content">
                         <span class="bento-tag"
-                            style="background: rgba(37, 99, 235, 0.1); color: var(--color-purple);">Architecture</span>
+                            style="background: rgba(37, 99, 235, 0.1); color:#1a1a1a;">Architecture</span>
                         <h3 style="font-size: 2.2rem; margin: 1rem 0; font-family: var(--font-display);">Our Business
                             Philosophy</h3>
                         <p style="color: var(--color-text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
@@ -178,15 +205,15 @@
                             <div style="display: flex; flex-direction: column; gap: 0.8rem;">
                                 <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
                                     <span style="color: var(--color-text-secondary);">Business Websites</span>
-                                    <span style="color: var(--color-gold); font-weight: 600;">Starts ₹25k</span>
+                                    <span style="color: var(--color-gold); font-weight: 600;">Starts ₹5,000</span>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
                                     <span style="color: var(--color-text-secondary);">AI Automation</span>
-                                    <span style="color: var(--color-gold); font-weight: 600;">Starts ₹45k</span>
+                                    <span style="color: var(--color-gold); font-weight: 600;">Starts ₹25,000</span>
                                 </div>
                                 <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
                                     <span style="color: var(--color-text-secondary);">Enterprise ERP</span>
-                                    <span style="color: var(--color-gold); font-weight: 600;">Starts ₹1.5L</span>
+                                    <span style="color: var(--color-gold); font-weight: 600;">Starts ₹1,10,000</span>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +222,7 @@
 
                 <!-- Small Card: Services -->
                 <div class="glass-card bento-item bento-small reveal"
-                    style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, transparent 100%);">
+                    style="background:var(--bg-secondary);">
                     <div class="bento-content">
                         <i class="fas fa-layer-group"
                             style="font-size: 2rem; color: var(--color-gold); margin-bottom: 1.5rem;"></i>
@@ -211,15 +238,15 @@
 
                 <!-- Small Card: Portfolio -->
                 <div class="glass-card bento-item bento-small reveal"
-                    style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.05) 0%, transparent 100%);">
+                    style="background:var(--bg-secondary);">
                     <div class="bento-content">
                         <i class="fas fa-rocket"
-                            style="font-size: 2rem; color: var(--color-blue); margin-bottom: 1.5rem;"></i>
+                            style="font-size: 2rem; color:#444444; margin-bottom: 1.5rem;"></i>
                         <h3 style="margin-bottom: 0.8rem;">Featured Work</h3>
                         <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
                             Showcase of robust enterprise systems.</p>
                         <a href="portfolio.html" class="text-link"
-                            style="color: var(--color-blue); font-size: 0.9rem; font-weight: 600; text-decoration: none;">View
+                            style="color:#444444; font-size: 0.9rem; font-weight: 600; text-decoration: none;">View
                             Portfolio <i class="fas fa-arrow-right"
                                 style="font-size: 0.7rem; margin-left: 5px;"></i></a>
                     </div>
@@ -227,15 +254,15 @@
 
                 <!-- Small Card: Industry Hub (SEO FOCUS) -->
                 <div class="glass-card bento-item bento-small reveal"
-                    style="background: linear-gradient(135deg, rgba(167, 139, 250, 0.05) 0%, transparent 100%);">
+                    style="background:var(--bg-secondary);">
                     <div class="bento-content">
                         <i class="fas fa-industry"
-                            style="font-size: 2rem; color: var(--color-purple); margin-bottom: 1.5rem;"></i>
+                            style="font-size: 2rem; color:#1a1a1a; margin-bottom: 1.5rem;"></i>
                         <h3 style="margin-bottom: 0.8rem;">Industry Hub</h3>
                         <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
                             Specialized POS & ERP for Chennai Manufacturers.</p>
                         <a href="manufacturing-solutions.html" class="text-link"
-                            style="color: var(--color-purple); font-size: 0.9rem; font-weight: 600; text-decoration: none;">Explore
+                            style="color:#1a1a1a; font-size: 0.9rem; font-weight: 600; text-decoration: none;">Explore
                             Hub <i class="fas fa-arrow-right" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
                     </div>
                 </div>
@@ -269,12 +296,75 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- New: Campaigns card -->
+                <div class="glass-card bento-item bento-small reveal"
+                    style="background:var(--bg-secondary); border-color: rgba(16,185,129,0.3);">
+                    <div class="bento-content">
+                        <i class="fas fa-bullhorn"
+                            style="font-size: 2rem; color: var(--color-emerald); margin-bottom: 1.5rem;"></i>
+                        <h3 style="margin-bottom: 0.8rem;">Campaigns</h3>
+                        <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">Google, Meta & LinkedIn Ads. Results in 30 days.</p>
+                        <a href="services.html#campaigns" class="text-link"
+                            style="color: var(--color-emerald); font-size: 0.9rem; font-weight: 600; text-decoration: none;">View Plans <i class="fas fa-arrow-right"
+                                style="font-size: 0.7rem; margin-left: 5px;"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    
+<!-- Client Trust Bar -->
+<section style="padding:3rem 0;background:#fff;border-bottom:1px solid #e8e3dd;border-top:1px solid #e8e3dd;">
+  <div class="container">
+    <p style="text-align:center;font-size:.72rem;font-weight:700;color:#ccc;text-transform:uppercase;letter-spacing:.15em;margin-bottom:2rem;">Trusted by businesses in Chennai</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:4rem;flex-wrap:wrap;">
+      <div style="text-align:center;opacity:.6;transition:opacity .2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.6">
+        <img src="krg-medifabb-logo.png" alt="KRG Medifabb" style="height:48px;object-fit:contain;filter:grayscale(1);" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div style="display:none;font-size:.9rem;font-weight:700;color:#888;letter-spacing:-.01em;">KRG Medifabb</div>
+        <div style="font-size:.72rem;color:#aaa;margin-top:.4rem;font-weight:500;">KRG Medifabb Pvt Ltd</div>
+      </div>
+      <div style="text-align:center;opacity:.6;transition:opacity .2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.6">
+        <img src="srivari-alloys-logo.png" alt="Srivari Alloys" style="height:48px;object-fit:contain;filter:grayscale(1);" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <div style="display:none;font-size:.9rem;font-weight:700;color:#888;letter-spacing:-.01em;">Srivari Alloys</div>
+        <div style="font-size:.72rem;color:#aaa;margin-top:.4rem;font-weight:500;">Srivari Alloys</div>
+      </div>
+      <div style="text-align:center;opacity:.6;">
+        <div style="width:80px;height:48px;background:#f5f3f0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:#ccc;border:1px dashed #e2ddd7;">Your Logo</div>
+        <div style="font-size:.72rem;color:#ccc;margin-top:.4rem;font-weight:500;">Your Company</div>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- ── Sticky Scroll CTA Bar ── -->
+    <div id="stickyCtaBar" style="display:none;position:fixed;top:0;left:0;right:0;z-index:3500;background:linear-gradient(90deg,rgba(102,126,234,0.97),rgba(139,92,246,0.97));padding:0.7rem 1.5rem;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+        <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+            <span style="color:white;font-size:0.9rem;font-weight:500;"><i class="fas fa-gift" style="margin-right:0.5rem;color:#fbbf24;"></i>Get a free tech roadmap for your business — worth ₹15,000</span>
+            <div style="display:flex;gap:0.8rem;align-items:center;">
+                <a href="contact.html" style="background:white;color:#6c63ff;padding:0.45rem 1.2rem;border-radius:50px;font-size:0.85rem;font-weight:700;text-decoration:none;white-space:nowrap;">Claim Now →</a>
+                <a href="https://wa.me/919840713587" target="_blank" style="background:rgba(37,211,102,0.2);border:1px solid #25D366;color:#25D366;padding:0.45rem 1rem;border-radius:50px;font-size:0.85rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.4rem;white-space:nowrap;"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+                <button onclick="document.getElementById('stickyCtaBar').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:1.1rem;padding:0.2rem 0.4rem;"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </div>
+    <script>
+    (function(){
+        let shown = false;
+        window.addEventListener('scroll', function(){
+            if(shown) return;
+            const bar = document.getElementById('stickyCtaBar');
+            if(!bar) return;
+            if(window.scrollY > window.innerHeight * 0.5){
+                bar.style.display = 'block';
+                shown = true;
+            }
+        });
+    })();
+    </script>
+
     <!-- Next-Gen Interactive Section -->
-    <section id="next-gen-tools" style="padding: 5rem 0; background: var(--bg-secondary);">
+    <section id="next-gen-tools" style="padding:6rem 0;background:#fff;border-bottom:1px solid #e8e3dd;">
         <div class="container">
             <div style="text-align: center; margin-bottom: 4rem;">
                 <h2 class="section-title reveal">Innovation Lab</h2>
@@ -290,7 +380,7 @@
                     <div
                         style="position: absolute; top: -20px; right: -20px; font-size: 8rem; opacity: 0.05; transform: rotate(15deg);">
                         🏗️</div>
-                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--color-purple);">Project Architect
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color:#1a1a1a;">Project Architect
                     </h3>
                     <p style="margin-bottom: 2rem; color: var(--color-text-secondary); line-height: 1.8;">
                         Build your technical roadmap in seconds. Select your parameters and our AI generates a tailored
@@ -340,7 +430,7 @@
 
                         <div class="architect-step" data-step="result" style="display: none;">
                             <div
-                                style="padding: 1.5rem; background: rgba(102, 126, 234, 0.1); border-radius: 12px; border: 1px dashed var(--color-purple);">
+                                style="padding: 1.5rem; background:rgba(26,26,26,0.04); border-radius: 12px; border: 1px dashed var(--color-purple);">
                                 <h4 id="roadmapTitle" style="color: var(--color-text-primary); margin-bottom: 0.5rem;">
                                     Your Custom Roadmap</h4>
                                 <p id="roadmapText" style="font-size: 0.9rem; color: var(--color-text-secondary);"></p>
@@ -360,7 +450,7 @@
 
                 <!-- Waste ROI Dashboard -->
                 <div class="glass-card reveal"
-                    style="padding: 3rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);">
+                    style="padding: 3rem; background:var(--bg-secondary);">
                     <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--color-emerald);">Waste ROI Simulator
                     </h3>
                     <p style="margin-bottom: 2rem; color: var(--color-text-secondary);">
@@ -409,16 +499,16 @@
     <!-- Metrics Section -->
     <!-- Lead Magnet: Free Technical Roadmap -->
     <section id="lead-magnet"
-        style="padding: 6rem 0; position: relative; overflow: hidden; background: var(--bg-primary);">
+        style="padding:6rem 0;background:#fafaf9;border-bottom:1px solid #e8e3dd;">
         <div class="container">
             <div class="glass-card reveal"
-                style="padding: 4rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%); border: 2px solid var(--color-purple); text-align: center; position: relative; overflow: hidden;">
+                style="padding: 4rem; background:var(--bg-secondary); border:2px solid #1a1a1a; text-align: center; position: relative; overflow: hidden;">
                 <div
                     style="position: absolute; top: 1rem; right: 2rem; font-size: 5rem; opacity: 0.1; color: var(--color-gold);">
                     <i class="fas fa-gift"></i>
                 </div>
                 <span class="hero-tagline"
-                    style="color: var(--color-gold); opacity: 1; animation: none; transform: none; margin-bottom: 1rem;">Limited
+                    style="color:#8a7560;opacity:1;animation:none;transform:none;margin-bottom:1rem;font-size:0.72rem;letter-spacing:0.15em;">Limited
                     Offer for SMBs</span>
                 <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; font-family: var(--font-display);">Get Your <span
                         class="text-gradient">Custom Tech Roadmap</span> (Free)</h2>
@@ -440,73 +530,209 @@
 
     <section class="metrics-section">
         <div class="container">
-            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 1rem;">Delivering Excellence</h2>
+            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 1rem;">Results We Deliver</h2>
             <p style="text-align: center; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto 3rem;">
-                Our commitment to quality and efficiency drives exceptional results for every client.
+                Real numbers from real projects. Every engagement is measured against outcomes.
             </p>
             <div class="metrics-grid">
+                <div class="metric-card reveal">
+                    <div class="metric-value">30%</div>
+                    <div class="metric-label">Avg. Efficiency Gain</div>
+                </div>
+                <div class="metric-card reveal">
+                    <div class="metric-value">2 Wks</div>
+                    <div class="metric-label">Avg. Website Delivery</div>
+                </div>
                 <div class="metric-card reveal">
                     <div class="metric-value">100%</div>
                     <div class="metric-label">Client Satisfaction</div>
                 </div>
                 <div class="metric-card reveal">
-                    <div class="metric-value">100%</div>
-                    <div class="metric-label">Project Efficiency</div>
-                </div>
-                <div class="metric-card reveal">
-                    <div class="metric-value">30%</div>
-                    <div class="metric-label">Faster Processing</div>
+                    <div class="metric-value">₹65L+</div>
+                    <div class="metric-label">Client Value Delivered</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <!-- Industries We Serve -->
+    <section style="padding:5rem 0;background:var(--bg-secondary);">
         <div class="container">
-            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 3rem;">What Our Clients Say</h2>
+            <h2 class="section-title reveal" style="text-align:center;margin-bottom:1rem;">Industries We Serve</h2>
+            <p class="reveal" style="text-align:center;color:var(--color-text-secondary);max-width:600px;margin:0 auto 3rem;">Deep domain expertise across Chennai's most active business sectors.</p>
+            <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;">
+                <div style="text-align:center;padding:1.8rem 1rem;background:var(--glass-white);border:1px solid var(--glass-border);border-radius:16px;transition:all .3s;" onmouseover="this.style.borderColor='var(--color-purple)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+                    <div style="font-size:2rem;margin-bottom:.8rem;">🏭</div>
+                    <div style="font-weight:600;font-size:.9rem;color:var(--color-text-primary);">Manufacturing</div>
+                    <div style="font-size:.75rem;color:var(--color-text-dim);margin-top:.3rem;">ERP & Production OS</div>
+                </div>
+                <div style="text-align:center;padding:1.8rem 1rem;background:var(--glass-white);border:1px solid var(--glass-border);border-radius:16px;transition:all .3s;" onmouseover="this.style.borderColor='var(--color-purple)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+                    <div style="font-size:2rem;margin-bottom:.8rem;">🏪</div>
+                    <div style="font-weight:600;font-size:.9rem;color:var(--color-text-primary);">Retail & E-com</div>
+                    <div style="font-size:.75rem;color:var(--color-text-dim);margin-top:.3rem;">Stores & Catalogues</div>
+                </div>
+                <div style="text-align:center;padding:1.8rem 1rem;background:var(--glass-white);border:1px solid var(--glass-border);border-radius:16px;transition:all .3s;" onmouseover="this.style.borderColor='var(--color-purple)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+                    <div style="font-size:2rem;margin-bottom:.8rem;">🏥</div>
+                    <div style="font-weight:600;font-size:.9rem;color:var(--color-text-primary);">Healthcare</div>
+                    <div style="font-size:.75rem;color:var(--color-text-dim);margin-top:.3rem;">Clinics & MedTech</div>
+                </div>
+                <div style="text-align:center;padding:1.8rem 1rem;background:var(--glass-white);border:1px solid var(--glass-border);border-radius:16px;transition:all .3s;" onmouseover="this.style.borderColor='var(--color-purple)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+                    <div style="font-size:2rem;margin-bottom:.8rem;">🏗️</div>
+                    <div style="font-weight:600;font-size:.9rem;color:var(--color-text-primary);">Construction</div>
+                    <div style="font-size:.75rem;color:var(--color-text-dim);margin-top:.3rem;">Project Management</div>
+                </div>
+                <div style="text-align:center;padding:1.8rem 1rem;background:var(--glass-white);border:1px solid var(--glass-border);border-radius:16px;transition:all .3s;" onmouseover="this.style.borderColor='var(--color-purple)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+                    <div style="font-size:2rem;margin-bottom:.8rem;">📚</div>
+                    <div style="font-weight:600;font-size:.9rem;color:var(--color-text-primary);">Education</div>
+                    <div style="font-size:.75rem;color:var(--color-text-dim);margin-top:.3rem;">Portals & LMS</div>
+                </div>
+                <div style="text-align:center;padding:1.8rem 1rem;background:var(--glass-white);border:1px solid var(--glass-border);border-radius:16px;transition:all .3s;" onmouseover="this.style.borderColor='var(--color-purple)'" onmouseout="this.style.borderColor='var(--glass-border)'">
+                    <div style="font-size:2rem;margin-bottom:.8rem;">💼</div>
+                    <div style="font-weight:600;font-size:.9rem;color:var(--color-text-primary);">B2B Services</div>
+                    <div style="font-size:.75rem;color:var(--color-text-dim);margin-top:.3rem;">Lead Gen & CRM</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ LEAD MAGNET: Digital Readiness Scorecard ══ -->
+    <section id="scorecard" style="padding:6rem 0;background:var(--bg-primary);position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-60px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(102,126,234,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+        <div class="container">
+            <div class="glass-card reveal" style="max-width:780px;margin:0 auto;padding:3.5rem;border:2px solid #1a1a1a;background:var(--bg-secondary);">
+                <div style="text-align:center;margin-bottom:2.5rem;">
+                    <span style="background:rgba(26,26,26,0.04);color:#1a1a1a;padding:.4rem 1.2rem;border-radius:50px;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;">Free Lead Magnet</span>
+                    <h2 style="font-size:2rem;margin:1rem 0 .8rem;font-family:var(--font-display);">Take the <span class="text-gradient">Digital Readiness Scorecard</span></h2>
+                    <p style="color:var(--color-text-secondary);font-size:1rem;max-width:560px;margin:0 auto;">5 quick questions. Get your personalised digital maturity score + a free roadmap PDF sent to your inbox.</p>
+                </div>
+
+                <!-- Progress bar -->
+                <div style="height:4px;background:var(--glass-border);border-radius:4px;margin-bottom:2rem;">
+                    <div id="scProgress" style="height:100%;background:var(--color-purple);border-radius:4px;width:20%;transition:width .4s ease;"></div>
+                </div>
+
+                <!-- Questions -->
+                <div id="scQuestions">
+                    <div class="sc-q active" data-q="1">
+                        <p style="font-weight:600;margin-bottom:1.2rem;font-size:1.05rem;">1 / 5 — Does your business have a professional website?</p>
+                        <div style="display:flex;flex-direction:column;gap:.7rem;">
+                            <button class="sc-opt" data-score="0">❌ No website yet</button>
+                            <button class="sc-opt" data-score="1">🟡 Basic / outdated site</button>
+                            <button class="sc-opt" data-score="2">✅ Modern, fast website</button>
+                        </div>
+                    </div>
+                    <div class="sc-q" data-q="2" style="display:none;">
+                        <p style="font-weight:600;margin-bottom:1.2rem;font-size:1.05rem;">2 / 5 — How do you currently manage customer enquiries & leads?</p>
+                        <div style="display:flex;flex-direction:column;gap:.7rem;">
+                            <button class="sc-opt" data-score="0">📋 Notebook / spreadsheet</button>
+                            <button class="sc-opt" data-score="1">📱 WhatsApp only</button>
+                            <button class="sc-opt" data-score="2">💻 CRM / automation system</button>
+                        </div>
+                    </div>
+                    <div class="sc-q" data-q="3" style="display:none;">
+                        <p style="font-weight:600;margin-bottom:1.2rem;font-size:1.05rem;">3 / 5 — Are you running paid ads or SEO for your business?</p>
+                        <div style="display:flex;flex-direction:column;gap:.7rem;">
+                            <button class="sc-opt" data-score="0">❌ Not doing any marketing</button>
+                            <button class="sc-opt" data-score="1">🟡 Occasional / inconsistent</button>
+                            <button class="sc-opt" data-score="2">✅ Consistent campaigns running</button>
+                        </div>
+                    </div>
+                    <div class="sc-q" data-q="4" style="display:none;">
+                        <p style="font-weight:600;margin-bottom:1.2rem;font-size:1.05rem;">4 / 5 — How are your business operations managed?</p>
+                        <div style="display:flex;flex-direction:column;gap:.7rem;">
+                            <button class="sc-opt" data-score="0">📄 Fully manual / paper-based</button>
+                            <button class="sc-opt" data-score="1">📊 Basic Excel / Tally</button>
+                            <button class="sc-opt" data-score="2">⚙️ ERP / integrated software</button>
+                        </div>
+                    </div>
+                    <div class="sc-q" data-q="5" style="display:none;">
+                        <p style="font-weight:600;margin-bottom:1.2rem;font-size:1.05rem;">5 / 5 — What's your biggest digital priority right now?</p>
+                        <div style="display:flex;flex-direction:column;gap:.7rem;">
+                            <button class="sc-opt" data-score="2" data-tag="website">🌐 Better website & online presence</button>
+                            <button class="sc-opt" data-score="2" data-tag="leads">📣 More leads & customers</button>
+                            <button class="sc-opt" data-score="2" data-tag="ops">⚙️ Automate operations / ERP</button>
+                            <button class="sc-opt" data-score="2" data-tag="ai">🤖 AI tools & automation</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email capture (shown after Q5) -->
+                <div id="scCapture" style="display:none;">
+                    <div id="scResultBadge" style="text-align:center;padding:1.5rem;background:var(--glass-white);border-radius:16px;margin-bottom:1.5rem;border:1px solid var(--glass-border);">
+                        <div id="scScoreEmoji" style="font-size:2.5rem;margin-bottom:.5rem;"></div>
+                        <div id="scScoreLabel" style="font-size:1.3rem;font-weight:700;margin-bottom:.3rem;"></div>
+                        <div id="scScoreDesc" style="font-size:.9rem;color:var(--color-text-secondary);"></div>
+                    </div>
+                    <p style="text-align:center;margin-bottom:1.2rem;color:var(--color-text-secondary);font-size:.95rem;">Enter your details to receive your <strong style="color:#1a1a1a;">personalised roadmap PDF</strong> (free):</p>
+                    <form id="scForm" style="display:flex;flex-direction:column;gap:.9rem;">
+                        <input type="text" id="scName" class="form-input" placeholder="Your Name" required>
+                        <input type="email" id="scEmail" class="form-input" placeholder="Your Email Address" required>
+                        <input type="tel" id="scPhone" class="form-input" placeholder="WhatsApp Number (optional)">
+                        <button type="submit" class="btn-primary" style="padding:1rem;">Send My Free Roadmap →</button>
+                    </form>
+                </div>
+
+                <!-- Success -->
+                <div id="scSuccess" style="display:none;text-align:center;padding:2rem 1rem;">
+                    <div style="font-size:3rem;margin-bottom:1rem;">🎉</div>
+                    <h3 style="font-size:1.5rem;margin-bottom:.8rem;">Roadmap is on its way!</h3>
+                    <p style="color:var(--color-text-secondary);margin-bottom:1.5rem;">We'll personalise it based on your score and send it within 24 hours. Meanwhile, chat with us now:</p>
+                    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                        <a href="https://wa.me/919840713587" target="_blank" class="btn-primary" style="background:var(--color-emerald);display:flex;align-items:center;gap:.6rem;"><i class="fab fa-whatsapp"></i>Chat on WhatsApp</a>
+                        <a href="pricing.html#estimator" class="btn-secondary">Try Cost Estimator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section (improved with stars) -->
+    <section class="testimonials-section" style="background:#fafaf9;">
+        <div class="container">
+            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 0.5rem;">What Our Clients Say</h2>
+            <p class="reveal" style="text-align:center;color:var(--color-text-secondary);margin-bottom:3rem;">Trusted by manufacturers, alloy companies, and growing businesses in Chennai.</p>
             <div class="testimonials-carousel reveal">
                 <div class="testimonials-track" id="testimonialsTrack">
-                    <!-- Testimonial 1 -->
                     <div class="testimonial-card">
+                        <div style="color:#F59E0B;font-size:1.1rem;margin-bottom:1rem;">★★★★★</div>
                         <p class="testimonial-quote">
-                            "SWEN TECH DIGITAL HUB & INNOVATIONS transformed our production workflow with their custom Operating
-                            System.
-                            The real-time tracking and automated calculations have increased our efficiency by 30%.
-                            Their technical expertise and dedication to quality are unmatched."
+                            "SWEN TECH transformed our production workflow with their custom Operating System. Real-time tracking and automated calculations increased our efficiency by 30%. Their technical expertise is unmatched."
                         </p>
                         <div class="testimonial-author">
-                            <div class="author-name">Rajesh Kumar</div>
-                            <div class="author-company">KRG Medifabb Pvt Ltd</div>
-                            <div class="author-role">Operations Director</div>
+                            <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--color-purple),var(--color-blue));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:.9rem;flex-shrink:0;">RK</div>
+                            <div>
+                                <div class="author-name">Rajesh Kumar</div>
+                                <div class="author-company">KRG Medifabb Pvt Ltd</div>
+                                <div class="author-role">Operations Director</div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Testimonial 2 -->
                     <div class="testimonial-card">
+                        <div style="color:#F59E0B;font-size:1.1rem;margin-bottom:1rem;">★★★★★</div>
                         <p class="testimonial-quote">
-                            "Working with SWEN TECH DIGITAL HUB & INNOVATIONS was a game-changer for our online presence. They delivered
-                            a
-                            stunning,
-                            SEO-optimized website that perfectly represents our brand. The attention to detail and
-                            professional approach exceeded our expectations."
+                            "Working with SWEN TECH was a game-changer for our online presence. They delivered a stunning, SEO-optimized website that perfectly represents our brand. Professional approach exceeded our expectations."
                         </p>
                         <div class="testimonial-author">
-                            <div class="author-name">Venkat Reddy</div>
-                            <div class="author-company">Srivari Alloys</div>
-                            <div class="author-role">Managing Director</div>
+                            <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--color-emerald),var(--color-blue));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:.9rem;flex-shrink:0;">VR</div>
+                            <div>
+                                <div class="author-name">Venkat Reddy</div>
+                                <div class="author-company">Srivari Alloys</div>
+                                <div class="author-role">Managing Director</div>
+                            </div>
                         </div>
                     </div>
-                    <!-- Testimonial 3 -->
                     <div class="testimonial-card">
+                        <div style="color:#F59E0B;font-size:1.1rem;margin-bottom:1rem;">★★★★★</div>
                         <p class="testimonial-quote">
-                            "The team's ability to understand our complex requirements and deliver a tailored solution
-                            was impressive. Their ERP system streamlined our operations and provided insights we never
-                            had before. Highly recommended for enterprise solutions."
+                            "The team's ability to understand our complex requirements and deliver a tailored ERP solution was impressive. Operations are streamlined and we have insights we never had before. Highly recommended."
                         </p>
                         <div class="testimonial-author">
-                            <div class="author-name">Priya Sharma</div>
-                            <div class="author-company">Manufacturing Solutions Inc</div>
-                            <div class="author-role">Chief Technology Officer</div>
+                            <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--color-gold),var(--color-purple));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:.9rem;flex-shrink:0;">PS</div>
+                            <div>
+                                <div class="author-name">Priya Sharma</div>
+                                <div class="author-company">Manufacturing Solutions Inc</div>
+                                <div class="author-role">Chief Technology Officer</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -519,6 +745,15 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section style="padding:5rem 0;background:var(--bg-secondary);">
+        <div class="container" style="max-width:800px;">
+            <h2 class="section-title reveal" style="text-align:center;margin-bottom:3rem;">Frequently Asked Questions</h2>
+            <div class="reveal" id="faqList" style="display:flex;flex-direction:column;gap:1rem;">
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -527,8 +762,8 @@
                 <div>
                     <a href="index.html" class="logo"
                         style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
-                        <img src="logo.jpg" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="35" height="35"
-                            style="height: 35px; border-radius: 6px;">
+                        <img src="logo.png" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="35" height="35"
+                            style="height: 35px; ">
                         <span>SWEN TECH DIGITAL HUB & INNOVATIONS</span>
                     </a>
                     <p style="color: var(--color-text-dim); line-height: 1.8; margin-bottom: 2rem;">
@@ -562,7 +797,7 @@
                         </li>
                         <li><a href="portfolio.html" style="color: inherit; text-decoration: none;">Case Studies</a>
                         </li>
-                        <li><a href="estimator.html" style="color: inherit; text-decoration: none;">Estimator &
+                        <li><a href="pricing.html#estimator" style="color: inherit; text-decoration: none;">Estimator &
                                 Pricing</a></li>
                         <li><a href="contact.html" style="color: inherit; text-decoration: none;">Get a Quote</a></li>
                     </ul>
@@ -594,7 +829,83 @@
     </footer>
 
     <script src="script.js"></script>
-</body>
+    <script>
+    // ── Scorecard styles ──
+    (function(){
+        const s = document.createElement('style');
+        s.textContent = `.sc-opt{width:100%;text-align:left;padding:.85rem 1.2rem;background:var(--glass-white);border:1px solid var(--glass-border);border-radius:12px;color:var(--color-text-primary);font-size:.95rem;cursor:pointer;transition:all .2s;font-family:var(--font-body);}
+        .sc-opt:hover{border-color:#1a1a1a;background:rgba(26,26,26,0.04);}
+        .testimonial-author{display:flex;align-items:center;gap:.8rem;}`;
+        document.head.appendChild(s);
+    })();
+
+    // ── Scorecard logic ──
+    (function(){
+        let scores=[], tag='website', currentQ=1, total=5;
+        document.querySelectorAll('.sc-opt').forEach(btn=>{
+            btn.addEventListener('click',function(){
+                scores.push(parseInt(this.dataset.score)||0);
+                if(this.dataset.tag) tag=this.dataset.tag;
+                currentQ++;
+                const progress = Math.min(currentQ/total*100,100);
+                document.getElementById('scProgress').style.width=progress+'%';
+                if(currentQ<=total){
+                    document.querySelector('.sc-q[data-q="'+(currentQ-1)+'"]').style.display='none';
+                    document.querySelector('.sc-q[data-q="'+currentQ+'"]').style.display='block';
+                } else {
+                    document.getElementById('scQuestions').style.display='none';
+                    showResult();
+                }
+            });
+        });
+        function showResult(){
+            const total_score = scores.reduce((a,b)=>a+b,0);
+            const max = 8; // max possible
+            const pct = Math.round(total_score/max*100);
+            let emoji,label,desc;
+            if(pct<=30){emoji='🔴';label='Early Stage ('+pct+'%)';desc='Your business has significant digital gaps. A structured roadmap will help you leapfrog competitors quickly.';}
+            else if(pct<=60){emoji='🟡';label='Developing ('+pct+'%)';desc='Good foundation but key growth channels are missing. Targeted upgrades could 2–3× your lead flow.';}
+            else{emoji='🟢';label='Advanced ('+pct+'%)';desc='Strong digital presence! Strategic AI and automation upgrades are your next growth lever.';}
+            document.getElementById('scScoreEmoji').textContent=emoji;
+            document.getElementById('scScoreLabel').textContent=label;
+            document.getElementById('scScoreDesc').textContent=desc;
+            document.getElementById('scCapture').style.display='block';
+        }
+        document.getElementById('scForm').addEventListener('submit',function(e){
+            e.preventDefault();
+            const name=document.getElementById('scName').value;
+            const email=document.getElementById('scEmail').value;
+            localStorage.setItem('estimateLeadName',name);
+            localStorage.setItem('estimateLeadEmail',email);
+            const phone=document.getElementById('scPhone').value;
+            if(phone) localStorage.setItem('estimateLeadPhone',phone);
+            document.getElementById('scCapture').style.display='none';
+            document.getElementById('scSuccess').style.display='block';
+            document.getElementById('scProgress').style.width='100%';
+            if(window.gtag) gtag('event','scorecard_lead',{priority:tag});
+        });
+    })();
+
+    // ── FAQ ──
+    (function(){
+        const faqs=[
+            ['How long does a website take to build?','For most business websites we deliver in 1–2 weeks. E-commerce and custom portals take 3–6 weeks depending on features. We always share a timeline before we start.'],
+            ['What are your payment terms?','We typically work on 50% upfront and 50% on delivery. For larger ERP projects we use milestone-based payments. We accept UPI, bank transfer, and cheque.'],
+            ['Do you provide ongoing support after launch?','Yes. All projects come with 30 days of free bug fixes after launch. We also offer monthly maintenance retainers starting at ₹5,000/month.'],
+            ['Can you work with our existing systems (Tally, SAP, etc.)?','Absolutely. We have experience integrating with Tally, Zoho, and custom APIs. We will assess compatibility during the free discovery call.'],
+            ['Do you serve clients outside Chennai?','Yes — we work with clients across India. Our process is fully remote-friendly with regular video calls and staging previews.'],
+            ['What makes SWEN TECH different from a freelancer?','A freelancer is one person. We are a full team — developer, designer, content, and QA — with a structured process, SLAs, and long-term support. Same cost efficiency, none of the single-point-of-failure risk.'],
+        ];
+        const list=document.getElementById('faqList');
+        if(!list) return;
+        faqs.forEach(([q,a],i)=>{
+            const el=document.createElement('div');
+            el.style.cssText='background:var(--glass-white);border:1px solid var(--glass-border);border-radius:14px;overflow:hidden;';
+            el.innerHTML=`<button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='block'?'none':'block';this.querySelector('.faq-icon').textContent=this.nextElementSibling.style.display==='block'?'−':'+';" style="width:100%;text-align:left;background:none;border:none;padding:1.2rem 1.5rem;color:var(--color-text-primary);font-size:1rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-body);"><span>${q}</span><span class="faq-icon" style="color:#1a1a1a;font-size:1.3rem;font-weight:400;flex-shrink:0;margin-left:1rem;">+</span></button><div style="display:none;padding:0 1.5rem 1.2rem;color:var(--color-text-secondary);font-size:.95rem;line-height:1.7;">${a}</div>`;
+            list.appendChild(el);
+        });
+    })();
+    </script>
 
 <!-- AI Technical Assistant -->
 <div class="ai-assistant-wrapper" id="aiAssistant">
@@ -671,6 +982,77 @@
         }
     }
 </style>
-</body>
 
+<div id="exitPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:99999;align-items:center;justify-content:center;padding:1rem;">
+  <div style="background:#fff;border-radius:16px;max-width:480px;width:100%;position:relative;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.2);">
+    <div style="height:4px;background:linear-gradient(90deg,#1a1a1a 33%,#1a9e82 33% 66%,#8a7560 66%)"></div>
+    <button onclick="document.getElementById('exitPopup').style.display='none';sessionStorage.setItem('exitSeen','1');" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#888;line-height:1;padding:.2rem .5rem;">×</button>
+    <div style="padding:2.5rem;">
+      <div style="font-size:.72rem;font-weight:700;color:#8a7560;text-transform:uppercase;letter-spacing:.15em;margin-bottom:.8rem;">Wait — before you go</div>
+      <h3 style="font-size:1.5rem;font-weight:800;color:#1a1a1a;letter-spacing:-.03em;margin-bottom:.8rem;">Get your free tech roadmap<br>worth ₹15,000</h3>
+      <p style="color:#888;font-size:.9rem;line-height:1.65;margin-bottom:1.5rem;">Tell us what you're building and we'll send you a personalised implementation plan — completely free, no strings.</p>
+      <form id="exitForm" style="display:flex;flex-direction:column;gap:.8rem;">
+        <input type="text" id="exitName" placeholder="Your Name" required style="padding:.8rem 1rem;border:1.5px solid #e8e3dd;border-radius:8px;font-size:.9rem;font-family:inherit;outline:none;">
+        <input type="email" id="exitEmail" placeholder="Your Email" required style="padding:.8rem 1rem;border:1.5px solid #e8e3dd;border-radius:8px;font-size:.9rem;font-family:inherit;outline:none;">
+        <button type="button" onclick="handleExitForm()" style="padding:.9rem;background:#1a1a1a;color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit;">Send Me the Free Roadmap →</button>
+      </form>
+      <div id="exitSuccess" style="display:none;text-align:center;padding:1rem 0;">
+        <div style="font-size:2rem;margin-bottom:.5rem;">✅</div>
+        <p style="font-weight:600;color:#1a1a1a;margin-bottom:.4rem;">Done! Check your inbox shortly.</p>
+        <a href="https://wa.me/919840713587" target="_blank" style="color:#1a9e82;font-size:.85rem;text-decoration:none;">Chat on WhatsApp now →</a>
+      </div>
+      <p style="text-align:center;font-size:.75rem;color:#ccc;margin-top:1rem;">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  if(sessionStorage.getItem('exitSeen')) return;
+  var fired=false;
+  document.addEventListener('mouseleave',function(e){
+    if(fired||e.clientY>20) return;
+    fired=true;
+    setTimeout(function(){ if(!sessionStorage.getItem('exitSeen')){document.getElementById('exitPopup').style.display='flex';} },300);
+  });
+  setTimeout(function(){
+    if(!fired&&!sessionStorage.getItem('exitSeen')){document.getElementById('exitPopup').style.display='flex';fired=true;}
+  },45000);
+})();
+function handleExitForm(){
+  var name=document.getElementById('exitName').value;
+  var email=document.getElementById('exitEmail').value;
+  if(!name||!email){alert('Please fill in both fields.');return;}
+  localStorage.setItem('estimateLeadName',name);
+  localStorage.setItem('estimateLeadEmail',email);
+  document.getElementById('exitForm').style.display='none';
+  document.getElementById('exitSuccess').style.display='block';
+  sessionStorage.setItem('exitSeen','1');
+  if(window.gtag) gtag('event','exit_intent_lead',{});
+  setTimeout(function(){document.getElementById('exitPopup').style.display='none';},4000);
+}
+</script>
+<script>
+(function(){
+  var els=document.querySelectorAll('.count-up');
+  if(!els.length) return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var el=entry.target;
+        var target=parseInt(el.dataset.target);
+        if(isNaN(target)) return;
+        var cur=0,steps=60,inc=target/steps;
+        var timer=setInterval(function(){
+          cur=Math.min(cur+inc,target);
+          el.textContent=Math.round(cur)+(el.dataset.suffix||'');
+          if(cur>=target) clearInterval(timer);
+        },23);
+        obs.unobserve(el);
+      }
+    });
+  },{threshold:0.4});
+  els.forEach(function(el){obs.observe(el);});
+})();
+</script>
+</body>
 </html>

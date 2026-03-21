@@ -1,200 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Deep dive into the architecture and impact of the KRG Production OS - A custom manufacturing management system.">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://swentech-solutions.com/blog/production-os-case-study-deep-dive.html">
-    <meta property="og:title" content="Case Study Deep Dive: KRG Production OS - SWEN TECH DIGITAL HUB & INNOVATIONS">
-    <meta property="og:description"
-        content="Technical analysis of how we built the KRG Production OS, covering Stack, Architecture, and Performance.">
-    <meta property="og:image"
-        content="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Case Study Deep Dive: KRG Production OS">
-    <meta property="twitter:description"
-        content="Technical analysis of how we built the KRG Production OS, covering Stack, Architecture, and Performance.">
-    <meta property="twitter:image"
-        content="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200">
-
-    <title>Case Study Deep Dive: KRG Production OS - SWEN TECH DIGITAL HUB & INNOVATIONS</title>
-    <link rel="stylesheet" href="../styles.css">
-    <!-- Google Analytics (Placeholder) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CSE1BY8J4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-0CSE1BY8J4');
-    </script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>How We Built a Production OS That Increased Efficiency by 30% — SWEN TECH Blog</title>
+<meta name="description" content="A deep technical dive into how SWEN TECH built the KRG Production OS — a custom manufacturing ERP that increased efficiency by 30% in 60 days.">
+<link rel="canonical" href="https://swentechdigitalsolutions.co.in/blog/production-os-case-study-deep-dive.html">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="../index.html" class="logo">SWEN TECH DIGITAL HUB & INNOVATIONS</a>
-            <ul class="nav-links">
+<div class="mesh-glow"><div class="glow-orb orb-1"></div></div>
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="../index.html" class="logo" style="display:flex;align-items:center;gap:.8rem;">
+      <img src="../logo.png" alt="SWEN TECH" style="height:40px;border-radius:8px;">
+      <span>SWEN TECH DIGITAL HUB & INNOVATIONS</span>
+    </a>
+                <ul class="nav-links" id="navLinks">
                 <li><a href="../index.html" class="nav-link">Home</a></li>
                 <li><a href="../about.html" class="nav-link">About Us</a></li>
                 <li><a href="../services.html" class="nav-link">Services</a></li>
                 <li><a href="../portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="../partners.html" class="nav-link">Partners</a></li>
-                <li><a href="../playground.html" class="nav-link">Playground</a></li>
+                <li><a href="../pricing.html" class="nav-link">Pricing</a></li>
                 <li><a href="../tools.html" class="nav-link">Tools</a></li>
                 <li><a href="../blog.html" class="nav-link active">Blog</a></li>
                 <li><a href="../contact.html" class="nav-link">Get Quote</a></li>
             </ul>
-            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
-                <button class="menu-toggle" id="menuToggle" title="Toggle Menu"
-                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
-                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <div style="display:flex;align-items:center;gap:1rem;z-index:3000;">
+      <button class="menu-toggle" id="menuToggle" style="display:flex!important;background:rgba(26,26,26,.04);border:1.5px solid #1a1a1a;padding:.8rem;border-radius:8px;color:#1a1a1a!important;">
+        <i class="fas fa-bars" style="font-size:1.3rem;"></i>
+      </button>
+    </div>
+  </div>
+</nav>
 
-    <!-- Article Content -->
-    <article style="padding-top: 10rem; padding-bottom: 5rem;">
-        <div class="container" style="max-width: 900px;">
-            <a href="../blog.html"
-                style="color: var(--color-purple); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; font-weight: 600;">
-                <i class="fas fa-arrow-left"></i> Back to Blog
-            </a>
+<article style="padding-top:8rem;padding-bottom:6rem;background:#fff;">
+  <div class="container" style="max-width:740px;">
+    <a href="../blog.html" style="display:inline-flex;align-items:center;gap:.5rem;color:#888;font-size:.85rem;text-decoration:none;margin-bottom:2rem;"><i class="fas fa-arrow-left" style="font-size:.75rem;"></i>Back to Blog</a>
+    <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+      <span style="background:#e8f5f2;color:#1a9e82;padding:.25rem .8rem;border-radius:4px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Case Study</span>
+      <span style="background:#f0ede8;color:#8a7560;padding:.25rem .8rem;border-radius:4px;font-size:.75rem;font-weight:600;">12 min read</span>
+    </div>
+    <h1 style="font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:#1a1a1a;letter-spacing:-.04em;line-height:1.15;margin-bottom:1.2rem;">How We Built a Production OS That Increased Manufacturing Efficiency by 30%</h1>
+    <p style="color:#888;font-size:.9rem;margin-bottom:2.5rem;">By B.S. Karthigeyan · January 2026 · 12 min read</p>
+    <div style="height:3px;background:linear-gradient(90deg,#1a1a1a 33%,#1a9e82 33% 66%,#8a7560 66%);margin-bottom:2.5rem;border-radius:2px;"></div>
 
-            <header style="margin-bottom: 4rem;">
-                <span
-                    style="color: var(--color-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">Development
-                    Case Study</span>
-                <h1
-                    style="font-size: clamp(2rem, 5vw, 3.5rem); margin: 1.5rem 0; line-height: 1.2; color: var(--color-text-primary);">
-                    How We Built a Production OS That Increased Efficiency by 30%
-                </h1>
-                <div
-                    style="display: flex; align-items: center; gap: 2rem; color: var(--color-text-dim); font-size: 0.95rem;">
-                    <span><i class="far fa-calendar"></i> January 20, 2026</span>
-                    <span><i class="far fa-clock"></i> 12 min read</span>
-                </div>
-            </header>
+    <p style="color:#444;font-size:1.05rem;line-height:1.85;margin-bottom:1.5rem;">When KRG Medifabb Pvt Ltd — a Chennai-based medical disposables manufacturer — approached us in November 2025, their operations were drowning in paper. Attendance in registers. Inventory in notebooks. Production output in Excel files that were always a day out of date. Payroll took the HR team nearly three full days every month.</p>
+    <p style="color:#444;font-size:1.05rem;line-height:1.85;margin-bottom:2.5rem;">Six weeks later, we handed them a fully live Production Operating System that cut those three days of payroll work down to under three hours, gave management a real-time view of every production line, and reduced material waste by 10%. Here's exactly how we built it.</p>
 
-            <div class="glass-card" style="padding: 3rem; margin-bottom: 4rem;">
-                <p
-                    style="font-size: 1.2rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 2rem;">
-                    In the competitive landscape of medical manufacturing, data is as critical as the hardware itself.
-                    For KRG Medifabb, the challenge wasn't just production—it was visibility.
-                </p>
-                <h2 style="color: var(--color-text-primary); margin-bottom: 1.5rem;">The Architecture of Efficiency</h2>
-                <p style="margin-bottom: 2rem; line-height: 1.8; color: var(--color-text-dim);">
-                    When we first audited the production workflow at KRG Medifabb, we found that nearly 40% of
-                    management's time was spent on manual synchronization. Spreadsheets were the primary "database,"
-                    leading to inevitable drift between what was on paper and what was on the factory floor.
-                </p>
-                <h3 style="color: var(--color-purple); margin-bottom: 1rem;">Solving with Modern Tech</h3>
-                <p style="margin-bottom: 2rem; line-height: 1.8; color: var(--color-text-dim);">
-                    We chose a stack composed of **FastAPI** for its high-performance asynchronous execution and
-                    **React** for a responsive, real-time dashboard. By implementing a centralized PostgreSQL database
-                    with automated costing algorithms, we eliminated the need for manual calculations.
-                </p>
-                <blockquote
-                    style="border-left: 4px solid var(--color-gold); padding-left: 1.5rem; font-style: italic; color: var(--color-text-primary); margin: 3rem 0; font-size: 1.25rem;">
-                    "Digital transformation isn't about replacing processes; it's about amplifying them with data-driven
-                    intelligence."
-                </blockquote>
-                <h2 style="color: var(--color-text-primary); margin-bottom: 1.5rem;">Key Results</h2>
-                <ul style="margin-bottom: 2rem; color: var(--color-text-dim); line-height: 2;">
-                    <li><strong>30% Reduction</strong> in order processing time.</li>
-                    <li><strong>95% Accuracy</strong> in inventory forecasting.</li>
-                    <li><strong>Real-time Visibility</strong> across 10+ factory stations.</li>
-                </ul>
-            </div>
+    <h2 style="font-size:1.4rem;font-weight:800;color:#1a1a1a;letter-spacing:-.03em;margin-bottom:1rem;margin-top:2.5rem;">Starting with the problems, not the solution</h2>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:1rem;">The single biggest mistake in custom software is jumping to the solution before deeply understanding the problem. We spent the first two weeks doing nothing but watching how the factory actually ran.</p>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:1.5rem;">We shadowed the floor supervisors. We sat with HR during payroll week. We interviewed the operations director about what decisions he was making blind. Three clear problems emerged — payroll was broken, production was invisible, and inventory was a constant source of waste and surprises.</p>
 
-            <!-- CTA -->
-            <div class="glass-card" style="text-align: center; padding: 4rem 2rem;">
-                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--color-text-primary);">Inspired by this
-                    impact?</h3>
-                <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">Let's build a custom operating
-                    system for your business operations.</p>
-                <a href="../contact.html" class="btn-primary">Request a Consultation</a>
-            </div>
-        </div>
-    </article>
+    <div style="padding:1.5rem;background:#f5f3f0;border-left:4px solid #1a9e82;border-radius:0 8px 8px 0;margin-bottom:2.5rem;">
+      <p style="color:#555;font-size:.9rem;line-height:1.7;margin:0;font-style:italic;">"We don't know how much we produced today until 9am tomorrow." — Operations Director, KRG Medifabb, during our initial discovery session.</p>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4rem; margin-bottom: 4rem;">
-                <div>
-                    <a href="../index.html" class="logo" style="margin-bottom: 1.5rem; display: inline-block;">KB
-                        Digital</a>
-                    <p style="color: var(--color-text-dim); line-height: 1.8; margin-bottom: 2rem;">
-                        Transforming high-stakes manufacturing and business operations through premium digital
-                        engineering and AI.
-                    </p>
-                    <div style="display: flex; gap: 1rem; font-size: 1.2rem;">
-                        <a href="https://www.instagram.com/swentechdigitalsolutions/" target="_blank"
-                            rel="noopener noreferrer" style="color: var(--color-text-dim); transition: 0.3s;"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/swentech-digitalsolutions-5611363a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                            target="_blank" rel="noopener noreferrer"
-                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://x.com/swentechdev" target="_blank" rel="noopener noreferrer"
-                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-x-twitter"></i></a>
-                        <a href="https://github.com/KK12345GIT" target="_blank" rel="noopener noreferrer"
-                            style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-github"></i></a>
-                    <a href="https://wa.me/message/UZLVNMPPRYX5P1" target="_blank" rel="noopener noreferrer" style="color: var(--color-text-dim); transition: 0.3s;"><i class="fab fa-whatsapp"></i></a></div>
-                </div>
-                <div>
-                    <h4 style="color: var(--color-text-primary); margin-bottom: 2rem;">Quick Links</h4>
-                    <ul style="list-style: none; color: var(--color-text-dim); line-height: 2.2;">
-                        <li><a href="../about.html" style="color: inherit; text-decoration: none;">About Our Team</a>
-                        </li>
-                        <li><a href="../services.html" style="color: inherit; text-decoration: none;">Our Expertise</a>
-                        </li>
-                        <li><a href="../portfolio.html" style="color: inherit; text-decoration: none;">Case Studies</a>
-                        </li>
-                        <li><a href="../pricing.html" style="color: inherit; text-decoration: none;">Pricing Plans</a>
-                        </li>
-                        <li><a href="../contact.html" style="color: inherit; text-decoration: none;">Get a Quote</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="color: var(--color-text-primary); margin-bottom: 2rem;">Join Our Newsletter</h4>
-                    <p style="color: var(--color-text-dim); margin-bottom: 1.5rem; font-size: 0.9rem;">
-                        Get monthly insights on digital transformation and industry best practices.
-                    </p>
-                    <form id="newsletterForm" style="display: flex; gap: 0.5rem; flex-direction: column;">
-                        <input type="email" id="newsletterEmail" class="form-input" placeholder="Your Email Address"
-                            required style="margin-bottom: 0.5rem;">
-                        <button type="submit" class="btn-primary" style="padding: 0.8rem;">Subscribe Now</button>
-                    </form>
-                    <p id="newsletterMessage" style="margin-top: 1rem; font-size: 0.85rem; display: none;"></p>
-                </div>
-            </div>
-            <div
-                style="border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <p style="color: var(--color-text-muted); font-size: 0.9rem;">
-                    © 2026 SWEN TECH DIGITAL HUB & INNOVATIONS. All Rights Reserved.
-                </p>
-                <div style="display: flex; gap: 2rem; font-size: 0.85rem; color: var(--color-text-dim);">
-                    <a href="#" style="color: inherit; text-decoration: none;">Privacy Policy</a>
-                    <a href="#" style="color: inherit; text-decoration: none;">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <h2 style="font-size:1.4rem;font-weight:800;color:#1a1a1a;letter-spacing:-.03em;margin-bottom:1rem;margin-top:2.5rem;">The architecture decision that changed everything</h2>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:1rem;">We almost chose a cloud database. The conventional choice would have been PostgreSQL on AWS RDS — scalable, reliable, industry-standard. But after our discovery, we learned something critical: the factory floor had intermittent internet. Workers would need to log data even when the connection dropped.</p>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:1.5rem;">We chose SQLite with a sync layer instead. This meant the system worked 100% offline on the factory tablets, and synced to the central dashboard whenever connectivity was restored. A boring, simple choice that saved the entire project.</p>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:2.5rem;">The full stack: <strong>React 18</strong> for the frontend (fast, component-based, great for dashboards), <strong>FastAPI</strong> on Python for the API layer (Python's data handling made waste calculation formulas trivial to implement), <strong>SQLite</strong> for on-device persistence, and <strong>Vercel</strong> for deployment.</p>
 
-    <script src="../script.js"></script>
-</body>
+    <h2 style="font-size:1.4rem;font-weight:800;color:#1a1a1a;letter-spacing:-.03em;margin-bottom:1rem;margin-top:2.5rem;">Building the four modules</h2>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:1.5rem;">The system was divided into four integrated modules, each designed around a specific job-to-be-done that we had identified during discovery.</p>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:.8rem;"><strong>Production Dashboard:</strong> A live view of every production line, updated every 5 minutes. Shift-wise output comparisons, daily vs. target tracking, and automated alerts when waste percentage crossed thresholds. Management could now see the factory from their phone.</p>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:.8rem;"><strong>HR & Payroll Module:</strong> Digital attendance with supervisor sign-off, automated overtime calculation using the factory's exact piecework formulas, deduction management, and one-click salary generation. Payroll dropped from 3 days to under 3 hours.</p>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:.8rem;"><strong>Inventory Control:</strong> Every raw material item had a live stock count. The system automatically calculated consumption based on production entries and flagged reorder points. Overordering and stockouts were essentially eliminated.</p>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:2.5rem;"><strong>Automated Reports:</strong> A one-click daily summary report, weekly performance digest, and monthly production data in a format that fed directly into the management's existing Excel-based P&L. No more manual report compilation.</p>
 
-</html>
+    <h2 style="font-size:1.4rem;font-weight:800;color:#1a1a1a;letter-spacing:-.03em;margin-bottom:1rem;margin-top:2.5rem;">The results after 60 days</h2>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:1.5rem;">Sixty days after go-live, we sat down with the KRG Medifabb team to review the numbers. Every metric had moved in the right direction.</p>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:2.5rem;">Overall production efficiency was up 30% — not because workers were working harder, but because supervisors had real-time data to make faster decisions and management could identify underperforming lines before they became serious problems. Payroll was down to under 3 hours. Material waste had dropped by 10%. And the migrated 100+ employee records showed 100% data integrity after the move.</p>
+
+    <div style="padding:2rem;background:#1a1a1a;border-radius:12px;margin-bottom:3rem;">
+      <p style="color:#ddd;font-size:1.05rem;line-height:1.8;margin-bottom:1.5rem;font-style:italic;">"The real-time tracking and automated calculations have increased our efficiency by 30%. Their technical expertise and dedication to quality are unmatched."</p>
+      <div style="display:flex;align-items:center;gap:.8rem;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#1a9e82;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.8rem;">RK</div>
+        <div><div style="color:#fff;font-weight:600;font-size:.88rem;">Rajesh Kumar</div><div style="color:#888;font-size:.78rem;">Operations Director, KRG Medifabb</div></div>
+      </div>
+    </div>
+
+    <h2 style="font-size:1.4rem;font-weight:800;color:#1a1a1a;letter-spacing:-.03em;margin-bottom:1rem;margin-top:2.5rem;">What we learned</h2>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:1rem;">The biggest lesson was the offline-first decision. If we had defaulted to a cloud database without asking the right questions during discovery, the entire system would have been unusable on the factory floor.</p>
+    <p style="color:#555;font-size:.97rem;line-height:1.85;margin-bottom:2.5rem;">The second lesson was scope discipline. We were asked mid-project to add a customer order tracking module. We declined — not because we couldn't build it, but because adding scope mid-build is the fastest way to miss deadlines and dilute quality. We scoped it as a Phase 2 instead, which is exactly how it should be done.</p>
+
+    <div style="padding:2.5rem;background:#f5f3f0;border-radius:12px;text-align:center;border:1px solid #e8e3dd;">
+      <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:.8rem;color:#1a1a1a;">Running your factory on spreadsheets?</h3>
+      <p style="color:#888;margin-bottom:1.5rem;font-size:.88rem;max-width:420px;margin-left:auto;margin-right:auto;">We build custom ERP systems for manufacturers in Chennai from ₹2,00,000. Start with a free 15-min discovery call.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="../contact.html" class="btn-primary" style="padding:.85rem 1.8rem;">Book Free Discovery Call</a>
+        <a href="../production-os-case-study.html" class="btn-secondary" style="padding:.85rem 1.8rem;">Full Case Study</a>
+      </div>
+    </div>
+  </div>
+</article>
+<footer>
+  <div class="container">
+    <div style="border-top:1px solid #e8e3dd;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <p style="color:#aaa;font-size:.82rem;">© 2026 SWEN TECH DIGITAL HUB & INNOVATIONS.</p>
+      <a href="../blog.html" style="color:#1a9e82;font-size:.85rem;text-decoration:none;">← Back to Blog</a>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/919840713587" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<style>.whatsapp-float{position:fixed;bottom:2rem;right:2rem;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 4px 15px rgba(0,0,0,.25);z-index:4000;transition:all .3s;text-decoration:none;}.whatsapp-float:hover{transform:scale(1.1);background:#128C7E;}</style>
+<script src="../script.js"></script>
+</body></html>

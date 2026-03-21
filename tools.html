@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
@@ -29,13 +29,44 @@
 
     <!-- PWA Settings -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#667eea">
+    <meta name="theme-color" content="#0e0e0e">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ── Page-level mobile fixes ── */
+@media(max-width:768px){
+  .estimator-grid{grid-template-columns:1fr!important;}
+  .estimator-sidebar{position:static!important;top:auto!important;}
+  .bento-grid{grid-template-columns:1fr!important;}
+  .bento-large,.bento-medium,.bento-small{grid-column:span 1!important;grid-row:span 1!important;}
+  .tier-grid{grid-template-columns:1fr!important;}
+  .project-type-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .features-grid{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="grid-template-columns: repeat(auto-fit"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 350px"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 420px"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: repeat(4"]{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="grid-template-columns: repeat(3"]{grid-template-columns:1fr!important;}
+  section{padding:3.5rem 0!important;}
+  .hero-content{padding:5.5rem 0 3.5rem!important;}
+  .section-title{font-size:clamp(1.7rem,6vw,2.4rem)!important;}
+  .team-modal-header,.team-modal-body{padding:1.5rem!important;}
+  .price-tab-bar{flex-wrap:wrap;}
+  .price-tab{flex:1 1 40%;}
+}
+@media(max-width:480px){
+  .container{padding:0 1rem!important;}
+  .glass-card{padding:1.4rem!important;}
+  .hero-title{font-size:clamp(2rem,8vw,3rem)!important;}
+  .metric-value{font-size:1.9rem!important;}
+  .pricing-cols,.pricing-row{grid-template-columns:2fr 1fr 1fr 1fr!important;}
+}
+</style>
 </head>
 
 <body>
@@ -53,29 +84,28 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem;">
-                <img src="logo.jpg" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="40" height="40"
-                    style="height: 40px; border-radius: 8px;">
+                <img src="logo.png" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="40" height="40"
+                    style="height: 40px; ">
                 <span>SWEN TECH DIGITAL HUB & INNOVATIONS</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About Us</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="estimator.html" class="nav-link">Estimator</a></li>
-                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
-                <li><a href="playground.html" class="nav-link">Playground</a></li>
+                        <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link ">Home</a></li>
+                <li><a href="about.html" class="nav-link ">About Us</a></li>
+                <li><a href="services.html" class="nav-link ">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link ">Portfolio</a></li>
+                <li><a href="pricing.html" class="nav-link ">Pricing</a></li>
                 <li><a href="tools.html" class="nav-link active">Tools</a></li>
-                <li><a href="blog.html" class="nav-link">Blog</a></li>
-                <li><a href="contact.html" class="nav-link">Get Quote</a></li>
+                <li><a href="blog.html" class="nav-link ">Blog</a></li>
+                <li><a href="contact.html" class="nav-link ">Get Quote</a></li>
             </ul>
-            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
-                <button class="menu-toggle" id="menuToggle" title="Toggle Menu" aria-label="Open navigation menu"
-                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
-                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                        <div style="display:flex;align-items:center;gap:1rem;position:relative;z-index:5100;">
+                <button class="menu-toggle" id="menuToggle" 
+                    aria-label="Toggle navigation" aria-expanded="false"
+                    style="display:flex!important;background:transparent;border:1.5px solid #1a1a1a;padding:.75rem;border-radius:8px;color:#1a1a1a!important;width:44px;height:44px;align-items:center;justify-content:center;">
+                    <i class="fas fa-bars" style="font-size:1.2rem;color:#1a1a1a;"></i>
                 </button>
             </div>
-        </div>
+            </div>
     </nav>
 
     <!-- Hero Section -->
@@ -100,7 +130,7 @@
                 <div class="tools-sidebar">
                     <div class="glass-card" style="padding: 1.5rem;">
                         <h4
-                            style="margin-bottom: 1.5rem; color: var(--color-purple); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                            style="margin-bottom: 1.5rem; color:#1a1a1a; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
                             Available Tools</h4>
                         <div class="tool-menu" style="display: flex; flex-direction: column; gap: 0.5rem;">
                             <button class="tool-menu-btn active" data-tool="api-tester">
@@ -129,7 +159,7 @@
                     <div id="tool-api-tester" class="tool-container active">
                         <div class="glass-card" style="padding: 3rem;">
                             <h2 style="margin-bottom: 2rem;"><i class="fas fa-plug"
-                                    style="color: var(--color-purple); margin-right: 1rem;"></i> API Response Time
+                                    style="color:#1a1a1a; margin-right: 1rem;"></i> API Response Time
                                 Tester</h2>
                             <p style="color: var(--color-text-secondary); margin-bottom: 2.5rem;">
                                 Test the latency, status code, and header size of any public API endpoint.
@@ -225,7 +255,7 @@
                     <div id="tool-responsive" class="tool-container">
                         <div class="glass-card" style="padding: 3rem;">
                             <h2 style="margin-bottom: 2rem;"><i class="fas fa-mobile-screen"
-                                    style="color: var(--color-cyan); margin-right: 1rem;"></i> Mobile Responsiveness
+                                    style="color:#444444; margin-right: 1rem;"></i> Mobile Responsiveness
                                 Checker</h2>
                             <p style="color: var(--color-text-secondary); margin-bottom: 2.5rem;">
                                 Preview your website across multiple device viewports simultaneously to ensure flawless
@@ -306,7 +336,25 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Fix This For Me CTA -->
+    <section style="padding:4rem 0;background:var(--bg-secondary);">
+        <div class="container">
+            <div class="glass-card reveal" style="padding:3rem;background:var(--bg-secondary);border:1px solid #e2ddd7;text-align:center;">
+                <div style="font-size:2.5rem;margin-bottom:1rem;">🔧</div>
+                <h3 style="font-size:1.8rem;margin-bottom:1rem;font-family:var(--font-display);">Found Issues? <span class="text-gradient">Let Us Fix Them.</span></h3>
+                <p style="color:var(--color-text-secondary);max-width:600px;margin:0 auto 2rem;font-size:1rem;line-height:1.8;">
+                    Our tools just showed you where your site is losing performance, SEO rankings, or mobile users. 
+                    We specialise in exactly these fixes. Get a free audit and a step-by-step plan — no strings attached.
+                </p>
+                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                    <a href="contact.html" class="btn-primary" style="padding:0.9rem 2rem;"><i class="fas fa-search" style="margin-right:0.5rem;"></i>Get a Free Site Audit</a>
+                    <a href="https://wa.me/919840713587" target="_blank" class="btn-secondary" style="padding:0.9rem 2rem;background:rgba(37,211,102,0.1);border-color:#25D366;color:#25D366;display:flex;align-items:center;gap:0.6rem;">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="container">
             <div
@@ -323,6 +371,16 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919840713587" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <style>
+        .whatsapp-float{position:fixed;bottom:2rem;right:2rem;background-color:#25D366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 4px 15px rgba(0,0,0,0.3);z-index:4000;transition:all 0.3s ease;text-decoration:none;}
+        .whatsapp-float:hover{transform:scale(1.1);background-color:#128C7E;}
+        @media(max-width:768px){.whatsapp-float{bottom:1.5rem;right:1.5rem;width:50px;height:50px;font-size:1.5rem;}}
+    </style>
 
     <!-- AI Technical Assistant -->
     <div class="ai-assistant-wrapper" id="aiAssistant">

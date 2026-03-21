@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Pricing — SWEN TECH DIGITAL HUB & INNOVATIONS | Transparent Packages</title>
+<meta name="description" content="Real, transparent pricing for websites (from ₹5K), digital marketing (from ₹5.5K/mo), AI automation (from ₹25K), and ERP systems (from ₹1.1L). Chennai digital agency.">
+<link rel="canonical" href="https://swentechdigitalsolutions.co.in/pricing.html">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e0e0e">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CSE1BY8J4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0CSE1BY8J4');</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+.price-tab-bar{display:flex;gap:.5rem;margin-bottom:2.5rem;background:#f5f3f0;padding:.4rem;border-radius:10px;border:1px solid #e8e3dd;}
+.price-tab{flex:1;padding:.75rem 1rem;text-align:center;border-radius:8px;border:none;background:transparent;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;color:#888;font-family:inherit;}
+.price-tab.active{background:#1a1a1a;color:#fff;}
+.tier-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.5rem;margin-bottom:2.5rem;}
+.tier{background:#fff;border:1px solid #e8e3dd;border-radius:12px;overflow:hidden;transition:all .25s;}
+.tier:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.08);}
+.tier-top{padding:1.5rem 1.5rem 1.2rem;border-bottom:1px solid #e8e3dd;}
+.tier-badge{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.25rem .7rem;border-radius:4px;display:inline-block;margin-bottom:.8rem;}
+.badge-green{background:#dcfce7;color:#166534;}
+.badge-amber{background:#fef3c7;color:#92400e;}
+.badge-red{background:#fee2e2;color:#991b1b;}
+.tier-name{font-size:1.15rem;font-weight:800;color:#1a1a1a;letter-spacing:-.02em;margin-bottom:.25rem;}
+.tier-sub{font-size:.8rem;color:#888;}
+.tier-range{font-size:1.6rem;font-weight:800;color:#1a1a1a;letter-spacing:-.04em;margin:.8rem 0 .2rem;}
+.tier-range small{font-size:.9rem;font-weight:500;color:#888;}
+.tier-works{font-size:.75rem;color:#8a7560;font-weight:600;}
+.svc-list{padding:1rem 1.5rem;border-bottom:1px solid #e8e3dd;display:flex;flex-direction:column;gap:.1rem;}
+.svc-item{display:flex;align-items:center;gap:.6rem;padding:.35rem 0;font-size:.82rem;color:#555;border-bottom:1px solid rgba(0,0,0,.04);}
+.svc-item:last-child{border-bottom:none;}
+.svc-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.dot-g{background:#22c55e;} .dot-a{background:#f59e0b;} .dot-r{background:#ef4444;}
+.price-tbl{padding:1.2rem 1.5rem;}
+.tbl-head{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;margin-bottom:4px;}
+.th{font-size:.68rem;color:#aaa;font-weight:600;text-align:right;letter-spacing:.04em;}
+.th:first-child{text-align:left;}
+.tbl-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:.4rem 0;border-bottom:1px solid rgba(0,0,0,.04);align-items:center;}
+.tbl-row:last-child{border-bottom:none;}
+.td-name{font-size:.77rem;color:#888;line-height:1.3;}
+.td-val{font-size:.77rem;font-weight:600;text-align:right;color:#555;}
+.td-total{color:#1a1a1a;font-weight:800;font-size:.82rem;}
+.td-gold{color:#8a7560;font-weight:800;}
+.total-strip{margin-top:.8rem;padding:.9rem 1rem;border-radius:8px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;background:#f5f3f0;}
+.summary-bar{background:#1a1a1a;border-radius:12px;padding:2rem 2.5rem;text-align:center;margin-top:1.5rem;}
+.summary-label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:#8a7560;margin-bottom:.6rem;}
+.summary-range{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:#fff;margin-bottom:.3rem;letter-spacing:-.03em;}
+.summary-range span{color:#8a7560;}
+.summary-note{font-size:.8rem;color:#888;}
+.section-toggle{display:none;}
+@media(max-width:768px){.tier-grid{grid-template-columns:1fr;}}
+</style>
+
+<style>
+/* ── Page-level mobile fixes ── */
+@media(max-width:768px){
+  .estimator-grid{grid-template-columns:1fr!important;}
+  .estimator-sidebar{position:static!important;top:auto!important;}
+  .bento-grid{grid-template-columns:1fr!important;}
+  .bento-large,.bento-medium,.bento-small{grid-column:span 1!important;grid-row:span 1!important;}
+  .tier-grid{grid-template-columns:1fr!important;}
+  .project-type-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .features-grid{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="grid-template-columns: repeat(auto-fit"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 350px"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 420px"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: repeat(4"]{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="grid-template-columns: repeat(3"]{grid-template-columns:1fr!important;}
+  section{padding:3.5rem 0!important;}
+  .hero-content{padding:5.5rem 0 3.5rem!important;}
+  .section-title{font-size:clamp(1.7rem,6vw,2.4rem)!important;}
+  .team-modal-header,.team-modal-body{padding:1.5rem!important;}
+  .price-tab-bar{flex-wrap:wrap;}
+  .price-tab{flex:1 1 40%;}
+}
+@media(max-width:480px){
+  .container{padding:0 1rem!important;}
+  .glass-card{padding:1.4rem!important;}
+  .hero-title{font-size:clamp(2rem,8vw,3rem)!important;}
+  .metric-value{font-size:1.9rem!important;}
+  .pricing-cols,.pricing-row{grid-template-columns:2fr 1fr 1fr 1fr!important;}
+}
+</style>
+</head>
+<body>
+<div class="mesh-glow"><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div></div>
+<div id="customCursor"></div>
+<nav class="navbar">
+  <div class="container nav-container">
+    <a href="index.html" class="logo" style="display:flex;align-items:center;gap:.8rem;">
+      <img src="logo.png" alt="SWEN TECH" style="height:40px;">
+      <span>SWEN TECH DIGITAL HUB & INNOVATIONS</span>
+    </a>
+                <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link ">Home</a></li>
+                <li><a href="about.html" class="nav-link ">About Us</a></li>
+                <li><a href="services.html" class="nav-link ">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link ">Portfolio</a></li>
+                <li><a href="pricing.html" class="nav-link active">Pricing</a></li>
+                <li><a href="tools.html" class="nav-link ">Tools</a></li>
+                <li><a href="blog.html" class="nav-link ">Blog</a></li>
+                <li><a href="contact.html" class="nav-link ">Get Quote</a></li>
+            </ul>
+                <div style="display:flex;align-items:center;gap:1rem;position:relative;z-index:5100;">
+                <button class="menu-toggle" id="menuToggle" 
+                    aria-label="Toggle navigation" aria-expanded="false"
+                    style="display:flex!important;background:transparent;border:1.5px solid #1a1a1a;padding:.75rem;border-radius:8px;color:#1a1a1a!important;width:44px;height:44px;align-items:center;justify-content:center;">
+                    <i class="fas fa-bars" style="font-size:1.2rem;color:#1a1a1a;"></i>
+                </button>
+            </div>
+            </div>
+</nav>
+
+<!-- Hero -->
+<section style="padding-top:8rem;padding-bottom:3rem;background:#fff;border-bottom:1px solid #e8e3dd;">
+  <div class="container">
+    <span style="font-size:.72rem;font-weight:700;color:#8a7560;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:1rem;">Real Market Pricing · 2025</span>
+    <h1 class="section-title" style="max-width:700px;margin-bottom:1rem;">Transparent pricing.<br>No guesswork, no surprises.</h1>
+    <p style="color:#666;font-size:1.05rem;max-width:600px;line-height:1.75;margin-bottom:2rem;">Our full service catalog with real market rates — researched and validated by our Digital Marketing team. Every price shown reflects actual Chennai market rates for 2025.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+      <a href="#estimator" class="btn-primary" style="display:flex;align-items:center;gap:.6rem;"><i class="fas fa-calculator"></i>Get Exact Estimate</a>
+      <a href="contact.html" class="btn-secondary">Talk to Our Team</a>
+      <span style="font-size:.8rem;color:#888;display:flex;align-items:center;gap:.5rem;"><i class="fas fa-shield-halved" style="color:#1a9e82;"></i>Free 15-min discovery on every project</span>
+    </div>
+  </div>
+</section>
+
+<!-- Tab toggle -->
+<section style="padding:3rem 0;background:#fafaf9;">
+  <div class="container">
+    <div class="price-tab-bar" style="max-width:500px;">
+      <button class="price-tab active" onclick="switchTab('tech',this)" id="tab-tech">🖥️ Technical Services</button>
+      <button class="price-tab" onclick="switchTab('dm',this)" id="tab-dm">📱 Digital Marketing</button>
+      <button class="price-tab" onclick="document.getElementById('estimator').scrollIntoView({behavior:'smooth'})">🧮 Get Estimate</button>
+    </div>
+
+    <!-- ══ TECHNICAL TEAM ══ -->
+    <div id="section-tech">
+      <div style="margin-bottom:2rem;">
+        <h2 style="font-size:1.4rem;font-weight:800;color:#1a1a1a;letter-spacing:-.03em;margin-bottom:.4rem;">Website & App Development</h2>
+        <p style="color:#888;font-size:.9rem;">From simple landing pages to full enterprise systems — all built in Chennai, delivered fast.</p>
+      </div>
+
+      <div class="tier-grid">
+
+        <!-- STARTER -->
+        <div class="tier">
+          <div class="tier-top">
+            <div class="tier-badge badge-green">🟢 Starter Package</div>
+            <div class="tier-name">Basic Works</div>
+            <div class="tier-sub">Low budget · 5–7 deliverables</div>
+            <div class="tier-range">₹6,000 <small>–</small> ₹17,500</div>
+            <div class="tier-works">Best for: New businesses, landing pages, simple web presence</div>
+          </div>
+          <div class="svc-list">
+            <div class="svc-item"><span class="svc-dot dot-g"></span>Website Design & Development</div>
+            <div class="svc-item"><span class="svc-dot dot-g"></span>Domain & Hosting Setup</div>
+            <div class="svc-item"><span class="svc-dot dot-g"></span>Landing Page Creation</div>
+            <div class="svc-item"><span class="svc-dot dot-g"></span>WhatsApp Business API Setup</div>
+            <div class="svc-item"><span class="svc-dot dot-g"></span>SEO Technical Setup</div>
+          </div>
+          <div class="price-tbl">
+            <div class="tbl-head"><div class="th">Service</div><div class="th">Min</div><div class="th">Std</div><div class="th">Max</div></div>
+            <div class="tbl-row"><div class="td-name">Website Design</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="tbl-row"><div class="td-name">Domain & Hosting</div><div class="td-val">₹500</div><div class="td-val">₹1K</div><div class="td-val">₹2K</div></div>
+            <div class="tbl-row"><div class="td-name">Landing Page</div><div class="td-val">₹1.5K</div><div class="td-val">₹2.5K</div><div class="td-val">₹4K</div></div>
+            <div class="tbl-row"><div class="td-name">WhatsApp API</div><div class="td-val">₹500</div><div class="td-val">₹1K</div><div class="td-val">₹1.5K</div></div>
+            <div class="tbl-row"><div class="td-name">SEO Setup</div><div class="td-val">₹500</div><div class="td-val">₹1K</div><div class="td-val">₹2K</div></div>
+            <div class="total-strip">
+              <div class="td-total">TOTAL</div>
+              <div class="td-gold">₹6K</div>
+              <div class="td-gold">₹10.5K</div>
+              <div class="td-gold">₹17.5K</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROWTH -->
+        <div class="tier" style="border-top:3px solid #1a1a1a;">
+          <div style="background:#1a1a1a;color:#fff;text-align:center;font-size:.68rem;font-weight:700;letter-spacing:.08em;padding:.4rem;text-transform:uppercase;">Most Popular</div>
+          <div class="tier-top">
+            <div class="tier-badge badge-amber">🟡 Growth Package</div>
+            <div class="tier-name">Standard Works</div>
+            <div class="tier-sub">Medium budget · 8–11 deliverables</div>
+            <div class="tier-range">₹37,000 <small>–</small> ₹87,000</div>
+            <div class="tier-works">Best for: SMBs, growing businesses, e-commerce</div>
+          </div>
+          <div class="svc-list">
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Website Design & Development</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Web App Development</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Domain & Hosting Setup</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Landing Page Creation</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>E-commerce Website</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>CRM Software Setup</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>WhatsApp Business API</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Email System Setup</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>SEO Technical Setup</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Google Analytics Setup</div>
+          </div>
+          <div class="price-tbl">
+            <div class="tbl-head"><div class="th">Service</div><div class="th">Min</div><div class="th">Std</div><div class="th">Max</div></div>
+            <div class="tbl-row"><div class="td-name">Website Design</div><div class="td-val">₹8K</div><div class="td-val">₹12K</div><div class="td-val">₹18K</div></div>
+            <div class="tbl-row"><div class="td-name">Web App Dev</div><div class="td-val">₹10K</div><div class="td-val">₹15K</div><div class="td-val">₹22K</div></div>
+            <div class="tbl-row"><div class="td-name">Domain & Hosting</div><div class="td-val">₹1K</div><div class="td-val">₹2K</div><div class="td-val">₹3K</div></div>
+            <div class="tbl-row"><div class="td-name">Landing Page</div><div class="td-val">₹2K</div><div class="td-val">₹3.5K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">E-commerce</div><div class="td-val">₹8K</div><div class="td-val">₹12K</div><div class="td-val">₹18K</div></div>
+            <div class="tbl-row"><div class="td-name">CRM Setup</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="tbl-row"><div class="td-name">WhatsApp API</div><div class="td-val">₹1K</div><div class="td-val">₹2K</div><div class="td-val">₹3K</div></div>
+            <div class="tbl-row"><div class="td-name">Email System</div><div class="td-val">₹1K</div><div class="td-val">₹1.5K</div><div class="td-val">₹2.5K</div></div>
+            <div class="tbl-row"><div class="td-name">SEO Setup</div><div class="td-val">₹2K</div><div class="td-val">₹3.5K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">Google Analytics</div><div class="td-val">₹1K</div><div class="td-val">₹1.5K</div><div class="td-val">₹2.5K</div></div>
+            <div class="total-strip">
+              <div class="td-total">TOTAL</div>
+              <div class="td-gold">₹37K</div>
+              <div class="td-gold">₹58K</div>
+              <div class="td-gold">₹87K</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ENTERPRISE -->
+        <div class="tier">
+          <div class="tier-top">
+            <div class="tier-badge badge-red">🔴 Enterprise Package</div>
+            <div class="tier-name">All Works</div>
+            <div class="tier-sub">High budget · 12–15 deliverables</div>
+            <div class="tier-range">₹1,10,000 <small>–</small> ₹3,01,000</div>
+            <div class="tier-works">Best for: Manufacturers, ERP, complex portals, mobile apps</div>
+          </div>
+          <div class="svc-list">
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Website Design & Development</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Web App Development</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Mobile App Development</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Domain & Hosting Setup</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>E-commerce Website</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Landing Page Creation</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>CRM Software Setup</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>WhatsApp Business API</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Email System Setup</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Bug Fix & Maintenance</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Database Management</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>API Integration</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>SEO Technical Setup</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Google Analytics Setup</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Payment Gateway Integration</div>
+          </div>
+          <div class="price-tbl">
+            <div class="tbl-head"><div class="th">Service</div><div class="th">Min</div><div class="th">Std</div><div class="th">Max</div></div>
+            <div class="tbl-row"><div class="td-name">Website Design</div><div class="td-val">₹15K</div><div class="td-val">₹25K</div><div class="td-val">₹40K</div></div>
+            <div class="tbl-row"><div class="td-name">Web App Dev</div><div class="td-val">₹20K</div><div class="td-val">₹35K</div><div class="td-val">₹60K</div></div>
+            <div class="tbl-row"><div class="td-name">Mobile App</div><div class="td-val">₹25K</div><div class="td-val">₹40K</div><div class="td-val">₹70K</div></div>
+            <div class="tbl-row"><div class="td-name">Domain & Hosting</div><div class="td-val">₹2K</div><div class="td-val">₹3.5K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">E-commerce</div><div class="td-val">₹15K</div><div class="td-val">₹25K</div><div class="td-val">₹40K</div></div>
+            <div class="tbl-row"><div class="td-name">Landing Page</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="tbl-row"><div class="td-name">CRM Setup</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div><div class="td-val">₹15K</div></div>
+            <div class="tbl-row"><div class="td-name">WhatsApp API</div><div class="td-val">₹2K</div><div class="td-val">₹3.5K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">Email System</div><div class="td-val">₹2K</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">Bug Fix & Maint.</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="tbl-row"><div class="td-name">Database Mgmt</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div><div class="td-val">₹12K</div></div>
+            <div class="tbl-row"><div class="td-name">API Integration</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div><div class="td-val">₹12K</div></div>
+            <div class="tbl-row"><div class="td-name">SEO Setup</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="tbl-row"><div class="td-name">Google Analytics</div><div class="td-val">₹2K</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">Payment Gateway</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="total-strip">
+              <div class="td-total">TOTAL</div>
+              <div class="td-gold">₹1.10L</div>
+              <div class="td-gold">₹1.82L</div>
+              <div class="td-gold">₹3.01L</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary-bar">
+        <div class="summary-label">Technical Team — Full Price Range</div>
+        <div class="summary-range">₹6,000 <span>—</span> ₹3,01,000</div>
+        <div class="summary-note">Flexible pricing based on project scope · Use our <a href="#estimator" style="color:#8a7560;text-decoration:none;font-weight:600;">free estimator</a> for a precise quote</div>
+      </div>
+    </div>
+
+    <!-- ══ DIGITAL MARKETING TEAM ══ -->
+    <div id="section-dm" style="display:none;">
+      <div style="margin-bottom:2rem;">
+        <h2 style="font-size:1.4rem;font-weight:800;color:#1a1a1a;letter-spacing:-.03em;margin-bottom:.4rem;">Marketing & Brand Growth</h2>
+        <p style="color:#888;font-size:.9rem;">Data-driven campaigns that convert — social, search, content, and beyond.</p>
+      </div>
+
+      <div class="tier-grid">
+
+        <!-- DM STARTER -->
+        <div class="tier">
+          <div class="tier-top">
+            <div class="tier-badge badge-green">🟢 Starter Package</div>
+            <div class="tier-name">Basic Marketing</div>
+            <div class="tier-sub">Low budget · 5–7 deliverables · Monthly</div>
+            <div class="tier-range">₹5,500 <small>–</small> ₹14,500<small style="font-size:.7rem;">/mo</small></div>
+            <div class="tier-works">Best for: New businesses starting their digital presence</div>
+          </div>
+          <div class="svc-list">
+            <div class="svc-item"><span class="svc-dot dot-g"></span>Social Media Management (IG, FB, LinkedIn)</div>
+            <div class="svc-item"><span class="svc-dot dot-g"></span>Facebook & Instagram Ads</div>
+            <div class="svc-item"><span class="svc-dot dot-g"></span>WhatsApp Marketing</div>
+            <div class="svc-item"><span class="svc-dot dot-g"></span>Poster & Banner Design</div>
+            <div class="svc-item"><span class="svc-dot dot-g"></span>Google Business Profile Setup</div>
+          </div>
+          <div class="price-tbl">
+            <div class="tbl-head"><div class="th">Service</div><div class="th">Min</div><div class="th">Std</div><div class="th">Max</div></div>
+            <div class="tbl-row"><div class="td-name">Social Media Mgmt</div><div class="td-val">₹2K</div><div class="td-val">₹3.5K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">FB & IG Ads</div><div class="td-val">₹1.5K</div><div class="td-val">₹2.5K</div><div class="td-val">₹4K</div></div>
+            <div class="tbl-row"><div class="td-name">WhatsApp Marketing</div><div class="td-val">₹500</div><div class="td-val">₹1K</div><div class="td-val">₹1.5K</div></div>
+            <div class="tbl-row"><div class="td-name">Poster & Banner</div><div class="td-val">₹1K</div><div class="td-val">₹1.5K</div><div class="td-val">₹2.5K</div></div>
+            <div class="tbl-row"><div class="td-name">Google Business</div><div class="td-val">₹500</div><div class="td-val">₹1K</div><div class="td-val">₹1.5K</div></div>
+            <div class="total-strip">
+              <div class="td-total">TOTAL/MO</div>
+              <div class="td-gold">₹5.5K</div>
+              <div class="td-gold">₹9.5K</div>
+              <div class="td-gold">₹14.5K</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DM GROWTH -->
+        <div class="tier" style="border-top:3px solid #1a1a1a;">
+          <div style="background:#1a1a1a;color:#fff;text-align:center;font-size:.68rem;font-weight:700;letter-spacing:.08em;padding:.4rem;text-transform:uppercase;">Most Popular</div>
+          <div class="tier-top">
+            <div class="tier-badge badge-amber">🟡 Growth Package</div>
+            <div class="tier-name">Full Campaign</div>
+            <div class="tier-sub">Medium budget · 8–11 deliverables · Monthly</div>
+            <div class="tier-range">₹22,500 <small>–</small> ₹57,500<small style="font-size:.7rem;">/mo</small></div>
+            <div class="tier-works">Best for: SMBs scaling their lead generation</div>
+          </div>
+          <div class="svc-list">
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Social Media Management</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Facebook & Instagram Ads</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Google Ads</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>SEO (Search Engine Optimisation)</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Lead Generation</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Email Marketing</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>WhatsApp Marketing</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Poster & Banner Design</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Reels & Short Video Creation</div>
+            <div class="svc-item"><span class="svc-dot dot-a"></span>Google Business Profile Setup</div>
+          </div>
+          <div class="price-tbl">
+            <div class="tbl-head"><div class="th">Service</div><div class="th">Min</div><div class="th">Std</div><div class="th">Max</div></div>
+            <div class="tbl-row"><div class="td-name">Social Media Mgmt</div><div class="td-val">₹4K</div><div class="td-val">₹6K</div><div class="td-val">₹9K</div></div>
+            <div class="tbl-row"><div class="td-name">FB & IG Ads</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="tbl-row"><div class="td-name">Google Ads</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="tbl-row"><div class="td-name">SEO</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="tbl-row"><div class="td-name">Lead Generation</div><div class="td-val">₹2K</div><div class="td-val">₹3.5K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">Email Marketing</div><div class="td-val">₹1.5K</div><div class="td-val">₹2.5K</div><div class="td-val">₹4K</div></div>
+            <div class="tbl-row"><div class="td-name">WhatsApp Mktg</div><div class="td-val">₹1K</div><div class="td-val">₹2K</div><div class="td-val">₹3K</div></div>
+            <div class="tbl-row"><div class="td-name">Poster & Banner</div><div class="td-val">₹2K</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">Reels & Videos</div><div class="td-val">₹2K</div><div class="td-val">₹3.5K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">Google Business</div><div class="td-val">₹1K</div><div class="td-val">₹1.5K</div><div class="td-val">₹2.5K</div></div>
+            <div class="total-strip">
+              <div class="td-total">TOTAL/MO</div>
+              <div class="td-gold">₹22.5K</div>
+              <div class="td-gold">₹37K</div>
+              <div class="td-gold">₹57.5K</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DM ENTERPRISE -->
+        <div class="tier">
+          <div class="tier-top">
+            <div class="tier-badge badge-red">🔴 Enterprise Package</div>
+            <div class="tier-name">Full Brand Growth</div>
+            <div class="tier-sub">High budget · 12–15 deliverables · Monthly</div>
+            <div class="tier-range">₹62,000 <small>–</small> ₹1,59,000<small style="font-size:.7rem;">/mo</small></div>
+            <div class="tier-works">Best for: Established brands scaling aggressively</div>
+          </div>
+          <div class="svc-list">
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Social Media Management</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Facebook & Instagram Ads</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Google Ads</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>SEO (Search Engine Optimisation)</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Lead Generation</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Email Marketing</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>WhatsApp Marketing</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Content Planning & Strategy</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Poster & Banner Design</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Reels & Short Video Creation</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>YouTube Channel Management</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Google Business Profile</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Analytics & Performance Reports</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Influencer Marketing</div>
+            <div class="svc-item"><span class="svc-dot dot-r"></span>Brand Identity & Strategy</div>
+          </div>
+          <div class="price-tbl">
+            <div class="tbl-head"><div class="th">Service</div><div class="th">Min</div><div class="th">Std</div><div class="th">Max</div></div>
+            <div class="tbl-row"><div class="td-name">Social Media Mgmt</div><div class="td-val">₹8K</div><div class="td-val">₹12K</div><div class="td-val">₹18K</div></div>
+            <div class="tbl-row"><div class="td-name">FB & IG Ads</div><div class="td-val">₹6K</div><div class="td-val">₹10K</div><div class="td-val">₹15K</div></div>
+            <div class="tbl-row"><div class="td-name">Google Ads</div><div class="td-val">₹6K</div><div class="td-val">₹10K</div><div class="td-val">₹15K</div></div>
+            <div class="tbl-row"><div class="td-name">SEO</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div><div class="td-val">₹12K</div></div>
+            <div class="tbl-row"><div class="td-name">Lead Generation</div><div class="td-val">₹4K</div><div class="td-val">₹6K</div><div class="td-val">₹10K</div></div>
+            <div class="tbl-row"><div class="td-name">Email Marketing</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="tbl-row"><div class="td-name">WhatsApp Mktg</div><div class="td-val">₹2K</div><div class="td-val">₹3.5K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">Content Strategy</div><div class="td-val">₹4K</div><div class="td-val">₹6K</div><div class="td-val">₹10K</div></div>
+            <div class="tbl-row"><div class="td-name">Poster & Banner</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="tbl-row"><div class="td-name">Reels & Videos</div><div class="td-val">₹4K</div><div class="td-val">₹6K</div><div class="td-val">₹10K</div></div>
+            <div class="tbl-row"><div class="td-name">YouTube Mgmt</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div></div>
+            <div class="tbl-row"><div class="td-name">Google Business</div><div class="td-val">₹2K</div><div class="td-val">₹3K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">Analytics Report</div><div class="td-val">₹2K</div><div class="td-val">₹3.5K</div><div class="td-val">₹5K</div></div>
+            <div class="tbl-row"><div class="td-name">Influencer Mktg</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div><div class="td-val">₹15K</div></div>
+            <div class="tbl-row"><div class="td-name">Brand Identity</div><div class="td-val">₹5K</div><div class="td-val">₹8K</div><div class="td-val">₹15K</div></div>
+            <div class="total-strip">
+              <div class="td-total">TOTAL/MO</div>
+              <div class="td-gold">₹62K</div>
+              <div class="td-gold">₹99K</div>
+              <div class="td-gold">₹1.59L</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary-bar">
+        <div class="summary-label">Digital Marketing Team — Full Price Range</div>
+        <div class="summary-range">₹5,500 <span>—</span> ₹1,59,000<span style="font-size:1rem;"> /month</span></div>
+        <div class="summary-note">Monthly retainer or project-based · Minimum 3 months for measurable results</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="margin-top:3rem;padding:2.5rem;background:#fff;border:1px solid #e8e3dd;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <h3 style="font-size:1.1rem;font-weight:700;color:#1a1a1a;margin-bottom:.4rem;">Not sure which package fits you?</h3>
+        <p style="color:#888;font-size:.88rem;">Use our free estimator for an instant price, or book a 15-min call and we'll recommend the right package.</p>
+      </div>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap;flex-shrink:0;">
+        <a href="#estimator" class="btn-primary" style="white-space:nowrap;"><i class="fas fa-calculator" style="margin-right:.5rem;"></i>Free Estimator</a>
+        <a href="contact.html" class="btn-secondary" style="white-space:nowrap;">Book Free Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- ══ ESTIMATOR (merged from estimator page) ══ -->
+    <section id="estimator" style="padding:5rem 0;background:#fff;border-top:3px solid #0e0e0e;">
+      <div class="container">
+        <span style="font-size:.7rem;font-weight:700;color:#8a7560;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:.8rem;">Free Instant Estimate</span>
+        <h2 class="section-title" style="margin-bottom:.6rem;">Build your custom quote</h2>
+        <p style="color:#666;margin-bottom:2.5rem;font-size:.95rem;max-width:560px;">Select what you need and get an instant price estimate based on Vendhan's 2025 Chennai market research.</p>
+
+        <div class="estimator-grid" style="display:grid;grid-template-columns:1fr;gap:2rem;align-items:start;">
+
+          <!-- Inputs col -->
+          <div class="estimator-inputs">
+
+            <!-- Step 1 -->
+            <div class="glass-card" style="padding:2rem;margin-bottom:1.5rem;">
+              <h3 style="margin-bottom:1.2rem;font-size:1rem;font-weight:700;color:#0e0e0e;display:flex;align-items:center;gap:.6rem;"><span style="background:#0e0e0e;color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;">1</span>What are you building?</h3>
+              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;">
+                <div class="project-type-card active" data-type="web" data-base="12000" style="padding:1.2rem .8rem;">
+                  <i class="fas fa-globe" style="font-size:1.6rem;margin-bottom:.5rem;display:block;"></i>
+                  <h4 style="font-size:.88rem;margin-bottom:.2rem;">Website</h4>
+                  <p style="font-size:.75rem;color:#888;">₹5K – ₹40K</p>
+                </div>
+                <div class="project-type-card" data-type="ai" data-base="35000" style="padding:1.2rem .8rem;">
+                  <i class="fas fa-robot" style="font-size:1.6rem;margin-bottom:.5rem;display:block;"></i>
+                  <h4 style="font-size:.88rem;margin-bottom:.2rem;">AI / App</h4>
+                  <p style="font-size:.75rem;color:#888;">₹25K – ₹70K</p>
+                </div>
+                <div class="project-type-card" data-type="saas" data-base="45000" style="padding:1.2rem .8rem;">
+                  <i class="fas fa-cloud" style="font-size:1.6rem;margin-bottom:.5rem;display:block;"></i>
+                  <h4 style="font-size:.88rem;margin-bottom:.2rem;">SaaS / Portal</h4>
+                  <p style="font-size:.75rem;color:#888;">₹45K – ₹1.5L</p>
+                </div>
+                <div class="project-type-card" data-type="erp" data-base="110000" style="padding:1.2rem .8rem;">
+                  <i class="fas fa-building" style="font-size:1.6rem;margin-bottom:.5rem;display:block;"></i>
+                  <h4 style="font-size:.88rem;margin-bottom:.2rem;">ERP System</h4>
+                  <p style="font-size:.75rem;color:#888;">₹1.1L – ₹3L</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="glass-card" style="padding:2rem;margin-bottom:1.5rem;">
+              <h3 style="margin-bottom:1.2rem;font-size:1rem;font-weight:700;color:#0e0e0e;display:flex;align-items:center;gap:.6rem;"><span style="background:#0e0e0e;color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;">2</span>Add features</h3>
+              <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;">
+                <div class="feature-card" data-feature="auth" data-cost="5000"><i class="fas fa-user-shield" style="color:#aaa;font-size:.9rem;"></i><span style="font-size:.82rem;">Auth System</span></div>
+                <div class="feature-card" data-feature="payment" data-cost="5000"><i class="fas fa-credit-card" style="color:#aaa;font-size:.9rem;"></i><span style="font-size:.82rem;">Payment Gateway</span></div>
+                <div class="feature-card" data-feature="search" data-cost="3500"><i class="fas fa-search" style="color:#aaa;font-size:.9rem;"></i><span style="font-size:.82rem;">Search Engine</span></div>
+                <div class="feature-card" data-feature="analytics" data-cost="2000"><i class="fas fa-chart-line" style="color:#aaa;font-size:.9rem;"></i><span style="font-size:.82rem;">Analytics</span></div>
+                <div class="feature-card" data-feature="pwa" data-cost="2000"><i class="fas fa-mobile-screen-button" style="color:#aaa;font-size:.9rem;"></i><span style="font-size:.82rem;">PWA / Mobile</span></div>
+                <div class="feature-card" data-feature="multi-lang" data-cost="2500"><i class="fas fa-language" style="color:#aaa;font-size:.9rem;"></i><span style="font-size:.82rem;">Multi-language</span></div>
+                <div class="feature-card" data-feature="admin" data-cost="5000"><i class="fas fa-screwdriver-wrench" style="color:#aaa;font-size:.9rem;"></i><span style="font-size:.82rem;">Admin CMS</span></div>
+                <div class="feature-card" data-feature="api" data-cost="8000"><i class="fas fa-plug" style="color:#aaa;font-size:.9rem;"></i><span style="font-size:.82rem;">API Integration</span></div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="glass-card" style="padding:2rem;">
+              <h3 style="margin-bottom:1.5rem;font-size:1rem;font-weight:700;color:#0e0e0e;display:flex;align-items:center;gap:.6rem;"><span style="background:#0e0e0e;color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;">3</span>Timeline & complexity</h3>
+              <div style="margin-bottom:1.8rem;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:.8rem;font-size:.88rem;"><label>Timeline</label><span id="timelineValue" style="font-weight:700;color:#0e0e0e;">3 Months</span></div>
+                <input type="range" class="calc-slider" id="estTimeline" min="1" max="12" value="3">
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:.8rem;font-size:.88rem;"><label>Complexity</label><span id="complexityValue" style="font-weight:700;color:#0e0e0e;">Intermediate</span></div>
+                <input type="range" class="calc-slider" id="estComplexity" min="1" max="3" value="2">
+              </div>
+            </div>
+          </div>
+
+          <!-- Result card (same col on mobile, sticky on desktop) -->
+          <div class="estimator-sidebar" style="position:sticky;top:88px;">
+            <div class="glass-card sticky-result-card" style="padding:2rem;border:2px solid #0e0e0e;">
+              <p style="font-size:.72rem;font-weight:700;color:#8a7560;text-transform:uppercase;letter-spacing:.1em;text-align:center;margin-bottom:.5rem;">Your Estimate</p>
+              <p style="text-align:center;font-size:.72rem;color:#aaa;margin-bottom:.5rem;">Based on Vendhan's 2025 market research</p>
+              <div id="estFinalPrice" style="font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;text-align:center;color:#0e0e0e;margin-bottom:1.5rem;letter-spacing:-.04em;">₹0</div>
+              <div style="border-top:1px solid #e5e1db;padding-top:1.5rem;margin-bottom:1.5rem;">
+                <p style="font-size:.75rem;font-weight:700;color:#8a7560;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem;">Recommended Stack</p>
+                <div id="techStackList" style="display:flex;flex-wrap:wrap;gap:.4rem;">
+                  <span class="tech-tag">Next.js</span><span class="tech-tag">Tailwind</span><span class="tech-tag">Node.js</span>
+                </div>
+              </div>
+              <a href="contact.html" class="btn-primary" style="width:100%;justify-content:center;margin-bottom:.8rem;">Book Free Call</a>
+              <a href="https://wa.me/919840713587" target="_blank" class="btn-secondary" style="width:100%;justify-content:center;display:flex;align-items:center;gap:.6rem;border-color:#25D366;color:#25D366;">
+                <i class="fab fa-whatsapp"></i>WhatsApp Us
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile floating estimate bar -->
+    <div class="mobile-estimator-bar" style="position:fixed;bottom:0;left:0;right:0;z-index:999;padding:1rem 1.5rem;display:none;background:#0e0e0e;border-top:2px solid #1a9e82;">
+      <div style="display:flex;justify-content:space-between;align-items:center;max-width:600px;margin:0 auto;">
+        <div><span style="color:#888;font-size:.75rem;display:block;">Estimate</span><span id="mobileEstPrice" style="color:#fff;font-size:1.6rem;font-weight:800;font-family:'Syne',sans-serif;">₹0</span></div>
+        <a href="contact.html" class="btn-primary" style="padding:.7rem 1.4rem;font-size:.82rem;">Book Free Call</a>
+      </div>
+    </div>
+
+    <!-- Estimator JS -->
+    <script>
+    (function(){
+      const typeCards    = document.querySelectorAll('.project-type-card');
+      const featureCards = document.querySelectorAll('.feature-card');
+      const estTimeline  = document.getElementById('estTimeline');
+      const estComplexity= document.getElementById('estComplexity');
+      const estFinalPrice= document.getElementById('estFinalPrice');
+      const mobilePrice  = document.getElementById('mobileEstPrice');
+      const mobileBar    = document.querySelector('.mobile-estimator-bar');
+      const techStackEl  = document.getElementById('techStackList');
+      const timelineVal  = document.getElementById('timelineValue');
+      const complexityVal= document.getElementById('complexityValue');
+
+      if(!estFinalPrice) return;
+
+      const stacks = {
+        web:'<span class="tech-tag">HTML/CSS</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Vercel</span>',
+        ai:'<span class="tech-tag">React</span><span class="tech-tag">FastAPI</span><span class="tech-tag">OpenAI</span>',
+        saas:'<span class="tech-tag">Next.js</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span>',
+        erp:'<span class="tech-tag">React</span><span class="tech-tag">FastAPI</span><span class="tech-tag">SQLite</span>'
+      };
+
+      function calcEstimate(){
+        let base = parseInt(document.querySelector('.project-type-card.active')?.dataset.base||12000);
+        let extra = 0;
+        featureCards.forEach(f=>{ if(f.classList.contains('active')) extra += parseInt(f.dataset.cost||0); });
+        const timeline    = parseInt(estTimeline.value);
+        const complexity  = parseInt(estComplexity.value);
+        const timelineMul = timeline <= 2 ? 1.2 : timeline >= 8 ? 0.9 : 1;
+        const complexMul  = complexity === 1 ? 0.8 : complexity === 3 ? 1.3 : 1;
+        const total = Math.round((base + extra) * timelineMul * complexMul / 1000) * 1000;
+        const formatted = total >= 100000
+          ? '₹' + (total/100000).toFixed(1).replace('.0','') + 'L'
+          : '₹' + (total/1000).toFixed(0) + 'K';
+        estFinalPrice.textContent = formatted;
+        if(mobilePrice) mobilePrice.textContent = formatted;
+
+        // animate
+        estFinalPrice.style.animation='priceUpdate .3s ease';
+        setTimeout(()=>estFinalPrice.style.animation='',300);
+
+        // Show mobile bar when scrolled past estimator on mobile
+        if(window.innerWidth <= 992 && mobileBar){
+          const estimatorEl = document.getElementById('estimator');
+          if(estimatorEl){
+            const rect = estimatorEl.getBoundingClientRect();
+            mobileBar.style.display = rect.top < -100 ? 'block' : 'none';
+          }
+        }
+
+        // Capture lead at ₹10k+
+        if(total >= 10000){
+          const hasShown = sessionStorage.getItem('estimateModalShown');
+          const name = localStorage.getItem('estimateLeadName');
+          if(!hasShown && !name){
+            sessionStorage.setItem('estimateModalShown','1');
+            setTimeout(()=>{ const p=document.getElementById('exitPopup'); if(p) p.style.display='flex'; },1500);
+          }
+        }
+      }
+
+      // Timeline label
+      const timelineLabels = ['1 Month','2 Months','3 Months','4 Months','5 Months','6 Months','7 Months','8 Months','9 Months','10 Months','11 Months','12 Months'];
+      const complexLabels  = ['Basic','Intermediate','Advanced'];
+
+      typeCards.forEach(c=>c.addEventListener('click',()=>{
+        typeCards.forEach(x=>x.classList.remove('active'));
+        c.classList.add('active');
+        const type = c.dataset.type;
+        if(techStackEl) techStackEl.innerHTML = stacks[type]||stacks.web;
+        calcEstimate();
+      }));
+
+      featureCards.forEach(c=>c.addEventListener('click',()=>{
+        c.classList.toggle('active');
+        calcEstimate();
+      }));
+
+      if(estTimeline) estTimeline.addEventListener('input',()=>{
+        if(timelineVal) timelineVal.textContent = timelineLabels[estTimeline.value-1];
+        calcEstimate();
+      });
+
+      if(estComplexity) estComplexity.addEventListener('input',()=>{
+        if(complexityVal) complexityVal.textContent = complexLabels[estComplexity.value-1];
+        calcEstimate();
+      });
+
+      window.addEventListener('scroll', calcEstimate);
+      calcEstimate();
+    })();
+    </script>
+
+
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:3rem;margin-bottom:3rem;">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem;">
+          <img src="logo.png" alt="SWEN TECH" style="height:32px;">
+          <span style="font-size:.85rem;">SWEN TECH DIGITAL HUB & INNOVATIONS</span>
+        </a>
+        <p style="color:#888;line-height:1.8;margin-bottom:1.5rem;font-size:.88rem;">Premium digital engineering &amp; growth campaigns for Chennai businesses.</p>
+      </div>
+      <div>
+        <h4 style="color:#1a1a1a;margin-bottom:1.2rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Quick Links</h4>
+        <ul style="list-style:none;color:#888;line-height:2.4;font-size:.88rem;">
+          <li><a href="services.html" style="color:inherit;text-decoration:none;">All Services</a></li>
+          <li><a href="#estimator" style="color:inherit;text-decoration:none;">Price Estimator</a></li>
+          <li><a href="portfolio.html" style="color:inherit;text-decoration:none;">Our Work</a></li>
+          <li><a href="contact.html" style="color:inherit;text-decoration:none;">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#1a1a1a;margin-bottom:1.2rem;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:.7rem;font-size:.88rem;color:#888;">
+          <a href="tel:+919840713587" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:.6rem;"><i class="fas fa-phone" style="color:#1a9e82;width:14px;font-size:.85rem;"></i>+91 98407 13587</a>
+          <a href="https://wa.me/919840713587" target="_blank" style="color:inherit;text-decoration:none;display:flex;align-items:center;gap:.6rem;"><i class="fab fa-whatsapp" style="color:#25D366;width:14px;font-size:.85rem;"></i>WhatsApp Chat</a>
+          <span style="display:flex;align-items:center;gap:.6rem;"><i class="fas fa-location-dot" style="color:#1a9e82;width:14px;font-size:.85rem;"></i>Chennai, Tamil Nadu</span>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid #e8e3dd;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+      <p style="color:#aaa;font-size:.82rem;">© 2026 SWEN TECH DIGITAL HUB & INNOVATIONS. All Rights Reserved.</p>
+      <p style="color:#aaa;font-size:.78rem;">Pricing research by C. Vendhan — Digital Marketing Specialist, SWEN TECH</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/919840713587" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<style>.whatsapp-float{position:fixed;bottom:2rem;right:2rem;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 4px 15px rgba(0,0,0,.25);z-index:4000;transition:all .3s;text-decoration:none;}.whatsapp-float:hover{transform:scale(1.1);background:#128C7E;}@media(max-width:768px){.whatsapp-float{bottom:1.5rem;right:1.5rem;width:50px;height:50px;font-size:1.5rem;}}</style>
+
+<script>
+function switchTab(tab, btn) {
+  document.getElementById('section-tech').style.display = tab==='tech' ? 'block' : 'none';
+  document.getElementById('section-dm').style.display   = tab==='dm'   ? 'block' : 'none';
+  document.querySelectorAll('.price-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+
+    <!-- AI Advisor Widget -->
+    <div class="ai-assistant-wrapper" id="aiAssistant">
+      <button class="ai-toggle-btn" id="aiToggle"><i class="fas fa-robot"></i><span class="ai-status-ping"></span></button>
+      <div class="ai-chat-window" id="aiWindow">
+        <div class="ai-chat-header">
+          <div><h4>SWEN TECH Advisor</h4><p><span class="status-dot"></span> Online</p></div>
+          <button id="closeAi"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="ai-chat-messages" id="aiMessages"><div class="message ai">Hi! I can help you pick the right package or estimate your project cost. What are you building?</div></div>
+        <div class="ai-chat-input-area">
+          <div class="ai-suggestions" id="aiSuggestions">
+            <button class="suggest-chip">Website cost</button>
+            <button class="suggest-chip">ERP pricing</button>
+            <button class="suggest-chip">Campaign budget</button>
+          </div>
+          <div class="input-container">
+            <input type="text" id="aiInput" placeholder="Ask about pricing...">
+            <button id="sendAi"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -13,14 +13,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
 
     <!-- PWA Settings -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#667eea">
+    <meta name="theme-color" content="#0e0e0e">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png">
@@ -37,6 +37,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<style>
+/* ── Page-level mobile fixes ── */
+@media(max-width:768px){
+  .estimator-grid{grid-template-columns:1fr!important;}
+  .estimator-sidebar{position:static!important;top:auto!important;}
+  .bento-grid{grid-template-columns:1fr!important;}
+  .bento-large,.bento-medium,.bento-small{grid-column:span 1!important;grid-row:span 1!important;}
+  .tier-grid{grid-template-columns:1fr!important;}
+  .project-type-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .features-grid{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="grid-template-columns: repeat(auto-fit"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 350px"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: 1fr 420px"]{grid-template-columns:1fr!important;}
+  [style*="grid-template-columns: repeat(4"]{grid-template-columns:repeat(2,1fr)!important;}
+  [style*="grid-template-columns: repeat(3"]{grid-template-columns:1fr!important;}
+  section{padding:3.5rem 0!important;}
+  .hero-content{padding:5.5rem 0 3.5rem!important;}
+  .section-title{font-size:clamp(1.7rem,6vw,2.4rem)!important;}
+  .team-modal-header,.team-modal-body{padding:1.5rem!important;}
+  .price-tab-bar{flex-wrap:wrap;}
+  .price-tab{flex:1 1 40%;}
+}
+@media(max-width:480px){
+  .container{padding:0 1rem!important;}
+  .glass-card{padding:1.4rem!important;}
+  .hero-title{font-size:clamp(2rem,8vw,3rem)!important;}
+  .metric-value{font-size:1.9rem!important;}
+  .pricing-cols,.pricing-row{grid-template-columns:2fr 1fr 1fr 1fr!important;}
+}
+</style>
 </head>
 
 <body>
@@ -54,42 +85,61 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.8rem;">
-                <img src="logo.jpg" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="40" height="40"
-                    style="height: 40px; border-radius: 8px;">
+                <img src="logo.png" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" width="40" height="40"
+                    style="height: 40px; ">
                 <span>SWEN TECH DIGITAL HUB & INNOVATIONS</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About Us</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="estimator.html" class="nav-link">Estimator</a></li>
-                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
-                <li><a href="playground.html" class="nav-link">Playground</a></li>
-                <li><a href="tools.html" class="nav-link">Tools</a></li>
-                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                        <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link ">Home</a></li>
+                <li><a href="about.html" class="nav-link ">About Us</a></li>
+                <li><a href="services.html" class="nav-link ">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link ">Portfolio</a></li>
+                <li><a href="pricing.html" class="nav-link ">Pricing</a></li>
+                <li><a href="tools.html" class="nav-link ">Tools</a></li>
+                <li><a href="blog.html" class="nav-link ">Blog</a></li>
                 <li><a href="contact.html" class="nav-link active">Get Quote</a></li>
             </ul>
-            <div style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 3000;">
-                <button class="menu-toggle" id="menuToggle" title="Toggle Menu" aria-label="Open navigation menu"
-                    style="display: flex !important; visibility: visible !important; opacity: 1 !important; background: rgba(102, 126, 234, 0.15); border: 1px solid var(--color-purple); padding: 0.8rem; border-radius: 10px; color: white !important;">
-                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                        <div style="display:flex;align-items:center;gap:1rem;position:relative;z-index:5100;">
+                <button class="menu-toggle" id="menuToggle" 
+                    aria-label="Toggle navigation" aria-expanded="false"
+                    style="display:flex!important;background:transparent;border:1.5px solid #1a1a1a;padding:.75rem;border-radius:8px;color:#1a1a1a!important;width:44px;height:44px;align-items:center;justify-content:center;">
+                    <i class="fas fa-bars" style="font-size:1.2rem;color:#1a1a1a;"></i>
                 </button>
             </div>
-        </div>
+            </div>
     </nav>
 
     <!-- Contact Section -->
-    <section id="contact" style="min-height: auto; padding-top: 10rem; padding-bottom: 5rem;">
+    <section id="contact" style="min-height:auto;padding-top:10rem;padding-bottom:6rem;background:#fff;">
         <div class="container">
             <h2 class="section-title reveal" style="text-align: center; margin-bottom: 2rem;">Business Enquiry</h2>
             <p class="reveal"
-                style="text-align: center; color: var(--color-text-muted); margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                style="text-align: center; color: var(--color-text-muted); margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
                 Have a project in mind? Fill out the form below for a professional quote and project acknowledgement.
                 Our team will get back to you within 24 hours.
             </p>
 
-            <div style="max-width: 900px; margin: 0 auto;" class="glass-card reveal">
+            <!-- Social proof + response time badges -->
+            <div class="reveal" style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-bottom:3rem;">
+                <div style="display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);border-radius:50px;">
+                    <i class="fas fa-clock" style="color:var(--color-emerald);font-size:0.9rem;"></i>
+                    <span style="font-size:0.85rem;color:var(--color-text-secondary);">We reply within <strong style="color:var(--color-emerald);">24 hours</strong></span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);border-radius:50px;">
+                    <i class="fas fa-star" style="color:var(--color-gold);font-size:0.9rem;"></i>
+                    <span style="font-size:0.85rem;color:var(--color-text-secondary);"><strong style="color:var(--color-gold);">100%</strong> Client Satisfaction</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:rgba(26,26,26,0.04);border:1px solid rgba(102,126,234,0.3);border-radius:50px;">
+                    <i class="fas fa-shield-halved" style="color:#1a1a1a;font-size:0.9rem;"></i>
+                    <span style="font-size:0.85rem;color:var(--color-text-secondary);">Free consultation, <strong style="color:#1a1a1a;">no obligation</strong></span>
+                </div>
+                <a href="https://wa.me/919840713587" target="_blank" style="display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:rgba(37,211,102,0.1);border:1px solid #25D366;border-radius:50px;text-decoration:none;">
+                    <i class="fab fa-whatsapp" style="color:#25D366;font-size:1rem;"></i>
+                    <span style="font-size:0.85rem;color:#25D366;font-weight:600;">Prefer WhatsApp? Chat directly →</span>
+                </a>
+            </div>
+
+            <div style="max-width:900px;margin:0 auto;border:1px solid #e2ddd7;" class="glass-card reveal">
                 <form id="enquiryForm" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
                     <div class="form-group" style="grid-column: span 1;">
                         <label class="form-label">Full Name</label>
@@ -113,6 +163,7 @@
                             <option value="ai">AI & ML</option>
                             <option value="saas">SaaS Platform</option>
                             <option value="erp">ERP System</option>
+                            <option value="campaigns">Digital Marketing Campaigns</option>
                             <option value="cloud">Cloud Solutions</option>
                             <option value="devops">DevOps</option>
                             <option value="security">Cybersecurity</option>
@@ -125,7 +176,18 @@
                         <label class="form-label">Calculator Estimate</label>
                         <input type="text" id="calculatorEstimate" class="form-input"
                             placeholder="Use pricing calculator first" readonly
-                            style="background: rgba(102, 126, 234, 0.1); cursor: not-allowed;">
+                            style="background:rgba(26,26,26,0.04); cursor: not-allowed;">
+                    </div>
+                    <div class="form-group" style="grid-column: span 1;">
+                        <label class="form-label">Approximate Budget</label>
+                        <select id="budget" class="form-select">
+                            <option value="" disabled selected>Select your budget range</option>
+                            <option value="below35k">Below ₹35,000</option>
+                            <option value="35k-1l">₹35,000 – ₹1,00,000</option>
+                            <option value="1l-3l">₹1,00,000 – ₹3,00,000</option>
+                            <option value="3l-10l">₹3,00,000 – ₹10,00,000</option>
+                            <option value="above10l">Above ₹10,00,000</option>
+                        </select>
                     </div>
                     <div class="form-group" id="calculatorDetailsSection" style="grid-column: span 2; display: none;">
                         <div
@@ -139,7 +201,7 @@
                                 <div><strong>Features:</strong> <span id="calcFeatures">-</span></div>
                                 <div><strong>Timeline:</strong> <span id="calcTimeline">-</span></div>
                                 <div><strong>Estimated Cost:</strong> <span id="calcCost"
-                                        style="color: var(--color-purple); font-weight: 700;">-</span></div>
+                                        style="color:#1a1a1a; font-weight: 700;">-</span></div>
                             </div>
                         </div>
                     </div>
@@ -165,7 +227,7 @@
                     style="margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
                     <div style="text-align: center;">
                         <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📧</div>
-                        <div style="color: var(--color-gold); font-weight: 600; font-size: 0.8rem;">EMAIL US</div>
+                        <div style="color:#8a7560;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;">EMAIL US</div>
                         <div style="color: var(--color-text-primary);">
                             <a href="mailto:swentechdigitalsolutions@gmail.com"
                                 style="color: inherit; text-decoration: none;">swentechdigitalsolutions@gmail.com</a>
@@ -173,7 +235,7 @@
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📱</div>
-                        <div style="color: var(--color-gold); font-weight: 600; font-size: 0.8rem;">CALL US</div>
+                        <div style="color:#8a7560;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;">CALL US</div>
                         <div style="color: var(--color-text-primary);">
                             <a href="tel:+919840713587" style="color: inherit; text-decoration: none;">+91
                                 9840713587</a>
@@ -181,7 +243,7 @@
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">💬</div>
-                        <div style="color: var(--color-gold); font-weight: 600; font-size: 0.8rem;">WHATSAPP</div>
+                        <div style="color:#8a7560;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;">WHATSAPP</div>
                         <div style="color: var(--color-text-primary);">
                             <a href="https://wa.me/919840713587" target="_blank" rel="noopener noreferrer"
                                 style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
@@ -191,7 +253,7 @@
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📍</div>
-                        <div style="color: var(--color-gold); font-weight: 600; font-size: 0.8rem;">LOCATION</div>
+                        <div style="color:#8a7560;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;">LOCATION</div>
                         <div style="color: var(--color-text-primary);">Chennai, India</div>
                     </div>
                 </div>
@@ -207,7 +269,7 @@
                 <div>
                     <a href="index.html" class="logo"
                         style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem;">
-                        <img src="logo.jpg" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" style="height: 35px; border-radius: 6px;">
+                        <img src="logo.png" alt="SWEN TECH DIGITAL HUB & INNOVATIONS" style="height: 35px; ">
                         <span>SWEN TECH DIGITAL HUB & INNOVATIONS</span>
                     </a>
                     <p style="color: var(--color-text-dim); line-height: 1.8; margin-bottom: 2rem;">
@@ -268,6 +330,32 @@
     <script src="emailjs-config.js"></script>
     <script src="script.js"></script>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919840713587" class="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <style>
+        .whatsapp-float{position:fixed;bottom:2rem;right:2rem;background-color:#25D366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 4px 15px rgba(0,0,0,0.3);z-index:4000;transition:all 0.3s ease;text-decoration:none;}
+        .whatsapp-float:hover{transform:scale(1.1);background-color:#128C7E;}
+        @media(max-width:768px){.whatsapp-float{bottom:1.5rem;right:1.5rem;width:50px;height:50px;font-size:1.5rem;}}
+    </style>
+    <script>
+    // Auto-fill name/email/phone if captured from estimator modal
+    (function(){
+        const n = localStorage.getItem('estimateLeadName');
+        const e = localStorage.getItem('estimateLeadEmail');
+        const p = localStorage.getItem('estimateLeadPhone');
+        if(n){ const el=document.getElementById('name'); if(el) el.value=n; }
+        if(e){ const el=document.getElementById('email'); if(el) el.value=e; }
+        if(p){ const el=document.getElementById('phone'); if(el) el.value=p; }
+        // Clear after use
+        ['estimateLeadName','estimateLeadEmail','estimateLeadPhone'].forEach(k=>localStorage.removeItem(k));
+        // Pre-select service from URL param e.g. contact.html?service=campaigns
+        const urlService = new URLSearchParams(window.location.search).get('service');
+        if(urlService){ const sel=document.getElementById('service'); if(sel) sel.value=urlService; }
+    })();
+    </script>
+
     <!-- AI Technical Assistant -->
     <div class="ai-assistant-wrapper" id="aiAssistant">
         <button class="ai-toggle-btn" id="aiToggle">
@@ -301,6 +389,54 @@
             </div>
         </div>
     </div>
-</body>
 
+<div id="exitPopup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:99999;align-items:center;justify-content:center;padding:1rem;">
+  <div style="background:#fff;border-radius:16px;max-width:480px;width:100%;position:relative;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.2);">
+    <div style="height:4px;background:linear-gradient(90deg,#1a1a1a 33%,#1a9e82 33% 66%,#8a7560 66%)"></div>
+    <button onclick="document.getElementById('exitPopup').style.display='none';sessionStorage.setItem('exitSeen','1');" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#888;line-height:1;padding:.2rem .5rem;">×</button>
+    <div style="padding:2.5rem;">
+      <div style="font-size:.72rem;font-weight:700;color:#8a7560;text-transform:uppercase;letter-spacing:.15em;margin-bottom:.8rem;">Wait — before you go</div>
+      <h3 style="font-size:1.5rem;font-weight:800;color:#1a1a1a;letter-spacing:-.03em;margin-bottom:.8rem;">Get your free tech roadmap<br>worth ₹15,000</h3>
+      <p style="color:#888;font-size:.9rem;line-height:1.65;margin-bottom:1.5rem;">Tell us what you're building and we'll send you a personalised implementation plan — completely free, no strings.</p>
+      <form id="exitForm" style="display:flex;flex-direction:column;gap:.8rem;">
+        <input type="text" id="exitName" placeholder="Your Name" required style="padding:.8rem 1rem;border:1.5px solid #e8e3dd;border-radius:8px;font-size:.9rem;font-family:inherit;outline:none;">
+        <input type="email" id="exitEmail" placeholder="Your Email" required style="padding:.8rem 1rem;border:1.5px solid #e8e3dd;border-radius:8px;font-size:.9rem;font-family:inherit;outline:none;">
+        <button type="button" onclick="handleExitForm()" style="padding:.9rem;background:#1a1a1a;color:#fff;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit;">Send Me the Free Roadmap →</button>
+      </form>
+      <div id="exitSuccess" style="display:none;text-align:center;padding:1rem 0;">
+        <div style="font-size:2rem;margin-bottom:.5rem;">✅</div>
+        <p style="font-weight:600;color:#1a1a1a;margin-bottom:.4rem;">Done! Check your inbox shortly.</p>
+        <a href="https://wa.me/919840713587" target="_blank" style="color:#1a9e82;font-size:.85rem;text-decoration:none;">Chat on WhatsApp now →</a>
+      </div>
+      <p style="text-align:center;font-size:.75rem;color:#ccc;margin-top:1rem;">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  if(sessionStorage.getItem('exitSeen')) return;
+  var fired=false;
+  document.addEventListener('mouseleave',function(e){
+    if(fired||e.clientY>20) return;
+    fired=true;
+    setTimeout(function(){ if(!sessionStorage.getItem('exitSeen')){document.getElementById('exitPopup').style.display='flex';} },300);
+  });
+  setTimeout(function(){
+    if(!fired&&!sessionStorage.getItem('exitSeen')){document.getElementById('exitPopup').style.display='flex';fired=true;}
+  },45000);
+})();
+function handleExitForm(){
+  var name=document.getElementById('exitName').value;
+  var email=document.getElementById('exitEmail').value;
+  if(!name||!email){alert('Please fill in both fields.');return;}
+  localStorage.setItem('estimateLeadName',name);
+  localStorage.setItem('estimateLeadEmail',email);
+  document.getElementById('exitForm').style.display='none';
+  document.getElementById('exitSuccess').style.display='block';
+  sessionStorage.setItem('exitSeen','1');
+  if(window.gtag) gtag('event','exit_intent_lead',{});
+  setTimeout(function(){document.getElementById('exitPopup').style.display='none';},4000);
+}
+</script>
+</body>
 </html>

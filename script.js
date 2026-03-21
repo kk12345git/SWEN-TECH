@@ -726,7 +726,7 @@ class TeamModalManager {
                 ]
             },
             dhrona: {
-                name: 'Dhrona Ragav',
+                name: 'Rakesh B.',
                 title: 'Backend Specialist',
                 avatar: '👨‍💻',
                 bio: 'Backend architecture expert with deep expertise in building robust, scalable server infrastructures. Specialized in database optimization, API design, and microservices architecture. Proven track record of handling complex data workflows and ensuring 99.9% uptime for mission-critical applications. Advocate for performance optimization and security best practices.',
@@ -748,7 +748,7 @@ class TeamModalManager {
                 ]
             },
             karthick: {
-                name: 'S. Karthick Raja',
+                name: 'A. Abisha Sabat',
                 title: 'UI/UX Designer',
                 avatar: '🎨',
                 bio: 'Creative designer with a passion for crafting beautiful, intuitive digital experiences. Expert in modern UI/UX principles, brand identity, and design systems. Specialized in translating complex business requirements into elegant, user-friendly interfaces. Proficient in the full design spectrum from wireframes to high-fidelity prototypes.',
@@ -771,7 +771,7 @@ class TeamModalManager {
                 ]
             },
             iyyappan: {
-                name: 'U. Iyyappan',
+                name: 'C. Vendhan',
                 title: 'Visual Designer',
                 avatar: '🎨',
                 bio: 'Talented visual designer focused on creating premium aesthetic impressions that captivate and engage. Expert in graphic design, visual storytelling, and creating cohesive brand experiences. Specialized in motion graphics, illustration, and digital art. Committed to pushing creative boundaries while maintaining brand consistency.',
@@ -793,7 +793,7 @@ class TeamModalManager {
                 ]
             },
             gowtham: {
-                name: 'K. Gowtham',
+                name: 'B.S. Karthigeyan',
                 title: 'Order Tracking Manager',
                 avatar: '📊',
                 bio: 'Operations expert specializing in order workflow management and tracking systems. Extensive experience in ensuring seamless ERP operations for manufacturing clients. Skilled in process optimization, data analysis, and real-time monitoring solutions. Dedicated to improving operational efficiency and customer satisfaction.',
@@ -814,7 +814,7 @@ class TeamModalManager {
                 ]
             },
             gokul: {
-                name: 'Gokul Krishnan',
+                name: 'Rakesh B.',
                 title: 'Order Tracking Manager',
                 avatar: '📦',
                 bio: 'Specialized operations manager with expertise in inventory management and order processing optimization. Focused on creating efficient real-time tracking solutions for enterprise systems. Proven ability to streamline complex workflows and reduce operational costs. Committed to data-driven decision making and continuous improvement.',
@@ -1733,78 +1733,32 @@ class AIAssistant {
 
         if (!this.toggleBtn) return;
 
-        // High-Fidelity Knowledge Base (Comprehensive Site-Wide Data)
-        this.knowledge = {
-            "web_dev": {
-                "keywords": ["web", "website", "react", "frontend", "custom web", "development", "responsive", "frameworks"],
-                "answer": "We build premium, responsive websites using modern frameworks like React and Next.js. Our focus is on high conversion and maximum visibility. We specialize in transforming complex business requirements into sleek digital interfaces.",
-                "action": "Our Services",
-                "link": "services.html"
-            },
-            "ai_agents": {
-                "keywords": ["ai", "bot", "agent", "automation", "ml", "chatbot", "workflow", "process automation"],
-                "answer": "SWEN-TECH specializes in 'Practical AI'. We build intelligent agents that automate customer support, streamline lead scoring, and optimize complex business workflows with measurable ROI.",
-                "action": "See AI Services",
-                "link": "services.html"
-            },
-            "erp_systems": {
-                "keywords": ["erp", "manufacturing", "inventory", "factory", "production", "waste", "operations", "tracking"],
-                "answer": "Our enterprise-grade ERP systems are designed for high-stakes manufacturing. We focus on localized data integrity, real-time inventory tracking, and automated waste calculation using FastAPI/React stacks.",
-                "action": "View Case Studies",
-                "link": "portfolio.html"
-            },
-            "team_karthigeyan": {
-                "keywords": ["karthigeyan", "lead", "fullstack", "founder", "who is the developer"],
-                "answer": "Karthigeyan B S is our Lead Full-Stack Developer. He specializes in scalable web apps, AI automation, and enterprise ERP solutions. He leads the technical vision here at SWEN-TECH.",
-                "action": "About Team",
-                "link": "about.html"
-            },
-            "team_design": {
-                "keywords": ["designer", "ui", "ux", "visual", "karthick raja", "iyyappan", "look", "aesthetic"],
-                "answer": "Our design team, led by S. Karthick Raja (UI/UX) and U. Iyyappan (Visual), crafts premium, intuitive experiences. They ensure every enterprise tool we build is as beautiful as it is functional.",
-                "action": "Meet Design Team",
-                "link": "about.html"
-            },
-            "team_operations": {
-                "keywords": ["backend", "api", "dhrona", "tracking", "gowtham", "gokul", "order tracking"],
-                "answer": "Our operations and backend are powered by Dhrona Ragav (Backend Specialist) and our Order Tracking Managers, K. Gowtham and Gokul Krishnan, who ensure seamless ERP integrations and delivery.",
-                "action": "Operations Team",
-                "link": "about.html"
-            },
-            "case_studies": {
-                "keywords": ["portfolio", "projects", "case study", "medifabb", "srivari", "examples", "clients"],
-                "answer": "We have a diverse portfolio including the KRG Medifabb ERP and Srivari Alloys operational systems. Our projects consistently deliver massive efficiency gains for manufacturing clients.",
-                "action": "Portfolio Hub",
-                "link": "portfolio.html"
-            },
-            "tools_hub": {
-                "keywords": ["tools", "api tester", "speed", "performance", "responsive checker", "analyze", "free tools"],
-                "answer": "We offer free utility tools for developers and businesses, including an API Speed Tester, Website Performance Analyzer, and a Mobile Responsiveness Simulator.",
-                "action": "Explore Tools",
-                "link": "tools.html"
-            },
-            "pricing_estimator": {
-                "keywords": ["cost", "price", "how much", "quote", "budget", "estimator", "calculator"],
-                "answer": "You can get an instant quote using our Interactive Pricing Calculator or a deep technical estimate using our AI Project Estimator. We tailor every plan to your specific ROI goals.",
-                "action": "Start Estimator",
-                "link": "estimator.html"
-            },
-            "contact_consultation": {
-                "keywords": ["meet", "call", "book", "contact", "email", "consultation", "talk", "expert"],
-                "answer": "I'd love to connect you with our principal architects. We offer free consultations to help map out your digital transformation roadmap. Ready to book your slot?",
-                "action": "Contact Us",
-                "link": "contact.html"
-            },
-            "who_are_we": {
-                "keywords": ["who are you", "swentech", "what do you do", "business", "company", "Swen Tech Digital Hub & Innovations"],
-                "answer": "Swen Tech Digital Hub & Innovations (also known as Swen Tech Digital Hub & Innovations) is a premium digital engineering firm. We bridge the gap between complex business requirements and technical innovation.",
-                "action": "Learn More",
-                "link": "about.html"
-            },
-            "default": {
-                "answer": "I'm the Swen Tech Digital Hub & Innovations Advisor, trained on our entire architectural methodology. I can tell you about our ERP systems, AI agents, pricing, team, or free developer tools. What are you looking to build?"
-            }
-        };
+        // SWEN TECH Team & Service Context
+        this.context = `You are the SWEN TECH Digital Hub & Innovations AI advisor — a helpful, friendly, and professional assistant for a Chennai-based digital agency. You help potential clients understand our services, pricing, and team.
+
+TEAM (4 Partners):
+- B.S. Karthigeyan — Software Developer (websites, apps, ERP, AI automation)
+- C. Vendhan — Digital Marketing Specialist (Google/Meta Ads, SEO, campaigns)
+- A. Abisha Sabat — Content Creator & Designer (UI/UX, graphics, social media, Canva/Figma)
+- Rakesh B. — Video Editor & Content Creator (reels, video editing, motion graphics, YouTube)
+
+SERVICES & PRICING (2025 Chennai market rates):
+Technical: Website ₹5K–₹40K | Web App ₹10K–₹60K | Mobile App ₹25K–₹70K | E-commerce ₹8K–₹40K | ERP ₹1.1L–₹3L | CRM ₹3K–₹15K | API Integration ₹5K–₹12K | SEO ₹500–₹8K | WhatsApp API ₹500–₹5K | Payment Gateway ₹3K–₹8K
+Digital Marketing (monthly): Social Media ₹2K–₹18K | Google Ads ₹3K–₹15K | FB/IG Ads ₹1.5K–₹15K | SEO ₹3K–₹12K | Lead Gen ₹2K–₹10K | Video/Reels ₹2K–₹10K | Brand Identity ₹5K–₹15K | Influencer ₹5K–₹15K
+
+PACKAGES: Starter (5–7 works): Tech ₹6K–₹17.5K | DM ₹5.5K–₹14.5K/mo | Growth (8–11): Tech ₹37K–₹87K | DM ₹22.5K–₹57.5K/mo | Enterprise (12–15): Tech ₹1.1L–₹3L | DM ₹62K–₹1.59L/mo
+
+KEY PROJECTS: KRG Production OS (React+FastAPI, +30% efficiency, live), Srivari Alloys website (90+ PageSpeed), KRG Medifabb product catalogue (in progress)
+
+CONTACT: +91 98407 13587 | swentechdigitalsolutions@gmail.com | wa.me/919840713587 | Chennai, Tamil Nadu
+WEBSITE: swentechdigitalsolutions.co.in
+
+Always be helpful, concise, and direct. If asked for a quote, direct them to the estimator page or WhatsApp. Keep responses under 3 sentences unless explaining a complex topic. End responses with a clear call to action when relevant.`;
+
+        this.conversationHistory = [];
+        this.isLoading = false;
+
+
 
         this.init();
     }
@@ -1851,44 +1805,100 @@ class AIAssistant {
     }
 
     handleUserMessage() {
-        const query = this.input.value.trim().toLowerCase();
-        if (!query) return;
-
+        const query = this.input.value.trim();
+        if (!query || this.isLoading) return;
         this.addMessage(query, 'user');
         this.input.value = '';
-
-        // Simulate thinking
-        setTimeout(() => {
-            this.processQuery(query);
-        }, 800);
+        this.sendToAI(query);
     }
 
-    processQuery(query) {
-        let bestMatch = "default";
-        let maxScore = 0;
+    async sendToAI(userMessage) {
+        this.isLoading = true;
+        this.addTypingIndicator();
 
-        // Enhanced Matching Engine: Scoring keywords for relevance
-        for (const category in this.knowledge) {
-            if (category === 'default') continue;
+        this.conversationHistory.push({ role: 'user', content: userMessage });
 
-            let currentScore = 0;
-            const keywords = this.knowledge[category].keywords;
-
-            keywords.forEach(keyword => {
-                if (query.includes(keyword)) {
-                    currentScore += 1;
-                }
+        try {
+            const response = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    model: 'claude-sonnet-4-20250514',
+                    max_tokens: 300,
+                    system: this.context,
+                    messages: this.conversationHistory.slice(-8)
+                })
             });
 
-            if (currentScore > maxScore) {
-                maxScore = currentScore;
-                bestMatch = category;
-            }
-        }
+            this.removeTypingIndicator();
 
-        const response = this.knowledge[bestMatch];
-        const action = response.action ? { label: response.action, link: response.link } : null;
-        this.addMessage(response.answer, 'ai', action);
+            if (response.ok) {
+                const data = await response.json();
+                const aiText = data.content?.[0]?.text || "I can help! Reach us on WhatsApp: +91 98407 13587";
+                this.conversationHistory.push({ role: 'assistant', content: aiText });
+
+                // Smart CTA detection
+                let action = null;
+                const lower = aiText.toLowerCase();
+                if (lower.includes('pric') || lower.includes('estimat') || lower.includes('quote') || lower.includes('cost'))
+                    action = { label: 'Get Estimate →', link: 'pricing.html' };
+                else if (lower.includes('portfolio') || lower.includes('case study') || lower.includes('project'))
+                    action = { label: 'View Our Work →', link: 'portfolio.html' };
+                else if (lower.includes('contact') || lower.includes('call') || lower.includes('whatsapp'))
+                    action = { label: 'Contact Us →', link: 'contact.html' };
+                else if (lower.includes('service') || lower.includes('offer'))
+                    action = { label: 'See Services →', link: 'services.html' };
+
+                this.addMessage(aiText, 'ai', action);
+            } else {
+                this.fallbackResponse(userMessage);
+            }
+        } catch (err) {
+            this.removeTypingIndicator();
+            this.fallbackResponse(userMessage);
+        }
+        this.isLoading = false;
+    }
+
+    fallbackResponse(query) {
+        const q = query.toLowerCase();
+        let answer = "Thanks for reaching out! Our team is ready to help. WhatsApp us at +91 98407 13587 for the fastest response.";
+        let action = { label: 'WhatsApp Now →', link: 'https://wa.me/919840713587' };
+
+        if (q.includes('price') || q.includes('cost') || q.includes('how much')) {
+            answer = "Our pricing starts at ₹5,000 for websites and ₹5,500/mo for digital marketing. Check our full pricing page for all packages.";
+            action = { label: 'View Pricing →', link: 'pricing.html' };
+        } else if (q.includes('erp') || q.includes('manufacturing')) {
+            answer = "We've built ERP systems for Chennai manufacturers starting from ₹1,10,000. Check our KRG Production OS case study.";
+            action = { label: 'View Case Study →', link: 'production-os-case-study.html' };
+        } else if (q.includes('team') || q.includes('who')) {
+            answer = "We're 4 partners — Karthigeyan (Tech), Vendhan (Marketing), A. Abisha Sabat (Design), and Rakesh B. (Video). Based in Chennai.";
+            action = { label: 'Meet the Team →', link: 'about.html' };
+        }
+        this.addMessage(answer, 'ai', action);
+    }
+
+    addTypingIndicator() {
+        const el = document.createElement('div');
+        el.className = 'message ai typing-indicator';
+        el.id = 'typingIndicator';
+        el.innerHTML = '<span></span><span></span><span></span>';
+        el.style.cssText = 'display:flex;gap:4px;align-items:center;padding:12px 16px;';
+        el.querySelectorAll('span').forEach((s,i) => {
+            s.style.cssText = `width:7px;height:7px;border-radius:50%;background:#aaa;animation:typing 1.2s ${i*0.2}s ease-in-out infinite;`;
+        });
+        if (!document.getElementById('typingStyle')) {
+            const st = document.createElement('style');
+            st.id = 'typingStyle';
+            st.textContent = '@keyframes typing{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-5px);opacity:1}}';
+            document.head.appendChild(st);
+        }
+        this.messages.appendChild(el);
+        this.messages.scrollTop = this.messages.scrollHeight;
+    }
+
+    removeTypingIndicator() {
+        document.getElementById('typingIndicator')?.remove();
     }
 }
 
@@ -2547,47 +2557,83 @@ class InterestTracker {
 
 class MobileMenuManager {
     constructor() {
-        this.menuToggle = document.getElementById('menuToggle');
-        this.navLinks = document.querySelector('.nav-links');
-        this.links = document.querySelectorAll('.nav-link');
+        this.toggle = document.getElementById('menuToggle');
+        this.nav    = document.getElementById('navLinks') || document.querySelector('.nav-links');
 
-        if (!this.menuToggle || !this.navLinks) {
-            console.warn("⚠️ Mobile Menu Elements Not Found:", { toggle: !!this.menuToggle, links: !!this.navLinks });
-            return;
+        if (!this.toggle || !this.nav) return;
+
+        // Create overlay in JS — guaranteed to exist
+        this.overlay = document.getElementById('navOverlay');
+        if (!this.overlay) {
+            this.overlay = document.createElement('div');
+            this.overlay.id = 'navOverlay';
+            this.overlay.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:4999;cursor:pointer;';
+            document.body.appendChild(this.overlay);
         }
 
-        console.log("🚀 MobileMenuManager Initialized Successfully");
-        this.init();
+        this.isOpen = false;
+        this._bind();
     }
 
-    init() {
-        this.menuToggle.addEventListener('click', (e) => {
+    show() {
+        this.isOpen = true;
+        this.nav.classList.add('active');
+        this.overlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        this.toggle.setAttribute('aria-expanded', 'true');
+        const ic = this.toggle.querySelector('i');
+        if (ic) ic.className = 'fas fa-times';
+    }
+
+    hide() {
+        this.isOpen = false;
+        this.nav.classList.remove('active');
+        this.overlay.style.display = 'none';
+        document.body.style.overflow   = '';
+        document.body.style.overflowY  = '';
+        this.toggle.setAttribute('aria-expanded', 'false');
+        const ic = this.toggle.querySelector('i');
+        if (ic) ic.className = 'fas fa-bars';
+    }
+
+    _bind() {
+        // Toggle — stopPropagation so document listener doesn't fire
+        this.toggle.addEventListener('click', e => {
+            e.preventDefault();
             e.stopPropagation();
-            console.log("🖱️ Menu Toggle Clicked");
-            this.navLinks.classList.toggle('active');
-            const icon = this.menuToggle.querySelector('i');
-            if (this.navLinks.classList.contains('active')) {
-                icon.className = 'fas fa-times';
-            } else {
-                icon.className = 'fas fa-bars';
-            }
+            this.isOpen ? this.hide() : this.show();
         });
 
-        // Close menu when clicking a link
-        this.links.forEach(link => {
-            link.addEventListener('click', () => {
-                this.navLinks.classList.remove('active');
-                const icon = this.menuToggle.querySelector('i');
-                icon.className = 'fas fa-bars';
+        // Dark overlay → close
+        this.overlay.addEventListener('click', () => this.hide());
+
+        // Every nav link → close on tap
+        this.nav.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                // Small delay so navigation starts first, then hide
+                setTimeout(() => this.hide(), 50);
             });
         });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!this.navLinks.contains(e.target) && !this.menuToggle.contains(e.target)) {
-                this.navLinks.classList.remove('active');
-                const icon = this.menuToggle.querySelector('i');
-                if (icon) icon.className = 'fas fa-bars';
+        // Escape key
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') this.hide();
+        });
+
+        // Desktop resize → close
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) this.hide();
+        });
+
+        // Page show (back/forward cache) → always close
+        window.addEventListener('pageshow', () => this.hide());
+
+        // Fallback: any click outside nav + toggle → close
+        document.addEventListener('click', e => {
+            if (this.isOpen
+                && !this.nav.contains(e.target)
+                && !this.toggle.contains(e.target)) {
+                this.hide();
             }
         });
     }
@@ -2878,20 +2924,7 @@ document.addEventListener('DOMContentLoaded', () => {
     init('SpeedTester', SpeedTester);
     init('MobileMenuManager', MobileMenuManager);
 
-    // Close mobile menu on resize beyond breakpoint
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 1024) {
-            const menu = document.querySelector('.nav-links');
-            const toggle = document.getElementById('menuToggle');
-            if (menu && menu.classList.contains('active')) {
-                menu.classList.remove('active');
-                if (toggle) {
-                    const icon = toggle.querySelector('i');
-                    if (icon) icon.className = 'fas fa-bars';
-                }
-            }
-        }
-    });
+    // Resize handled inside MobileMenuManager
 
     const typingElement = document.querySelector('.hero-tagline');
     if (typingElement) {
