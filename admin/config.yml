@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master/main)
+
+media_folder: "assets/uploads" # Media files will be stored in the repo under assets/uploads
+public_folder: "/assets/uploads" # The src attribute for uploaded media will begin with /assets/uploads
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog Posts" # Used in the UI
+    folder: "_posts/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Category", name: "category", widget: "string", default: "Tech Insights"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      
+  - name: "portfolio"
+    label: "Portfolio Highlights"
+    folder: "_posts/portfolio"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Project Name", name: "title", widget: "string"}
+      - {label: "Client Name", name: "client", widget: "string"}
+      - {label: "Services Delivered", name: "services", widget: "list"}
+      - {label: "Project Date", name: "date", widget: "datetime"}
+      - {label: "Main Output Image", name: "thumbnail", widget: "image"}
+      - {label: "Project Details", name: "body", widget: "markdown"}

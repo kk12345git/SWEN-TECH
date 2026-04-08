@@ -13,6 +13,8 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CSE1BY8J4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0CSE1BY8J4');</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
 <style>
 .price-tab-bar{display:flex;gap:.5rem;margin-bottom:2.5rem;background:#f5f3f0;padding:.4rem;border-radius:10px;border:1px solid #e8e3dd;}
 .price-tab{flex:1;padding:.75rem 1rem;text-align:center;border-radius:8px;border:none;background:transparent;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;color:#888;font-family:inherit;}
@@ -521,6 +523,9 @@
                 </div>
               </div>
               <a href="contact.html" class="btn-primary" style="width:100%;justify-content:center;margin-bottom:.8rem;">Book Free Call</a>
+              <button id="downloadPdfBtn" class="btn-secondary" style="cursor:pointer;width:100%;justify-content:center;margin-bottom:.8rem;border-color:#1a1a1a;color:#1a1a1a;display:flex;align-items:center;gap:.6rem;background:transparent;padding:1.3rem;">
+                <i class="fas fa-file-pdf"></i>Download PDF Quote
+              </button>
               <a href="https://wa.me/919840713587" target="_blank" class="btn-secondary" style="width:100%;justify-content:center;display:flex;align-items:center;gap:.6rem;border-color:#25D366;color:#25D366;">
                 <i class="fab fa-whatsapp"></i>WhatsApp Us
               </a>
@@ -627,6 +632,62 @@
         if(complexityVal) complexityVal.textContent = complexLabels[estComplexity.value-1];
         calcEstimate();
       });
+
+      // PDF Generator
+      const downloadBtn = document.getElementById('downloadPdfBtn');
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+          if (!window.jspdf) return alert('PDF Engine loading... Please try again in a few seconds.');
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF();
+          
+          const typeLabel = document.querySelector('.project-type-card.active')?.querySelector('h4')?.textContent || 'Web Project';
+          const priceStr = estFinalPrice.textContent;
+          const timeStr = timelineVal ? timelineVal.textContent : '3 Months';
+          const compStr = complexityVal ? complexityVal.textContent : 'Intermediate';
+          
+          const activeFeatures = [];
+          featureCards.forEach(f => {
+            if(f.classList.contains('active')){
+               activeFeatures.push(f.querySelector('span')?.textContent || 'Feature');
+            }
+          });
+
+          doc.setFontSize(22);
+          doc.text("SWEN TECH DIGITAL HUB & INNOVATIONS", 14, 20);
+          
+          doc.setFontSize(10);
+          doc.setTextColor(100);
+          doc.text("Chennai, Tamil Nadu | +91 98407 13587 | swentechdigitalsolutions@gmail.com", 14, 26);
+          
+          doc.setFontSize(16);
+          doc.setTextColor(0);
+          doc.text("Official Project Estimate", 14, 40);
+          
+          doc.autoTable({
+            startY: 45,
+            head: [['Project Details', 'Selection']],
+            body: [
+              ['Project Type', typeLabel],
+              ['Estimated Timeline', timeStr],
+              ['Platform Complexity', compStr],
+              ['Selected Features', activeFeatures.length ? activeFeatures.join(', ') : 'None']
+            ],
+            theme: 'grid',
+            headStyles: { fillColor: [26, 26, 26] }
+          });
+          
+          const finalY = doc.lastAutoTable.finalY + 15;
+          doc.setFontSize(14);
+          doc.text("Estimated Total: " + priceStr, 14, finalY);
+          
+          doc.setFontSize(10);
+          doc.setTextColor(120);
+          doc.text("*This is a dynamically generated estimate. Please book a call to finalize features.", 14, finalY + 10);
+          
+          doc.save("SWEN_TECH_Estimate_" + Date.now() + ".pdf");
+        });
+      }
 
       window.addEventListener('scroll', calcEstimate);
       calcEstimate();

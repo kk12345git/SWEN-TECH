@@ -16,6 +16,90 @@ if ('serviceWorker' in navigator) {
  */
 
 // ============================================
+// GLOBAL AUTOMATION HELPERS (WHATSAPP & EMAIL)
+// ============================================
+
+window.initWhatsAppAutomation = function() {
+    // Modify all wa.me links to add dynamic context text based on page title
+    const pageContext = document.title ? document.title.split('-')[0].trim() : 'website';
+    const encodedText = encodeURIComponent('Hi SWEN TECH, I am looking at your ' + pageContext + ' page and would like to know more.');
+    
+    document.querySelectorAll('a[href*="wa.me/"]').forEach(link => {
+        // Only append text if it doesn't already have query parameters
+        if (!link.href.includes('?')) {
+            const separator = link.href.includes('?') ? '&' : '?';
+            link.href = link.href + separator + 'text=' + encodedText;
+        }
+    });
+};
+
+window.sendExitIntentEmail = async function(name, email) {
+    if (typeof emailjs === 'undefined') {
+        console.warn('EmailJS not loaded');
+        return false;
+    }
+    const config = typeof EMAILJS_CONFIG !== 'undefined' ? EMAILJS_CONFIG : null;
+    if (!config) {
+        console.warn('EMAILJS_CONFIG not found');
+        return false;
+    }
+    
+    try {
+        const templateId = config.templates?.enquiry || config.templateID || 'template_ad1l3mv';
+        await emailjs.send(config.serviceID, templateId, {
+            name: name,
+            email: email,
+            title: 'New Lead via Exit Intent Popup',
+            message: 'User has requested the free tech roadmap.',
+            user_name: name,
+            user_email: email,
+            phone: 'Not provided',
+            service_type: 'Exit Intent Request',
+            time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+        });
+        console.log('✅ Exit intent email sent successfully');
+        return true;
+    } catch(e) {
+        console.error('❌ Exit intent email failed:', e);
+        return false;
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Initialize WhatsApp dynamic text
+    window.initWhatsAppAutomation();
+    
+    // 2. Intercept Exit Intent Form to send email before UI transitions
+    if (typeof window.handleExitForm === 'function') {
+        const originalHandleExitForm = window.handleExitForm;
+        window.handleExitForm = async function() {
+            var name = document.getElementById('exitName')?.value;
+            var email = document.getElementById('exitEmail')?.value;
+            
+            // Only intercept if valid (original function handles its own validation too)
+            if(name && email) {
+                const btn = document.querySelector('#exitForm button');
+                const origText = btn ? btn.textContent : '';
+                if (btn) {
+                    btn.textContent = 'Sending...';
+                    btn.disabled = true;
+                }
+                
+                await window.sendExitIntentEmail(name, email);
+                
+                if (btn) {
+                    btn.textContent = origText;
+                    btn.disabled = false;
+                }
+            }
+            
+            // Call original to handle the rest of the UI flow
+            originalHandleExitForm();
+        };
+    }
+});
+
+// ============================================
 // SMOOTH SCROLL & NAVIGATION
 // ============================================
 
@@ -217,6 +301,16 @@ class OrderManager {
             this.showSuccess(formData.user_email);
             this.clearDraft();
             localStorage.removeItem('pricingCalculatorData'); // Clear calculator data too after success
+
+            // Optional: Prompt user to continue on WhatsApp seamlessly
+            const whatsappText = encodeURIComponent(`Hi SWEN TECH, I just requested a quote for ${formData.service_type}. My email is ${formData.user_email}. Can we chat?`);
+            
+            // Wait a short moment then ask if they want to chat now
+            setTimeout(() => {
+                if(confirm('Your enquiry has been received! Would you like to chat with us on WhatsApp immediately to discuss your project?')) {
+                    window.open(`https://wa.me/919840713587?text=${whatsappText}`, '_blank');
+                }
+            }, 800);
 
         } catch (error) {
             console.error('❌ Email sending failed:', error);
@@ -609,11 +703,26 @@ class NewsletterManager {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
             messageEl.style.display = 'none';
 
-            // Use EmailJS to send a notification (using existing config if possible)
-            // For now, we simulate the API call for "Newsletter Subscription"
-            // If the user wants real integration, they can add a specific template ID
-
-            await this.simulateApiCall(email);
+            // Use EmailJS to send a notification
+            if (typeof emailjs !== 'undefined' && typeof EMAILJS_CONFIG !== 'undefined') {
+                const config = EMAILJS_CONFIG;
+                const templateId = config.templates?.enquiry || config.templateID || 'template_ad1l3mv';
+                
+                await emailjs.send(config.serviceID, templateId, {
+                    name: 'Newsletter Subscriber',
+                    email: email,
+                    user_name: 'Newsletter Subscriber',
+                    user_email: email,
+                    phone: 'Not provided',
+                    service_type: 'Newsletter Subscription',
+                    title: 'New Newsletter Subscription',
+                    message: `${email} has subscribed to the newsletter.`,
+                    time: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+                });
+                console.log('✅ Newsletter subscription email sent');
+            } else {
+                await this.simulateApiCall(email);
+            }
 
             // Success feedback
             messageEl.textContent = 'Redirecting to LinkedIn posts...';
@@ -1815,66 +1924,152 @@ Always be helpful, concise, and direct. If asked for a quote, direct them to the
     async sendToAI(userMessage) {
         this.isLoading = true;
         this.addTypingIndicator();
-
         this.conversationHistory.push({ role: 'user', content: userMessage });
 
+        // Advanced AI Integration using Google Gemini
+        // -------------------------------------------------------------
+        // USER: Get your FREE API key from https://aistudio.google.com/
+        // and replace 'ENTER_YOUR_GEMINI_API_KEY_HERE' below!
+        const GEMINI_API_KEY = 'AIzaSyC_Mm-MjIcKLQVAZO7wPIG_ud7I98NPj8E';
+        // -------------------------------------------------------------
+
+        if (GEMINI_API_KEY === 'ENTER_YOUR_GEMINI_API_KEY_HERE') {
+            this.removeTypingIndicator();
+            this.addMessage("⚙️ System: To enable the advanced intelligence mode, please get a free Gemini API key from aistudio.google.com and paste it in script.js (GEMINI_API_KEY variable). Relying on smart backup mode for now.", 'ai');
+            this.generateSmartResponse(userMessage);
+            this.isLoading = false;
+            return;
+        }
+
         try {
-            const response = await fetch('https://api.anthropic.com/v1/messages', {
+            // Format history for Gemini API
+            const formattedHistory = [];
+            for (let i = 0; i < this.conversationHistory.length - 1; i++) {
+                const msg = this.conversationHistory[i];
+                if (msg.role !== 'system') {
+                    formattedHistory.push({
+                        role: msg.role === 'user' ? 'user' : 'model',
+                        parts: [{ text: msg.content }]
+                    });
+                }
+            }
+
+            const promptContext = `You are the SWEN TECH AI Assistant. You are highly intelligent, friendly, and represent a Chennai-based digital agency.
+TEAM: Karthigeyan (Dev), Vendhan (Marketing), Abisha (Design), Rakesh (Video).
+PRICING: Websites ₹5K-₹40K, Apps ₹25K-₹70K, Marketing starts ₹5.5K/mo, ERP starts ₹1.1L. 
+CONTACT: +91 98407 13587 | swentechdigitalsolutions@gmail.com
+GOAL: Have an advanced, natural conversation with the client about ANY query they ask. Explain our services and pricing based on their needs. Gently push them to chat on WhatsApp if they agree.
+CRITICAL INSTRUCTION: If the user explicitly agrees to a price, says "ok", "let's do it", or wants to proceed, you MUST include this EXACT string at the very end of your response: [ACTION: WHATSAPP | ctx: Specific Service Name]. For example: [ACTION: WHATSAPP | ctx: App Development]. This tells our system to render a WhatsApp button!`;
+
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+            
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    model: 'claude-sonnet-4-20250514',
-                    max_tokens: 300,
-                    system: this.context,
-                    messages: this.conversationHistory.slice(-8)
+                    systemInstruction: { parts: [{ text: promptContext }] },
+                    contents: [...formattedHistory, { role: 'user', parts: [{ text: userMessage }] }],
+                    generationConfig: { temperature: 0.7, maxOutputTokens: 250 }
                 })
             });
 
+            const data = await response.json();
             this.removeTypingIndicator();
 
-            if (response.ok) {
-                const data = await response.json();
-                const aiText = data.content?.[0]?.text || "I can help! Reach us on WhatsApp: +91 98407 13587";
-                this.conversationHistory.push({ role: 'assistant', content: aiText });
-
-                // Smart CTA detection
+            if (data.candidates && data.candidates[0]) {
+                let aiText = data.candidates[0].content.parts[0].text;
                 let action = null;
-                const lower = aiText.toLowerCase();
-                if (lower.includes('pric') || lower.includes('estimat') || lower.includes('quote') || lower.includes('cost'))
-                    action = { label: 'Get Estimate →', link: 'pricing.html' };
-                else if (lower.includes('portfolio') || lower.includes('case study') || lower.includes('project'))
-                    action = { label: 'View Our Work →', link: 'portfolio.html' };
-                else if (lower.includes('contact') || lower.includes('call') || lower.includes('whatsapp'))
-                    action = { label: 'Contact Us →', link: 'contact.html' };
-                else if (lower.includes('service') || lower.includes('offer'))
-                    action = { label: 'See Services →', link: 'services.html' };
 
+                // Action parsing for Dynamic WhatsApp Generation
+                const actionRegex = /\[ACTION:\s*WHATSAPP\s*\|\s*ctx:\s*([^\]]+)\]/i;
+                const match = aiText.match(actionRegex);
+                if (match) {
+                    const ctx = match[1].trim();
+                    action = { 
+                        label: 'Send Message to WhatsApp 💬', 
+                        link: `https://wa.me/919840713587?text=${encodeURIComponent(`Hi SWEN TECH, the pricing we discussed through your AI chatbot for ${ctx} sounds good to me. I'd like to proceed!`)}` 
+                    };
+                    aiText = aiText.replace(actionRegex, '').trim();
+                }
+
+                this.conversationHistory.push({ role: 'assistant', content: aiText });
                 this.addMessage(aiText, 'ai', action);
             } else {
-                this.fallbackResponse(userMessage);
+                throw new Error("Invalid API response");
             }
+
         } catch (err) {
+            console.error("Advanced AI Error:", err);
             this.removeTypingIndicator();
-            this.fallbackResponse(userMessage);
+            this.generateSmartResponse(userMessage); // fallback to rules
         }
         this.isLoading = false;
     }
 
-    fallbackResponse(query) {
+    generateSmartResponse(query) {
         const q = query.toLowerCase();
-        let answer = "Thanks for reaching out! Our team is ready to help. WhatsApp us at +91 98407 13587 for the fastest response.";
-        let action = { label: 'WhatsApp Now →', link: 'https://wa.me/919840713587' };
+        let answer = "Thanks for reaching out! I'm the SWEN TECH AI Assistant. How can I help you with your digital needs today?";
+        let action = null;
 
-        if (q.includes('price') || q.includes('cost') || q.includes('how much')) {
-            answer = "Our pricing starts at ₹5,000 for websites and ₹5,500/mo for digital marketing. Check our full pricing page for all packages.";
-            action = { label: 'View Pricing →', link: 'pricing.html' };
-        } else if (q.includes('erp') || q.includes('manufacturing')) {
-            answer = "We've built ERP systems for Chennai manufacturers starting from ₹1,10,000. Check our KRG Production OS case study.";
+        // Intent detection
+        const wantsPricing = q.includes('price') || q.includes('cost') || q.includes('how much') || q.includes('quote') || q.includes('plan');
+        const wantsWeb = q.includes('web') || q.includes('site') || q.includes('e-commerce') || q.includes('ecommerce');
+        const wantsApp = q.includes('app') || q.includes('mobile');
+        const wantsMarketing = q.includes('marketing') || q.includes('seo') || q.includes('ads') || q.includes('social');
+        const isAgreement = q.includes('ok') || q.includes('yes') || q.includes('fine') || q.includes('good') || q.includes('agree') || q.includes('proceed') || q.includes('sure');
+
+        // Check if previous message was suggesting a price
+        let lastAiMessage = "";
+        if (this.conversationHistory.length >= 2) {
+            const lastAiMsgObj = this.conversationHistory[this.conversationHistory.length - 2];
+            if (lastAiMsgObj && lastAiMsgObj.role === 'assistant') {
+                lastAiMessage = lastAiMsgObj.content;
+            }
+        }
+
+        if (isAgreement && (lastAiMessage.includes('₹') || lastAiMessage.includes('price') || lastAiMessage.includes('budget') || lastAiMessage.includes('OK?'))) {
+            answer = "Excellent! Let's get started. Click the button below to send us a direct WhatsApp message to finalize your project.";
+            let ctx = "your digital services";
+            if(lastAiMessage.includes('Websites')) ctx = "Website Development";
+            else if(lastAiMessage.includes('Apps')) ctx = "Mobile App Development";
+            else if(lastAiMessage.includes('Digital Marketing')) ctx = "Digital Marketing services";
+            else if(lastAiMessage.includes('ERP')) ctx = "ERP System Development";
+            
+            action = { 
+                label: 'Send Message to WhatsApp 💬', 
+                link: `https://wa.me/919840713587?text=${encodeURIComponent(`Hi SWEN TECH, the pricing we discussed through your AI chatbot for ${ctx} sounds good to me. I'd like to proceed!`)}` 
+            };
+        } 
+        else if (wantsPricing || wantsWeb || wantsApp || wantsMarketing) {
+            if (wantsWeb) {
+                answer = "For Websites, our pricing is between ₹5,000 to ₹40,000 depending on features. E-commerce platforms range from ₹8,000 to ₹40,000. Does this budget work for you? (Reply 'Yes' or 'OK')";
+            } else if (wantsApp) {
+                answer = "For Mobile Apps, the cost typically ranges from ₹25,000 to ₹70,000 based on complexity. Does this pricing sound OK?";
+            } else if (wantsMarketing) {
+                answer = "Our Digital Marketing packages (SEO, Ads, Social Media) start at ₹5,500/month for a starter plan and go up to ₹1,59,000/month for enterprise. Does this fit your budget?";
+            } else {
+                // General pricing
+                answer = "We offer flexible pricing! Websites start at ₹5K, Apps at ₹25K, and Monthly Marketing from ₹5.5K. Does one of these match your needs? Please let me know what you're looking for, or say 'OK' to proceed!";
+                action = { label: 'View All Pricing Details →', link: 'pricing.html' };
+            }
+        }
+        else if (q.includes('erp') || q.includes('manufacturing')) {
+            answer = "We've built proven ERP systems for Chennai manufacturers starting from ₹1,10,000 to ₹3,00,000. Does this range work for your business? (Reply 'Yes' or 'OK')";
             action = { label: 'View Case Study →', link: 'production-os-case-study.html' };
-        } else if (q.includes('team') || q.includes('who')) {
-            answer = "We're 4 partners — Karthigeyan (Tech), Vendhan (Marketing), A. Abisha Sabat (Design), and Rakesh B. (Video). Based in Chennai.";
+        } 
+        else if (q.includes('team') || q.includes('who')) {
+            answer = "We're 4 partners: Karthigeyan (Tech), Vendhan (Marketing), Abisha Sabat (Design), and Rakesh (Video). We are based in Chennai!";
             action = { label: 'Meet the Team →', link: 'about.html' };
         }
+        else if (q.includes('hi') || q.includes('hello')) {
+            answer = "Hello! I am the SWEN TECH AI Assistant. You can ask me about our Mobile/Web Development, Digital Marketing, or ERP services. What pricing or service details would you like to know?";
+        }
+        else {
+            answer = "If you'd like a custom estimate, let me know what service you need (App, Website, Marketing, ERP). Or simply reach out to us on WhatsApp directly for technical queries!";
+            action = { label: 'Chat on WhatsApp Now →', link: 'https://wa.me/919840713587' };
+        }
+
+        this.conversationHistory.push({ role: 'assistant', content: answer });
         this.addMessage(answer, 'ai', action);
     }
 
